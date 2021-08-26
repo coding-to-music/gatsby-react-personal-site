@@ -150,7 +150,7 @@ function initGlobe() {
   Globe.rotateX(0.45);
   const globeMaterial = Globe.globeMaterial();
   globeMaterial.color = new Color(0x3a228a);
-  globeMaterial.emissive = new Color("#ff0000ef");
+  //   globeMaterial.emissive = new Color("#ff0000ef");
   globeMaterial.emissiveIntensity = 0.1;
   globeMaterial.shininess = 1;
   // NOTE Cool stuff
@@ -177,12 +177,11 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-init();
-initGlobe();
-onWindowResize();
-animate();
-
 export const HomeGlobe = () => {
+  init();
+  initGlobe();
+  onWindowResize();
+  animate();
   return null;
 };
 

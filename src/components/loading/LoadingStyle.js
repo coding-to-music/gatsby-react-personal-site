@@ -15,7 +15,7 @@ const spin = keyframes`
 
 export const LoadingScreen = styled.section`
   position: fixed;
-  z-index: 2;
+  z-index: 50;
   top: 0;
   left: 0;
   width: 100%;

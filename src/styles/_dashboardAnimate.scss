@@ -1,0 +1,59 @@
+// NOTE: Animated dash board svgs with ids comking from figma
+@keyframes grow {
+  to {
+    // transform: matrix(1, 0, 0, 1, 0, 20);
+    transform: translateY(20px);
+  }
+}
+@keyframes scaling {
+  to {
+    transform: scale(1.2);
+  }
+}
+@keyframes move {
+  to {
+    transform: translateX(20px);
+  }
+}
+
+#dash-svg-pie {
+  //   animation: grow 2s linear alternate infinite forwards 1s;
+  transition: transform 2s linear;
+  transform-origin: 0 0;
+  transform-box: fill-box;
+
+  &-1,
+  &-2,
+  &-3,
+  &-4 {
+    animation: grow 5s linear alternate infinite forwards;
+  }
+
+  &-1 {
+    animation-delay: 0.5s;
+  }
+  &-2 {
+    animation-delay: 1s;
+  }
+  &-3 {
+    animation-delay: 1.5s;
+  }
+  &-4 {
+    animation-delay: 2s;
+  }
+}
+#dash-svg-mountains {
+  animation: move 5s linear alternate infinite forwards;
+  transform-origin: 0 0;
+  transform-box: fill-box;
+}
+#dash-svg-horbar {
+  animation: scaling 5s linear alternate infinite forwards;
+  transform-origin: 0 0;
+  transform-box: fill-box;
+}
+#dash-svg-verbar {
+  animation: scaling 5s linear alternate infinite forwards;
+  transform-origin: 0 0;
+  transform-box: fill-box;
+}

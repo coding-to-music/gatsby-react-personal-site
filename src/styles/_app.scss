@@ -1,6 +1,13 @@
 @import "../abstracts/mixins";
+@import "./_dashboardAnimate";
 
 :root {
+  --color-blue-dark: rgba(17, 15, 46, 1);
+  --color-blue-darker: rgba(1, 0, 40, 1);
+
+  --color-grey-main: rgba(237, 242, 244, 1);
+
+  --color-blue-grey: rgba(129, 147, 178, 1);
 }
 
 * {
@@ -34,7 +41,7 @@ html {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Nexa", sans-serif;
   font-weight: 300;
   line-height: 1.6;
 

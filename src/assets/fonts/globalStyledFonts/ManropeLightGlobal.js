@@ -4,10 +4,10 @@ import Manrope from "../Manrope-VariableFont_wght.ttf";
 
 export default createGlobalStyle`
     @font-face {
-        font-family: 'Manrope';
-        src: local('Manrope'),
+        font-family: 'ManropeLight';
+        src: local('ManropeLight'),
         url(${Manrope}) format('truetype');
-        font-weight: 900;
+        font-weight: 400;
         font-style: normal;
     }
 `;

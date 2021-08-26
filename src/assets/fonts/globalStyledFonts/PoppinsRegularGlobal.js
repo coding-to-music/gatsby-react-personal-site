@@ -1,13 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
-import Poppins from "../Poppins-Black.ttf";
+import Poppins from "../Poppins-Regular.ttf";
 
 export default createGlobalStyle`
     @font-face {
-        font-family: 'Poppins';
-        src: local('Poppins'),
+        font-family: 'PoppinsRegular';
+        src: local('PoppinsRegular'),
         url(${Poppins}) format('truetype');
-        font-weight: 300;
         font-style: normal;
     }
 `;
