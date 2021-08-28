@@ -37,7 +37,7 @@ export const HeroArticle = styled.article`
   align-items: center;
 
   height: 65.6rem;
-  max-width: 135rem;
+  max-width: 140rem;
   margin: 0 auto;
 
   padding-top: 15rem;

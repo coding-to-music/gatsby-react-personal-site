@@ -1,20 +1,21 @@
 import styled from "styled-components";
 
 export const AboutSection = styled.section`
-  padding: 10rem 0;
+  padding: 8rem 0;
   background-image: linear-gradient(
     to left bottom,
     var(--color-blue-dark),
     var(--color-blue-darker) 50%
   );
 `;
+
 export const AboutContainer = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  max-width: 150rem;
+  max-width: 148rem;
   margin: 0 auto;
 
   color: white;
@@ -22,15 +23,15 @@ export const AboutContainer = styled.article`
   & > div:first-of-type {
     display: flex;
     flex-direction: column;
-    margin-bottom: 5rem;
     align-items: center;
 
-    width: 60%;
+    width: 80%;
+    margin-bottom: 2rem;
 
     h1 {
       position: relative;
 
-      margin-bottom: 2rem;
+      margin: 3.5rem 0;
 
       font-size: 4rem;
       font-family: Manrope;
@@ -51,7 +52,7 @@ export const AboutContainer = styled.article`
       }
     }
     h3 {
-      margin-bottom: 5rem;
+      margin-bottom: 4rem;
 
       font-size: 2.7rem;
       font-family: ManropeLight;
@@ -73,10 +74,41 @@ export const AboutContainer = styled.article`
 
     align-items: center;
     h1 {
-      margin-bottom: 2rem;
+      margin: 3.5rem 0;
 
       font-size: 4rem;
       font-family: Manrope;
+    }
+  }
+`;
+
+export const SkillBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 2rem;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 0 2rem;
+
+    svg {
+      width: 5rem;
+      height: 5rem;
+      fill: white;
+    }
+    span {
+      margin: 1rem 0;
+
+      font-size: 1.8rem;
+      font-family: ManropeLight;
+      font-weight: 100;
     }
   }
 `;

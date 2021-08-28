@@ -7,6 +7,7 @@ import {
   FaGitAlt,
   FaNodeJs,
   FaJava,
+  FaAws,
 } from "react-icons/fa";
 import {
   SiJavascript,
@@ -19,7 +20,7 @@ import {
 import ExpressJsIcon from "../assets/svgs/expressjs-icon.svg";
 import ContentfulIcon from "../assets/svgs/contentful-svg.svg";
 
-const skills = [
+const stacks = [
   {
     id: 1,
     icon: <FaHtml5 />,
@@ -90,6 +91,12 @@ const skills = [
     icon: <FaJava />,
     title: "Java",
   },
+
+  {
+    id: 15,
+    icon: <FaAws />,
+    title: "AWS",
+  },
 ];
 
-export default skills;
+export default stacks;

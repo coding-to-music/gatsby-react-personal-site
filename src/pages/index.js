@@ -6,6 +6,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Loading from "../components/loading/Loading";
 import NavBar from "../components/navBar/NavBar";
+import Projects from "../components/projects/Projects";
 
 import CodeGitVideo from "../assets/videos/codingGit.mp4";
 
@@ -20,15 +21,28 @@ import {
 
 import {
   CodingSection,
+  CodingBtn,
+  CodingContainer,
   DeviceContainer,
   PCImage,
   PhoneImage,
   DashSvg,
 } from "../styles/CodingSectionStyle";
 
-import { AboutSection, AboutContainer } from "../styles/AboutSectionStyle";
+import {
+  AboutSection,
+  AboutContainer,
+  SkillBox,
+} from "../styles/AboutSectionStyle";
+import {
+  ProjectSection,
+  ProjectContainer,
+} from "../styles/ProjectSectionStyle";
 
-export const query = graphql`
+import skills from "../constants/skills";
+import basics from "../constants/basics";
+
+const query = graphql`
   {
     PCMockupData: contentfulAsset(
       file: { fileName: { eq: "website-mockup-pc.png" } }
@@ -77,7 +91,7 @@ export default function Index() {
           <HeroArticle>
             <div>
               <h1>
-                Hello, I'm Ilias. <br /> An aspiring web developer.
+                Hello, I'm Ilias. An <br /> aspiring software developer.
               </h1>
               <h3>
                 I'm just a guy that enjoys programming daily and building cool
@@ -94,41 +108,72 @@ export default function Index() {
         </Header>
         <main>
           <CodingSection>
-            <DeviceContainer>
-              <div>
-                <PhoneImage image={phoneMockupImage} alt="Phone" />
+            <CodingContainer>
+              <h1>Always coding and working on new projects</h1>
+              <CodingBtn>About me</CodingBtn>
+              <DeviceContainer>
+                <div>
+                  <PhoneImage image={phoneMockupImage} alt="Phone" />
 
-                <video playsInline muted loop autoPlay preload="none">
-                  <source src={CodeGitVideo} type="video/mp4" />
-                </video>
-              </div>
-              <DashSvg />
-            </DeviceContainer>
+                  <video playsInline muted loop autoPlay preload="none">
+                    <source src={CodeGitVideo} type="video/mp4" />
+                  </video>
+                </div>
+                <DashSvg />
+              </DeviceContainer>
+            </CodingContainer>
           </CodingSection>
+
           <AboutSection>
             <AboutContainer>
               <div>
                 <h1>Ilias Allek</h1>
-                <h3>Aspiring Web Developer</h3>
+                <h3>Aspiring Software Developer</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
-                  rem ab! Et, aliquid repudiandae accusamus omnis dolorum
-                  consequuntur, facilis quos esse itaque maiores mollitia quia
-                  natus. Nesciunt sint odit porro? Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. A, rem ab! Et, aliquid
-                  repudiandae accusamus omnis dolorum consequuntur, facilis quos
-                  esse itaque maiores mollitia quia natus. Nesciunt sint odit
-                  porro?
+                  I'v graduated from Montreal University on December 2020 with a
+                  Bachelor of Mathematics / minor in statistics. Before
+                  graduating, I was worried about my future and what I will do
+                  next, the academic world didn't seem challenging to me. I'v
+                  decided that I will dedicate my time learning programming.
+                  Over this time I learned bulding responsive websites, full
+                  stack web applications based on React,Gatsby, NodeJS and more.
+                  On my free time, I like to play soccer, exercice and hang out
+                  with friends.
                 </p>
               </div>
               <div>
                 <h1>Skills</h1>
-                <h3>This will be a list of languages</h3>
+                <SkillBox>
+                  {skills.map((skill) => {
+                    return (
+                      <div key={skill.id}>
+                        {skill.icon}
+                        <span>{skill.title}</span>
+                      </div>
+                    );
+                  })}
+                </SkillBox>
                 <h1>Basics</h1>
-                <h3>Another list or chart</h3>
+                <SkillBox>
+                  {basics.map((basic) => {
+                    return (
+                      <div key={basic.id}>
+                        {basic.icon}
+                        <span>{basic.title}</span>
+                      </div>
+                    );
+                  })}
+                </SkillBox>
               </div>
             </AboutContainer>
           </AboutSection>
+
+          <ProjectSection>
+            <ProjectContainer>
+              <h1>Recent Projects</h1>
+              <Projects />
+            </ProjectContainer>
+          </ProjectSection>
         </main>
       </div>
     </>
