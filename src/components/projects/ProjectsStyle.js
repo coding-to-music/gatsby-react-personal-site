@@ -10,6 +10,8 @@ export const ProjectBox = styled.div`
 
   border-radius: 1rem;
   overflow: hidden;
+
+  cursor: pointer;
 `;
 
 export const ProjectImage = styled(GatsbyImage)`
