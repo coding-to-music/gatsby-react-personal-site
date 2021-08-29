@@ -8,6 +8,7 @@ import {
   FaNodeJs,
   FaJava,
   FaAws,
+  FaFigma,
 } from "react-icons/fa";
 import {
   SiJavascript,
@@ -16,9 +17,10 @@ import {
   SiPostman,
   SiGatsby,
   SiGraphql,
+  SiWebgl,
 } from "react-icons/si";
 import ExpressJsIcon from "../assets/svgs/expressjs-icon.svg";
-import ContentfulIcon from "../assets/svgs/contentful-svg.svg";
+import ContentfulIcon from "../assets/svgs/contentful-logo.svg";
 
 const stacks = [
   {
@@ -96,6 +98,16 @@ const stacks = [
     id: 15,
     icon: <FaAws />,
     title: "AWS",
+  },
+  {
+    id: 16,
+    icon: <SiWebgl />,
+    title: "WebGL",
+  },
+  {
+    id: 16,
+    icon: <FaFigma />,
+    title: "Figma",
   },
 ];
 

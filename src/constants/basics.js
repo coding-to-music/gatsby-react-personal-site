@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FaPython, FaAws } from "react-icons/fa";
+import { FaAws, FaFigma } from "react-icons/fa";
 import { SiWebpack } from "react-icons/si";
 import JuliaIcon from "../assets/svgs/julia-icon.svg";
 import RIcon from "../assets/svgs/r-icon.svg";
@@ -14,8 +14,8 @@ const basics = [
   },
   {
     id: 2,
-    icon: <FaPython />,
-    title: "Python",
+    icon: <FaFigma />,
+    title: "Figma",
   },
   {
     id: 3,

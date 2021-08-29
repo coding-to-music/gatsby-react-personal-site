@@ -6,12 +6,22 @@ export const ProjectBox = styled.div`
   display: flex;
   justify-content: space-between;
 
+  transition: all ease 0.4s;
+
   box-shadow: var(--shadow-light);
 
   border-radius: 1rem;
   overflow: hidden;
 
   cursor: pointer;
+
+  &:not(:last-child) {
+    margin-bottom: 10rem;
+  }
+
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 export const ProjectImage = styled(GatsbyImage)`
@@ -74,16 +84,28 @@ export const ProjectContent = styled.div`
   div:nth-of-type(2) {
     display: flex;
     align-items: center;
+
     div {
       display: flex;
-      svg {
-        width: 3rem;
-        height: 3rem;
+      align-items: center;
 
-        fill: #190e42;
+      #WebGL {
+        svg {
+          width: 4.2rem;
+          height: 4.2rem;
+        }
+      }
 
+      span {
         &:not(:last-child) {
           margin-right: 0.85rem;
+        }
+
+        svg {
+          width: 3rem;
+          height: 3rem;
+
+          fill: #190e42;
         }
       }
     }

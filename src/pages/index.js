@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from "react";
+import loadable from "@loadable/component";
 
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -41,6 +42,8 @@ import {
 
 import skills from "../constants/skills";
 import basics from "../constants/basics";
+
+const HomeGlobe = loadable(() => import("../components/HomeGlobe"));
 
 const query = graphql`
   {
@@ -85,6 +88,7 @@ export default function Index() {
   return (
     <>
       {/* <Loading timeLoad={500} /> */}
+      <HomeGlobe />
       <div>
         <Header>
           <NavBar />

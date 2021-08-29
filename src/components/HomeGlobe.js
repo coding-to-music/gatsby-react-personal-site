@@ -28,6 +28,7 @@ let controls;
 
 let Globe;
 
+// BUG: Creating a new canvas outside gatsby body
 const canvRef = document.getElementById("globe_canvas");
 
 function onWindowResize() {
@@ -98,6 +99,7 @@ function init() {
   controls.autoRotate = true;
   controls.autoRotateSpeed = 0.3;
 
+  // NOTE: Maybe increase it in the future
   controls.minPolarAngle = Math.PI / 3.5;
   controls.maxPolarAngle = Math.PI - Math.PI / 3;
 
@@ -108,7 +110,6 @@ function init() {
 function initGlobe() {
   // Initialize the Globe
   Globe = new ThreeGlobe()
-    // .globeImageUrl(EarthDarkSkin)
     .arcsData(travelHistory.flights)
     .arcColor((e) => {
       return e.status ? "#ec6bc0" : "#d8c4d1";
@@ -126,7 +127,6 @@ function initGlobe() {
     .arcDashInitialGap((e) => e.order * 1)
     .labelsData(airportHistory.cities)
     .labelColor(() => "#ea6abf")
-
     .labelDotRadius(0.5)
     .labelSize((e) => e.size)
     .labelText("place")
