@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from "react";
 import loadable from "@loadable/component";
+import { v4 as uuidv4 } from "uuid";
 
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -87,7 +88,7 @@ export default function Index() {
 
   return (
     <>
-      {/* <Loading timeLoad={500} /> */}
+      <Loading timeLoad={500} />
       <HomeGlobe />
       <div>
         <Header>

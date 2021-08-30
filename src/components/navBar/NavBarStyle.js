@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { GrClose } from "react-icons/gr";
 
@@ -13,7 +13,7 @@ export const MenuBox = styled.div`
   width: 4rem;
   height: 4rem;
 
-  border: 1px solid ${(props) => (props.isOpen ? "#102a42" : "white")};
+  border: 1px solid ${(props) => (props.isOpen ? "#102a42" : props.navColor)};
 
   cursor: pointer;
 
@@ -43,7 +43,8 @@ export const MenuBox = styled.div`
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: ${(props) => (props.isOpen ? "#102a42" : "white")};
+      background-color: ${(props) =>
+        props.isOpen ? "#102a42" : props.navColor};
 
       transition: transform ease 300ms;
     }
@@ -99,13 +100,14 @@ export const Nav = styled.div`
     h3 {
       padding: 4px;
 
-      border: 3px solid ${(props) => (props.isOpen ? "#102a42" : "white")};
+      border: 3px solid
+        ${(props) => (props.isOpen ? "#102a42" : props.navColor)};
 
       font-size: 1.45rem;
       font-family: PoppinsBlack;
       text-shadow: 0 0 20px rgb(0 0 0 / 10%);
       line-height: 1.8rem;
-      color: ${(props) => (props.isOpen ? "#102a42" : "white")};
+      color: ${(props) => (props.isOpen ? "#102a42" : props.navColor)};
     }
   }
 
@@ -120,7 +122,7 @@ export const Nav = styled.div`
       font-weight: bold;
       text-shadow: 0 0 20px rgb(0 0 0 / 10%);
       line-height: 1.8rem;
-      color: ${(props) => (props.isOpen ? "#102a42" : "white")};
+      color: ${(props) => (props.isOpen ? "#102a42" : props.navColor)};
     }
   }
 `;

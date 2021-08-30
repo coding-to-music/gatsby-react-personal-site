@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-
-import { IoClose } from "react-icons/io5";
+import PropTypes from "prop-types";
 
 import MenuList from "../MenuList/MenuList";
 import { Nav, MenuBox, CloseMenu } from "./NavBarStyle";
 
-const NavBar = () => {
+const NavBar = ({ navColor }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <MenuList isOpen={isOpen} />
-      <Nav isOpen={isOpen}>
+      <Nav isOpen={isOpen} navColor={navColor}>
         <Link to="/about">
           <h3>
             AEK
@@ -23,6 +22,7 @@ const NavBar = () => {
           <h3>MENU</h3>
           <MenuBox
             isOpen={isOpen}
+            navColor={navColor}
             onClick={() => {
               setIsOpen(!isOpen);
             }}
@@ -41,6 +41,14 @@ const NavBar = () => {
       </Nav>
     </>
   );
+};
+
+NavBar.propTypes = {
+  navColor: PropTypes.string,
+};
+
+NavBar.defaultProps = {
+  navColor: "white",
 };
 
 export default NavBar;

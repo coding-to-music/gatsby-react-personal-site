@@ -40,7 +40,7 @@ export const HeroArticle = styled.article`
   max-width: 140rem;
   margin: 0 auto;
 
-  padding-top: 15rem;
+  padding-top: 18rem;
 
   & > div:first-of-type {
     display: block;

@@ -2,6 +2,12 @@ import styled from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 
+export const ProjectLink = styled(Link)`
+  background-color: transparent;
+  text-decoration: none;
+  color: #141414;
+`;
+
 export const ProjectBox = styled.div`
   display: flex;
   justify-content: space-between;
@@ -12,8 +18,6 @@ export const ProjectBox = styled.div`
 
   border-radius: 1rem;
   overflow: hidden;
-
-  cursor: pointer;
 
   &:not(:last-child) {
     margin-bottom: 10rem;
@@ -30,7 +34,7 @@ export const ProjectImage = styled(GatsbyImage)`
   object-fit: contain;
 `;
 
-export const ProjectContent = styled.div`
+export const ProjectContent = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -97,6 +101,8 @@ export const ProjectContent = styled.div`
       }
 
       span {
+        display: flex;
+
         &:not(:last-child) {
           margin-right: 0.85rem;
         }
@@ -150,7 +156,7 @@ export const ProjectBtn = styled.button.attrs({
   }
 `;
 
-export const ProjectLink = styled(Link)`
+export const ProjectMore = styled.a`
   transition: all 0.2s;
 
   border-bottom: 2px solid rgba(25, 14, 66, 1);

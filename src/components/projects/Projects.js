@@ -1,12 +1,14 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
+import slugify from "slugify";
 
 import {
   ProjectBox,
   ProjectImage,
   ProjectContent,
   ProjectBtn,
+  ProjectMore,
   ProjectLink,
 } from "./ProjectsStyle";
 
@@ -84,7 +86,9 @@ const Projects = () => {
                 </div>
                 <ProjectBtn>Live</ProjectBtn>
                 <ProjectBtn>Code</ProjectBtn>
-                <ProjectLink to="/about">More</ProjectLink>
+                <ProjectMore href={slugify(project.title, { lower: true })}>
+                  More
+                </ProjectMore>
               </div>
             </ProjectContent>
           </ProjectBox>
