@@ -7,7 +7,7 @@ export default createGlobalStyle`
         font-family: 'ManropeLight';
         src: local('ManropeLight'),
         url(${Manrope}) format('truetype');
-        font-weight: 400;
+        font-weight: 300;
         font-style: normal;
     }
 `;
