@@ -167,19 +167,17 @@ export const ProjectPageStory = styled.div`
       color: #555454;
     }
 
-    .projectPage-used {
-      h3 {
-        font-size: 2.2rem;
-      }
-
-      p {
+    .projectPage-used,
+    .projectPage-lesson,
+    .projectPage-conclusion {
+      p:not(:last-of-type) {
         margin-bottom: 2rem;
       }
     }
 
-    .projectPage-about {
-      p {
-        margin-bottom: 2rem;
+    .projectPage-used {
+      h3 {
+        font-size: 2.2rem;
       }
     }
   }
