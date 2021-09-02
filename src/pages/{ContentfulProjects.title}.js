@@ -77,9 +77,10 @@ const ProjectTemplate = (props) => {
 
   const projectThumbnail = getImage(gatsbyImageData);
 
-  const projectUsed = used.used.split("\n");
-  const projectLesson = lesson.lesson.split("\n");
-  const projectConclusion = conclusion.conclusion.split("\n");
+  const projectUsed = used && used.used.split("\n");
+  console.log(projectUsed);
+  const projectLesson = lesson && lesson.lesson.split("\n");
+  const projectConclusion = conclusion && conclusion.conclusion.split("\n");
 
   return (
     <>
@@ -125,12 +126,13 @@ const ProjectTemplate = (props) => {
               <p>{projectResume && projectResume.resume}</p>
               <h1>What I used 🔷</h1>
               <div className="projectPage-used">
-                {projectUsed.map((el, idx) => {
-                  if (idx % 2 === 0) {
-                    return <h3 key={el}>{el}</h3>;
-                  }
-                  return <p key={el}>{el}</p>;
-                })}
+                {projectUsed &&
+                  projectUsed.map((el, idx) => {
+                    if (idx % 2 === 0) {
+                      return <h3 key={el}>{el}</h3>;
+                    }
+                    return <p key={el}>{el}</p>;
+                  })}
               </div>
               <h1>About this production 🥳</h1>
               <div>
@@ -138,21 +140,23 @@ const ProjectTemplate = (props) => {
               </div>
               <h1>What I learned ✅</h1>
               <div className="projectPage-lesson">
-                {projectLesson.map((el, idx) => {
-                  if (idx % 2 === 0) {
-                    return <p key={el}>{el}</p>;
-                  }
-                  return null;
-                })}
+                {projectLesson &&
+                  projectLesson.map((el, idx) => {
+                    if (idx % 2 === 0) {
+                      return <p key={el}>{el}</p>;
+                    }
+                    return null;
+                  })}
               </div>
               <h1>Finally 😎</h1>
               <div className="projectPage-conclusion">
-                {projectConclusion.map((el, idx) => {
-                  if (idx % 2 === 0) {
-                    return <p key={el}>{el}</p>;
-                  }
-                  return null;
-                })}
+                {projectConclusion &&
+                  projectConclusion.map((el, idx) => {
+                    if (idx % 2 === 0) {
+                      return <p key={el}>{el}</p>;
+                    }
+                    return null;
+                  })}
               </div>
             </div>
 

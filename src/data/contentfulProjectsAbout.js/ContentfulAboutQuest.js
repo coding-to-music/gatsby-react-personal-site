@@ -63,9 +63,10 @@ const ContentfulAboutQuest = () => {
 
       <p>
         I also learned how to use react router dom, I created a lore route where
-        I post in detail about the algorithms and data structures I used and how
-        they work (still on progression). I did also started learning Git/Github
-        and getting comfortable using it for this project and the future ones.
+        I post in details about the algorithms and data structures I used and
+        how they work (still on progression). It was at that time I started
+        learning Git/Github and getting comfortable using it for this project
+        and the future ones.
       </p>
 
       <p>Those are the pathfinding algorithms I implemented on the app : </p>

@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import styled, { css } from "styled-components";
 
 import { GrClose } from "react-icons/gr";
@@ -13,7 +14,9 @@ export const MenuBox = styled.div`
   width: 4rem;
   height: 4rem;
 
-  border: 1px solid ${(props) => (props.isOpen ? "#102a42" : props.navColor)};
+  border: 1px solid
+    ${(props) =>
+      props.isOpen ? "#102a42" : props.isScrolled ? "#102a42" : props.navColor};
 
   cursor: pointer;
 
@@ -44,7 +47,11 @@ export const MenuBox = styled.div`
       width: 100%;
       height: 100%;
       background-color: ${(props) =>
-        props.isOpen ? "#102a42" : props.navColor};
+        props.isOpen
+          ? "#102a42"
+          : props.isScrolled
+          ? "#102a42"
+          : props.navColor};
 
       transition: transform ease 300ms;
     }
@@ -80,20 +87,48 @@ export const MenuBox = styled.div`
   }
 `;
 
-export const Nav = styled.div`
+export const NavContainer = styled.div`
   position: fixed;
   z-index: 40;
 
-  left: 50%;
-  transform: translate(-50%, 0);
+  transition: all 0.3s ease-in 0s;
 
+  width: 100%;
+  height: max-content;
+
+  ${(props) =>
+    props.isOpen
+      ? css`
+          box-shadow: none;
+        `
+      : css`
+          box-shadow: ${props.isScrolled
+            ? "rgb(0 0 0 / 20%) 0px 0px 5px"
+            : "none"};
+        `}
+
+  ${(props) =>
+    props.isOpen
+      ? css`
+          background-color: "transparent";
+        `
+      : css`
+          background-color: ${props.isScrolled
+            ? "var(--color-grey-main)"
+            : "transparent"}; ;
+        `}
+`;
+
+export const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   max-width: 180rem;
   width: 90vw;
-  padding: 2.5rem 0 0;
+  margin: 0 auto;
+  padding: 1rem 0;
+
   a {
     text-decoration: none;
     cursor: pointer;
@@ -101,13 +136,23 @@ export const Nav = styled.div`
       padding: 4px;
 
       border: 3px solid
-        ${(props) => (props.isOpen ? "#102a42" : props.navColor)};
+        ${(props) =>
+          props.isOpen
+            ? "#102a42"
+            : props.isScrolled
+            ? "#102a42"
+            : props.navColor};
 
       font-size: 1.45rem;
       font-family: PoppinsBlack;
       text-shadow: 0 0 20px rgb(0 0 0 / 10%);
       line-height: 1.8rem;
-      color: ${(props) => (props.isOpen ? "#102a42" : props.navColor)};
+      color: ${(props) =>
+        props.isOpen
+          ? "#102a42"
+          : props.isScrolled
+          ? "#102a42"
+          : props.navColor};
     }
   }
 
@@ -122,7 +167,12 @@ export const Nav = styled.div`
       font-weight: bold;
       text-shadow: 0 0 20px rgb(0 0 0 / 10%);
       line-height: 1.8rem;
-      color: ${(props) => (props.isOpen ? "#102a42" : props.navColor)};
+      color: ${(props) =>
+        props.isOpen
+          ? "#102a42"
+          : props.isScrolled
+          ? "#102a42"
+          : props.navColor};
     }
   }
 `;

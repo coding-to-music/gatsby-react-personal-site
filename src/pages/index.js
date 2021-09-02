@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from "react";
 import loadable from "@loadable/component";
-import { v4 as uuidv4 } from "uuid";
 
 import { useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { getImage } from "gatsby-plugin-image";
 
 import Loading from "../components/loading/Loading";
 import NavBar from "../components/navBar/NavBar";
@@ -26,7 +25,6 @@ import {
   CodingBtn,
   CodingContainer,
   DeviceContainer,
-  PCImage,
   PhoneImage,
   DashSvg,
 } from "../styles/CodingSectionStyle";
@@ -48,14 +46,6 @@ const HomeGlobe = loadable(() => import("../components/HomeGlobe"));
 
 const query = graphql`
   {
-    PCMockupData: contentfulAsset(
-      file: { fileName: { eq: "website-mockup-pc.png" } }
-    ) {
-      file {
-        fileName
-      }
-      gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
-    }
     PhoneMockupData: contentfulAsset(
       file: { fileName: { eq: "website-mockup-phone.png" } }
     ) {
@@ -76,13 +66,11 @@ const query = graphql`
 export default function Index() {
   const data = useStaticQuery(query);
 
-  const { PCMockupData, PhoneMockupData, UfoData } = data;
+  const { PhoneMockupData, UfoData } = data;
 
-  const { gatsbyImageData: pCMockupImageData } = PCMockupData;
   const { gatsbyImageData: phoneMockupImageData } = PhoneMockupData;
   const { gatsbyImageData: UfoImageData } = UfoData;
 
-  const pCMockupImage = getImage(pCMockupImageData);
   const phoneMockupImage = getImage(phoneMockupImageData);
   const ufoImage = getImage(UfoImageData);
 
@@ -92,7 +80,7 @@ export default function Index() {
       <HomeGlobe />
       <div>
         <Header>
-          <NavBar />
+          <NavBar navColor="white" />
           <HeroArticle>
             <div>
               <h1>

@@ -18,6 +18,8 @@ import {
   SiGatsby,
   SiGraphql,
   SiWebgl,
+  SiNetlify,
+  SiHeroku,
 } from "react-icons/si";
 import ExpressJsIcon from "../assets/svgs/expressjs-icon.svg";
 import ContentfulIcon from "../assets/svgs/contentful-logo.svg";
@@ -105,9 +107,19 @@ const stacks = [
     title: "WebGL",
   },
   {
-    id: 16,
+    id: 17,
     icon: <FaFigma />,
     title: "Figma",
+  },
+  {
+    id: 18,
+    icon: <SiNetlify />,
+    title: "Netlify",
+  },
+  {
+    id: 19,
+    icon: <SiHeroku />,
+    title: "Heroku",
   },
 ];
 

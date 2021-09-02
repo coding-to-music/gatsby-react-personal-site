@@ -183,6 +183,10 @@ export const ProjectPageStory = styled.div`
   }
 
   & > div:nth-of-type(2) {
+    position: sticky;
+    top: 15rem;
+    height: max-content;
+
     display: flex;
     flex-direction: column;
     align-items: start;

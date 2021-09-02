@@ -4,14 +4,17 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import ContentfulAboutQuest from "./contentfulProjectsAbout.js/ContentfulAboutQuest";
+import ContentfulAboutExplodii from "./contentfulProjectsAbout.js/ContentfulAboutExplodii";
+import ContentfulAboutStockersa from "./contentfulProjectsAbout.js/ContentfulAboutStockersa";
+import ContentfulAboutPersonalWebsite from "./contentfulProjectsAbout.js/ContentfulAboutPersonalWebsite";
 
 const ContentfulAbout = ({ title }) => {
   return (
     <>
       {title === "Quest" && <ContentfulAboutQuest />}
-      {title === "Explodii" && <ContentfulAboutQuest />}
-      {title === "Stockersa" && <ContentfulAboutQuest />}
-      {title === "Personal Website" && <ContentfulAboutQuest />}
+      {title === "Explodii" && <ContentfulAboutExplodii />}
+      {title === "Stockersa" && <ContentfulAboutStockersa />}
+      {title === "Personal Website" && <ContentfulAboutPersonalWebsite />}
     </>
   );
 };
