@@ -2,6 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import slugify from "slugify";
+import PropTypes from "prop-types";
 
 import {
   ProjectBox,
@@ -36,7 +37,7 @@ const query = graphql`
   }
 `;
 
-const Projects = () => {
+const Projects = ({ ignoreProject }) => {
   const data = useStaticQuery(query);
 
   const {
@@ -47,55 +48,68 @@ const Projects = () => {
     <div>
       {projects.map((project) => {
         const {
+          title,
           thumbnail: { gatsbyImageData },
+          content: { stacks: projectStacks, tags: projectTags },
+          description: { description: projectDescription },
         } = project;
         const projectThumbnail = getImage(gatsbyImageData);
-        const { content } = project;
-
-        const { stacks: projectStacks, tags: projectTags } = content;
-
-        return (
-          <ProjectBox key={project.id}>
-            <ProjectImage
-              image={projectThumbnail}
-              alt={`${project.title} thumbnail`}
-            />
-            <ProjectContent>
-              <div>
-                <h2>{project.title}</h2>
+        if (title !== ignoreProject) {
+          return (
+            <ProjectBox key={project.id}>
+              <ProjectImage
+                image={projectThumbnail}
+                alt={`${project.title} thumbnail`}
+              />
+              <ProjectContent>
                 <div>
-                  {projectTags.map((tag) => {
-                    return <span key={tag}>{tag}</span>;
-                  })}
+                  <h2>{project.title}</h2>
+                  <div>
+                    {projectTags.map((tag) => {
+                      return <span key={tag}>{tag}</span>;
+                    })}
+                  </div>
                 </div>
-              </div>
-              <p>{project.description.description}</p>
-              <div>
+                <p>{projectDescription}</p>
                 <div>
-                  {projectStacks.map((stack) => {
-                    return (
-                      <span key={stack} id={stack}>
-                        {
-                          stacks.find(
-                            (stackObject) => stackObject.title === stack
-                          ).icon
-                        }
-                      </span>
-                    );
-                  })}
+                  <div>
+                    {projectStacks.map((stack) => {
+                      return (
+                        <span key={stack} id={stack}>
+                          {
+                            stacks.find(
+                              (stackObject) => stackObject.title === stack
+                            ).icon
+                          }
+                        </span>
+                      );
+                    })}
+                  </div>
+                  <ProjectBtn>Live</ProjectBtn>
+                  <ProjectBtn>Code</ProjectBtn>
+                  <ProjectMore
+                    to={`/${slugify(project.title, { lower: true })}`}
+                  >
+                    More
+                  </ProjectMore>
                 </div>
-                <ProjectBtn>Live</ProjectBtn>
-                <ProjectBtn>Code</ProjectBtn>
-                <ProjectMore href={slugify(project.title, { lower: true })}>
-                  More
-                </ProjectMore>
-              </div>
-            </ProjectContent>
-          </ProjectBox>
-        );
+              </ProjectContent>
+            </ProjectBox>
+          );
+        }
+        return null;
       })}
     </div>
   );
+};
+
+Projects.propTypes = {
+  // Not render a certain project
+  ignoreProject: PropTypes.string,
+};
+
+Projects.defaultProps = {
+  ignoreProject: "",
 };
 
 export default Projects;

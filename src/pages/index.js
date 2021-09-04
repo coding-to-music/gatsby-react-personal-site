@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import React from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import loadable from "@loadable/component";
 
 import { useStaticQuery, graphql } from "gatsby";
@@ -44,6 +44,8 @@ import basics from "../constants/basics";
 
 const HomeGlobe = loadable(() => import("../components/HomeGlobe"));
 
+// import { HomeGlobe } from "../components/HomeGlobe";
+
 const query = graphql`
   {
     PhoneMockupData: contentfulAsset(
@@ -73,6 +75,10 @@ export default function Index() {
 
   const phoneMockupImage = getImage(phoneMockupImageData);
   const ufoImage = getImage(UfoImageData);
+
+  //   const RenderHomeGlobe = React.memo(() => {
+  //     return <HomeGlobe />;
+  //   });
 
   return (
     <>
@@ -125,7 +131,7 @@ export default function Index() {
                 <p>
                   I'v graduated from Montreal University on December 2020 with a
                   Bachelor of Mathematics / minor in statistics. Before
-                  graduating, I was worried about my future and what I will do
+                  graduating, I was wondering about my future and what I will do
                   next, the academic world didn't seem challenging to me. I'v
                   decided that I will dedicate my time learning programming.
                   Over this time I learned bulding responsive websites, full

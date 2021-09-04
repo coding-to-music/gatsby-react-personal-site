@@ -13,6 +13,8 @@ const Container = styled.div`
     margin-bottom: 3rem;
     li {
       list-style-position: inside;
+      text-indent: -2.45rem;
+      padding-left: 2rem;
 
       font-size: 1.8rem;
       font-family: PoppinsRegular;
@@ -32,6 +34,7 @@ const Container = styled.div`
 `;
 
 const AboutImage = styled(GatsbyImage)`
+  width: 120%;
   margin-top: 8rem;
 `;
 
@@ -60,7 +63,7 @@ const ContentfulAboutExplodii = () => {
   return (
     <Container>
       <p>
-        After fisnishing my first react project{" "}
+        After finishing my first react project{" "}
         <a
           href={`${process.env.GATSBY_APP_API_URL}/quest`}
           target="_blank"
@@ -80,10 +83,10 @@ const ContentfulAboutExplodii = () => {
       </p>
       <p>
         For the purporses of this app I did build a Stateless RESTful API that
-        handles four ressources : excursions,users,reviews and bookings.All the
+        handles four ressources : excursions users, reviews and bookings.All the
         data for each ressource is stored in a MongoDB database using MongoDB
-        Compass. The models are built using mongoose same goes with all the CRUD
-        operations,filters, sorts, pagination, and more.
+        Compass. The models are build using mongoose same goes with all the CRUD
+        operations, filters, sorts, pagination, and more.
       </p>
       <p>The features in Explodii :</p>
       <ul>
@@ -106,8 +109,8 @@ const ContentfulAboutExplodii = () => {
           in a cookie.{" "}
         </li>
         <li>
-          Users can update their account informations (name, email,
-          password,profile picture).
+          Users can update their account informations (name, email, password,
+          profile picture).
         </li>
         <li>Users have access to their bookings in the account section.</li>
         <li>
@@ -129,6 +132,10 @@ const ContentfulAboutExplodii = () => {
         image={explodiiAllDevicesImage}
         alt="explodii on all devices"
       />
+      <p>
+        * Stripe is on test mode, you can use : 4242 4242 4242 4242 credit card
+        number to purchase the products.
+      </p>
     </Container>
   );
 };

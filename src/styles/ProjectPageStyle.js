@@ -144,6 +144,8 @@ export const ProjectPageStory = styled.div`
 
   padding-bottom: 15rem;
 
+  border-bottom: 2px solid #190e42;
+
   & > div:first-of-type {
     display: block;
 
@@ -240,6 +242,18 @@ export const ProjectPageStory = styled.div`
         }
       }
     }
+  }
+`;
+
+export const ProjectPageOthers = styled.div`
+  display: block;
+
+  padding-bottom: 10rem;
+  h1 {
+    margin: 5rem 0;
+
+    text-align: center;
+    font-size: 3.5rem;
   }
 `;
 

@@ -11,6 +11,7 @@ import moment from "moment";
 import Loading from "../components/loading/Loading";
 import NavBar from "../components/navBar/NavBar";
 import ContentfulAbout from "../data/ContentfulAbout";
+import Projects from "../components/projects/Projects";
 
 import {
   ProjectPage,
@@ -19,6 +20,7 @@ import {
   ProjectPageOverview,
   ProjectPageMore,
   ProjectPageStory,
+  ProjectPageOthers,
   ProjectPageBtn,
 } from "../styles/ProjectPageStyle";
 
@@ -78,7 +80,6 @@ const ProjectTemplate = (props) => {
   const projectThumbnail = getImage(gatsbyImageData);
 
   const projectUsed = used && used.used.split("\n");
-  console.log(projectUsed);
   const projectLesson = lesson && lesson.lesson.split("\n");
   const projectConclusion = conclusion && conclusion.conclusion.split("\n");
 
@@ -181,6 +182,10 @@ const ProjectTemplate = (props) => {
               </ul>
             </div>
           </ProjectPageStory>
+          <ProjectPageOthers>
+            <h1>Other Works</h1>
+            <Projects ignoreProject={projectName} />
+          </ProjectPageOthers>
         </ProjectPageContent>
       </ProjectPage>
     </>

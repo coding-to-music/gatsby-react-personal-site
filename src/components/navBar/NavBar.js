@@ -10,7 +10,7 @@ const NavBar = ({ navColor }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const listenScrollEvent = () => {
-    if (window.scrollY > 35) {
+    if (window.scrollY > 70) {
       return setIsScrolled(true);
     }
     return setIsScrolled(false);
@@ -24,13 +24,14 @@ const NavBar = ({ navColor }) => {
   }
 
   useEffect(() => {
-    window.addEventListener("scroll", () => debounce(listenScrollEvent, 5));
+    window.addEventListener("scroll", () => debounce(listenScrollEvent, 1));
     return () => {
-      window.removeEventListener("scroll", listenScrollEvent);
+      window.removeEventListener("scroll", () =>
+        debounce(listenScrollEvent, 1)
+      );
     };
   }, []);
 
-  console.log(isOpen, isScrolled);
   return (
     <>
       <MenuList isOpen={isOpen} />

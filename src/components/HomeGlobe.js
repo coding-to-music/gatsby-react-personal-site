@@ -1,3 +1,4 @@
+import React, { useMemo } from "react";
 import ThreeGlobe from "three-globe";
 import {
   WebGLRenderer,
@@ -31,18 +32,19 @@ let Globe;
 // BUG: Creating a new canvas outside gatsby body
 const canvRef = document.getElementById("globe_canvas");
 
-function onWindowResize() {
+export function onWindowResize() {
   camera.updateProjectionMatrix();
 }
 
 // SECTION Initializing core ThreeJS elements
-function init() {
+export function init() {
   // Initialize renderer
   renderer = new WebGLRenderer({
     antialias: true,
     alpha: true,
     canvas: canvRef,
   });
+  console.log(renderer);
   renderer.setPixelRatio(windowGlobal.devicePixelRatio);
   renderer.setSize(windowGlobal.innerWidth, windowGlobal.innerHeight);
   renderer.setClearColor(0x000000, 0);
@@ -107,7 +109,7 @@ function init() {
 }
 
 // SECTION Globe
-function initGlobe() {
+export function initGlobe() {
   // Initialize the Globe
   Globe = new ThreeGlobe()
     .arcsData(travelHistory.flights)
@@ -169,7 +171,7 @@ function initGlobe() {
   scene.add(Globe);
 }
 
-function animate() {
+export function animate() {
   camera.lookAt(scene.position);
   controls.update();
   renderer.render(scene, camera);
@@ -182,7 +184,10 @@ export const HomeGlobe = () => {
   initGlobe();
   onWindowResize();
   animate();
+
+  console.log("code");
+
   return null;
 };
 
-export default HomeGlobe;
+export default React.memo(HomeGlobe);

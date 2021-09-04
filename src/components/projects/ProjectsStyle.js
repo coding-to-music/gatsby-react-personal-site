@@ -156,7 +156,7 @@ export const ProjectBtn = styled.button.attrs({
   }
 `;
 
-export const ProjectMore = styled.a`
+export const ProjectMore = styled(Link)`
   transition: all 0.2s;
 
   border-bottom: 2px solid rgba(25, 14, 66, 1);
