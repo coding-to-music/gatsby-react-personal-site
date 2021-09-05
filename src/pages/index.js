@@ -41,6 +41,14 @@ import {
 
 import skills from "../constants/skills";
 import basics from "../constants/basics";
+import {
+  ContactSection,
+  ContactContainer,
+  ContactInput,
+  ContactTextArea,
+  ContactForm,
+  ContactBtn,
+} from "../styles/ContactSectionStyled";
 
 const HomeGlobe = loadable(() => import("../components/HomeGlobe"));
 
@@ -173,6 +181,42 @@ export default function Index() {
               <Projects />
             </ProjectContainer>
           </ProjectSection>
+
+          <ContactSection>
+            <ContactContainer>
+              <div>
+                <h2>
+                  Contact details<span>:</span>
+                </h2>
+                <h3>iliasallek.aek@gmail.com</h3>
+                <h1>
+                  For employer<span>:</span>
+                </h1>
+                <ContactBtn style={{ alignSelf: "flex-start" }}>
+                  DOWNLOAD CV
+                </ContactBtn>
+              </div>
+              <div>
+                <h1>Say Hello</h1>
+                <div>
+                  <ContactForm>
+                    <div>
+                      <ContactInput id="name-input" name="name" />
+                      <ContactInput
+                        id="email-input"
+                        name="email"
+                        type="email"
+                        placeholder="what's your email?"
+                      />
+                    </div>
+
+                    <ContactTextArea />
+                    <ContactBtn>SUBMIT</ContactBtn>
+                  </ContactForm>
+                </div>
+              </div>
+            </ContactContainer>
+          </ContactSection>
         </main>
       </div>
     </>
