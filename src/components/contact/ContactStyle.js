@@ -9,14 +9,29 @@ export const ContactContainer = styled.article`
   align-items: flex-start;
 
   max-width: 145rem;
+  width: 92vw;
   margin: 0 auto;
   padding: 10rem 0;
+
+  @media only screen and (max-width: 59.5em) {
+    flex-direction: column;
+    align-items: center;
+  }
 
   & > div:first-of-type {
     display: flex;
     flex-direction: column;
 
     width: 50%;
+
+    @media only screen and (max-width: 59.5em) {
+      align-items: center;
+      margin-bottom: 5rem;
+      width: 100%;
+      button {
+        align-self: center !important;
+      }
+    }
 
     h2 {
       margin-bottom: 3.5rem;
@@ -49,7 +64,17 @@ export const ContactContainer = styled.article`
     display: flex;
     flex-direction: column;
 
-    width: 50%;
+    width: 72.5rem;
+
+    @media only screen and (max-width: 59.5em) {
+      max-width: 72.5rem;
+      width: 92vw;
+      /* width: 72.5rem; */
+      h1 {
+        text-align: center;
+      }
+    }
+
     h1 {
       margin-bottom: 2rem;
 
@@ -72,6 +97,15 @@ export const ContactForm = styled.form`
   & > div:first-of-type {
     display: flex;
     margin-bottom: 3rem;
+
+    @media only screen and (max-width: 34.5em) {
+      flex-direction: column;
+
+      & > div:first-of-type {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+    }
 
     & > div:first-of-type {
       margin-right: 2rem;
