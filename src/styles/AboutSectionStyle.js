@@ -28,6 +28,10 @@ export const AboutContainer = styled.article`
     width: 80%;
     margin-bottom: 2rem;
 
+    @media only screen and (max-width: 47.5em) {
+      width: 92vw;
+    }
+
     h1 {
       position: relative;
 
@@ -35,6 +39,7 @@ export const AboutContainer = styled.article`
 
       font-size: 4rem;
       font-family: Manrope;
+      text-align: center;
 
       &:after {
         content: "";
@@ -57,6 +62,7 @@ export const AboutContainer = styled.article`
       font-size: 2.7rem;
       font-family: ManropeLight;
       font-weight: 300;
+      text-align: center;
     }
     p {
       font-size: 1.8rem;
@@ -78,6 +84,7 @@ export const AboutContainer = styled.article`
 
       font-size: 4rem;
       font-family: Manrope;
+      text-align: center;
     }
   }
 `;

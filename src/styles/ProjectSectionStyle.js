@@ -5,13 +5,8 @@ export const ProjectSection = styled.section`
 `;
 
 export const ProjectContainer = styled.article`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-
   max-width: 145rem;
-  width: 95vw;
+  width: 92vw;
   margin: 0 auto;
   padding: 10rem 0;
 

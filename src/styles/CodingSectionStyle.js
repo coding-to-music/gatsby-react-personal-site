@@ -17,8 +17,9 @@ export const CodingContainer = styled.article`
   flex-direction: column;
 
   max-width: 150rem;
+  width: 95vw;
   margin: 0 auto;
-  padding: 10rem 0;
+  padding: 10rem 0 12rem;
 
   h1 {
     margin-bottom: 2rem;
@@ -46,10 +47,7 @@ export const DeviceContainer = styled.article`
   justify-content: space-between;
   align-items: center;
 
-  max-width: 150rem;
-  width: 95vw;
-  margin: 0 auto;
-  padding: 10rem 0;
+  padding-top: 8rem;
 
   @media only screen and (max-width: 56.25em) {
     flex-direction: column;
@@ -63,6 +61,11 @@ export const DeviceContainer = styled.article`
 
     @media only screen and (max-width: 56.25em) {
       width: 50%;
+      margin-bottom: 5rem;
+    }
+
+    @media only screen and (max-width: 31.5em) {
+      width: 65%;
     }
 
     video {

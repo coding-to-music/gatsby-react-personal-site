@@ -8,6 +8,11 @@ export const ProjectLink = styled(Link)`
   color: #141414;
 `;
 
+export const ProjectsContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const ProjectBox = styled.div`
   display: flex;
   justify-content: space-between;
@@ -26,12 +31,21 @@ export const ProjectBox = styled.div`
   &:hover {
     transform: scale(1.02);
   }
+
+  @media only screen and (max-width: 65em) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const ProjectImage = styled(GatsbyImage)`
   width: 48%;
   height: max-content;
   object-fit: contain;
+
+  @media only screen and (max-width: 65em) {
+    width: 100%;
+  }
 `;
 
 export const ProjectContent = styled.article`
@@ -45,11 +59,40 @@ export const ProjectContent = styled.article`
 
   font-size: 3rem;
 
+  @media only screen and (max-width: 65em) {
+    width: 100%;
+    margin-left: 0;
+
+    min-height: 35rem;
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    min-height: 60rem;
+  }
+
   & > div:first-of-type {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media only screen and (max-width: 31.5em) {
+      flex-direction: column;
+      justify-content: space-around;
+
+      h2 {
+        margin: 2rem 0;
+      }
+
+      div {
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        align-self: center;
+      }
+    }
+
     h2 {
+      margin-right: 1rem;
+
       font-size: 3rem;
       font-family: ManropeLight;
       font-weight: 600;
@@ -57,6 +100,7 @@ export const ProjectContent = styled.article`
     }
     div {
       display: flex;
+      justify-content: center;
 
       span {
         display: inline-block;
@@ -85,13 +129,31 @@ export const ProjectContent = styled.article`
     color: var(--color-grey-dark);
   }
 
-  div:nth-of-type(2) {
+  & > div:nth-of-type(2) {
     display: flex;
     align-items: center;
 
-    div {
+    @media only screen and (max-width: 31.5em) {
+      flex-direction: column;
+
+      .projects-stacks {
+        margin: 2rem 0;
+        justify-content: center;
+      }
+
+      .projects-btns {
+        margin-left: 0 !important;
+        margin-bottom: 2rem;
+      }
+    }
+
+    .projects-stacks {
       display: flex;
       align-items: center;
+      margin-right: 1rem;
+
+      flex-wrap: wrap;
+      gap: 0.8rem;
 
       #WebGL {
         svg {
@@ -103,9 +165,9 @@ export const ProjectContent = styled.article`
       span {
         display: flex;
 
-        &:not(:last-child) {
+        /* &:not(:last-child) {
           margin-right: 0.85rem;
-        }
+        } */
 
         svg {
           width: 3rem;
@@ -114,6 +176,13 @@ export const ProjectContent = styled.article`
           fill: #190e42;
         }
       }
+    }
+
+    .projects-btns {
+      display: flex;
+      margin-left: auto;
+      align-items: center;
+      flex-wrap: nowrap;
     }
   }
 `;

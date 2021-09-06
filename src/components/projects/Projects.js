@@ -1,16 +1,16 @@
 import React from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import slugify from "slugify";
 import PropTypes from "prop-types";
 
 import {
+  ProjectsContainer,
   ProjectBox,
   ProjectImage,
   ProjectContent,
   ProjectBtn,
   ProjectMore,
-  ProjectLink,
 } from "./ProjectsStyle";
 
 import stacks from "../../constants/stacks";
@@ -45,7 +45,7 @@ const Projects = ({ ignoreProject }) => {
   } = data;
 
   return (
-    <div>
+    <ProjectsContainer>
       {projects.map((project) => {
         const {
           title,
@@ -72,7 +72,7 @@ const Projects = ({ ignoreProject }) => {
                 </div>
                 <p>{projectDescription}</p>
                 <div>
-                  <div>
+                  <div className="projects-stacks">
                     {projectStacks.map((stack) => {
                       return (
                         <span key={stack} id={stack}>
@@ -85,13 +85,15 @@ const Projects = ({ ignoreProject }) => {
                       );
                     })}
                   </div>
-                  <ProjectBtn>Live</ProjectBtn>
-                  <ProjectBtn>Code</ProjectBtn>
-                  <ProjectMore
-                    to={`/${slugify(project.title, { lower: true })}`}
-                  >
-                    More
-                  </ProjectMore>
+                  <div className="projects-btns">
+                    <ProjectBtn>Live</ProjectBtn>
+                    <ProjectBtn>Code</ProjectBtn>
+                    <ProjectMore
+                      to={`/${slugify(project.title, { lower: true })}`}
+                    >
+                      More
+                    </ProjectMore>
+                  </div>
                 </div>
               </ProjectContent>
             </ProjectBox>
@@ -99,7 +101,7 @@ const Projects = ({ ignoreProject }) => {
         }
         return null;
       })}
-    </div>
+    </ProjectsContainer>
   );
 };
 
