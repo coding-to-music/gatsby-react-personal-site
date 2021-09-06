@@ -44,9 +44,12 @@ export function init() {
     alpha: true,
     canvas: canvRef,
   });
-  console.log(renderer);
-  renderer.setPixelRatio(windowGlobal.devicePixelRatio);
-  renderer.setSize(windowGlobal.innerWidth, windowGlobal.innerHeight);
+
+  const width = "1300";
+  const height = "656.1";
+
+  console.log(canvRef);
+
   renderer.setClearColor(0x000000, 0);
   // renderer.outputEncoding = THREE.sRGBEncoding;
   //   document.body.appendChild(renderer.domElement);
@@ -54,11 +57,19 @@ export function init() {
   // Initialize scene, light
   scene = new Scene();
   scene.add(new AmbientLight(0xbbbbbb, 0.3));
-  //   scene.background = new Color("");
 
   // Initialize camera, light
   camera = new PerspectiveCamera();
-  camera.aspect = windowGlobal.innerWidth / windowGlobal.innerHeight;
+
+  // NOTE: Seule moyen pour que l'objet conserve la meme taille
+  if (canvRef.width !== width || canvRef.height !== height) {
+    // you must pass false here or three.js sadly fights the browser
+    renderer.setSize(width, height, false);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+
+    // set render target sizes here
+  }
   camera.updateProjectionMatrix();
 
   const dLight = new DirectionalLight(0xffffff, 0.8);
@@ -114,7 +125,7 @@ export function initGlobe() {
   Globe = new ThreeGlobe()
     .arcsData(travelHistory.flights)
     .arcColor((e) => {
-      return e.status ? "#ec6bc0" : "#d8c4d1";
+      return e.status ? "#1bdbe9" : "#1bdbe9";
     })
     .arcAltitude((e) => {
       return e.arcAlt;
@@ -126,9 +137,9 @@ export function initGlobe() {
     .arcDashGap(4)
     .arcDashAnimateTime(2000)
     .arcsTransitionDuration(2000)
-    .arcDashInitialGap((e) => e.order * 1)
+    .arcDashInitialGap((e) => e.order * 0.4)
     .labelsData(airportHistory.cities)
-    .labelColor(() => "#ea6abf")
+    .labelColor(() => "#eee1e9")
     .labelDotRadius(0.5)
     .labelSize((e) => e.size)
     .labelText("place")

@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { VscRequestChanges } from "react-icons/vsc";
+import { MdEmail } from "react-icons/md";
+import { BsFillPersonFill } from "react-icons/bs";
 
 export const ContactSection = styled.section`
   background-color: var(--color-grey-main);
@@ -68,8 +71,17 @@ export const ContactForm = styled.form`
   flex-direction: column;
 
   div {
+    position: relative;
+    width: 100%;
+  }
+
+  & > div:first-of-type {
     display: flex;
     margin-bottom: 3rem;
+
+    & > div:first-of-type {
+      margin-right: 2rem;
+    }
   }
 `;
 
@@ -77,7 +89,7 @@ export const ContactInput = styled.input.attrs(({ type, placeholder }) => ({
   type: type || "text",
   placeholder: placeholder || "What's your name?",
   autocomplete: "off",
-  spellcheck: "false",
+  spellCheck: "false",
 }))`
   width: 100%;
   padding: 0.8rem 1.4rem 0.8rem 1.4rem;
@@ -92,23 +104,19 @@ export const ContactInput = styled.input.attrs(({ type, placeholder }) => ({
 
   font-size: 1.6rem;
   font-family: Manrope;
+  font-display: fallback;
   line-height: 2.4rem;
   color: #2b2d42;
 
   &::placeholder {
-    color: #2b2d42;
+    color: rgba(43, 45, 66, 0.5);
     font-weight: 400;
-  }
-
-  &:first-of-type {
-    margin-right: 2rem;
   }
 `;
 
 export const ContactTextArea = styled.textarea.attrs({
   rows: 10,
   autocomplete: "off",
-  spellcheck: false,
   name: "text",
   placeholder: "Your message goes here.",
 })`
@@ -124,6 +132,7 @@ export const ContactTextArea = styled.textarea.attrs({
   border-radius: 4px;
 
   font-size: 1.6rem;
+  font-display: fallback;
   font-family: Manrope;
   line-height: 2.4rem;
   color: #2b2d42;
@@ -131,14 +140,12 @@ export const ContactTextArea = styled.textarea.attrs({
   resize: none;
 
   &::placeholder {
-    color: #2b2d42;
+    color: rgba(43, 45, 66, 0.5);
     font-weight: 400;
   }
 `;
 
-export const ContactBtn = styled.button.attrs({
-  type: "button",
-})`
+export const ContactBtn = styled.button`
   align-self: center;
 
   padding: 1.4rem 3rem 1.5rem;
@@ -155,6 +162,7 @@ export const ContactBtn = styled.button.attrs({
 
   color: white;
   font-family: ManropeLight;
+  font-display: fallback;
   font-size: 1.8rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -165,4 +173,61 @@ export const ContactBtn = styled.button.attrs({
   &:hover {
     box-shadow: rgb(8 84 207 / 90%) 0px 0rem 2.1rem 0px;
   }
+`;
+
+export const NameSvg = styled(BsFillPersonFill)`
+  position: absolute;
+
+  bottom: 1rem;
+  right: 2rem;
+
+  height: 2rem;
+  width: 2rem;
+
+  transition: all 0.3s ease;
+
+  ${(props) =>
+    props.isvalid &&
+    css`
+      fill: #69dd95;
+      right: 1rem;
+    `}
+`;
+
+export const EmailSvg = styled(MdEmail)`
+  position: absolute;
+
+  bottom: 1rem;
+  right: 2rem;
+
+  height: 2rem;
+  width: 2rem;
+
+  transition: all 0.3s ease;
+
+  ${(props) =>
+    props.isvalid &&
+    css`
+      fill: #69dd95;
+      right: 1rem;
+    `}
+`;
+
+export const MessageAreaSvg = styled(VscRequestChanges)`
+  position: absolute;
+
+  bottom: 1rem;
+  right: 1rem;
+
+  height: 2rem;
+  width: 2rem;
+
+  transition: transform 0.2s ease;
+
+  ${(props) =>
+    props.isvalid &&
+    css`
+      fill: #69dd95;
+      transform: scale(1.1);
+    `}
 `;

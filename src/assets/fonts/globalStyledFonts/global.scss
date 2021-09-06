@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "Manrope";
+  src: local("Manrope"),
+    url("../Manrope-VariableFont_wght.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ManropeLight";
+  src: local("ManropeLight"),
+    url("../Manrope-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NexaBold";
+  src: local("NexaBold"), url("../NexaBold.otf") format("opentype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NexaLight";
+  src: local("NexaLight"), url("../NexaLight.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PoppinsBlack";
+  src: local("PoppinsBlack"), url("../Poppins-Black.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PoppinsRegular";
+  src: local("PoppinsRegular"), url("../Poppins-Regular.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("../Roboto-Black.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}

@@ -7,6 +7,6 @@ export default createGlobalStyle`
         font-family: 'PoppinsRegular';
         src: local('PoppinsRegular'),
         url(${Poppins}) format('truetype');
-        font-style: normal;
+        font-style: normal; 
     }
 `;

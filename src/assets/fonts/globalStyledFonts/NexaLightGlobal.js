@@ -8,6 +8,6 @@ export default createGlobalStyle`
         src: local('NexaLight'),
         url(${NexaLight}) format('opentype');
         font-weight: bold;
-        font-style: normal;
+        font-style: normal; 
     }
 `;

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState } from "react";
 import loadable from "@loadable/component";
 
 import { useStaticQuery, graphql } from "gatsby";
@@ -48,7 +48,10 @@ import {
   ContactTextArea,
   ContactForm,
   ContactBtn,
-} from "../styles/ContactSectionStyled";
+  MessageAreaSvg,
+  NameSvg,
+  EmailSvg,
+} from "../styles/ContactSectionStyle";
 
 const HomeGlobe = loadable(() => import("../components/HomeGlobe"));
 
@@ -84,28 +87,42 @@ export default function Index() {
   const phoneMockupImage = getImage(phoneMockupImageData);
   const ufoImage = getImage(UfoImageData);
 
-  //   const RenderHomeGlobe = React.memo(() => {
-  //     return <HomeGlobe />;
-  //   });
+  const [isNameValid, setIsNameValid] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isTextValid, setIsTextValid] = useState(false);
+
+  const handleEmailValidity = (email) => {
+    // don't remember from where i copied this code, but this works.
+    const re =
+      // eslint-disable-next-line no-useless-escape
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    console.log(email);
+
+    if (re.test(email)) {
+      setIsEmailValid(true);
+    } else {
+      setIsEmailValid(false);
+    }
+  };
 
   return (
     <>
-      <Loading timeLoad={500} />
+      {/* <Loading timeLoad={500} /> */}
       <HomeGlobe />
       <div>
         <Header>
           <NavBar navColor="white" />
           <HeroArticle>
             <div>
-              <h1>
-                Hello, I'm Ilias. An <br /> aspiring software developer.
-              </h1>
+              <h1>Hello, I'm Ilias. An aspiring software developer.</h1>
               <h3>
                 I'm just a guy that enjoys programming daily and building cool
                 stuff — Front-end design and solving problems are my favourite
                 part. My goal is to always stand out.
               </h3>
             </div>
+
             <GlobeContainer>
               <GlobeCanvas id="globe_canvas" />
             </GlobeContainer>
@@ -199,19 +216,59 @@ export default function Index() {
               <div>
                 <h1>Say Hello</h1>
                 <div>
-                  <ContactForm>
+                  <ContactForm
+                    action="https://formspree.io/f/xvoddwlj"
+                    method="POST"
+                  >
                     <div>
-                      <ContactInput id="name-input" name="name" />
-                      <ContactInput
-                        id="email-input"
-                        name="email"
-                        type="email"
-                        placeholder="what's your email?"
-                      />
+                      <div>
+                        <ContactInput
+                          id="name-input"
+                          name="name"
+                          onChange={(e) => {
+                            const { value } = e.target;
+                            if (value.length >= 2) {
+                              setIsNameValid(true);
+                            } else {
+                              setIsNameValid(false);
+                            }
+                          }}
+                          required
+                        />
+                        <NameSvg isvalid={isNameValid ? 1 : 0} />
+                      </div>
+                      <div>
+                        <ContactInput
+                          id="email-input"
+                          name="email"
+                          type="email"
+                          placeholder="what's your email?"
+                          onChange={(e) => {
+                            handleEmailValidity(e.target.value);
+                          }}
+                          required
+                        />
+                        <EmailSvg isvalid={isEmailValid ? 1 : 0} />
+                      </div>
                     </div>
 
-                    <ContactTextArea />
-                    <ContactBtn>SUBMIT</ContactBtn>
+                    <div>
+                      <ContactTextArea
+                        id="input-message"
+                        spellCheck="false"
+                        onChange={(e) => {
+                          const { value } = e.target;
+                          if (value.length >= 3) {
+                            setIsTextValid(true);
+                          } else {
+                            setIsTextValid(false);
+                          }
+                        }}
+                        required
+                      />
+                      <MessageAreaSvg isvalid={isTextValid ? 1 : 0} />
+                    </div>
+                    <ContactBtn type="submit">SUBMIT</ContactBtn>
                   </ContactForm>
                 </div>
               </div>

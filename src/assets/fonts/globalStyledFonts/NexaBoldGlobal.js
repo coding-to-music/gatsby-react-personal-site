@@ -8,5 +8,5 @@ export default createGlobalStyle`
         src: local('NexaBold'),
         url(${NexaBold}) format('opentype');
         font-style: normal;
-    }
+    } 
 `;

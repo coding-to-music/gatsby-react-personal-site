@@ -8,6 +8,6 @@ export default createGlobalStyle`
         src: local('Manrope'),
         url(${Manrope}) format('truetype');
         font-weight: 900;
-        font-style: normal;
+        font-style: normal; 
     }
 `;

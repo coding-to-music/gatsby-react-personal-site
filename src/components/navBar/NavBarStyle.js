@@ -124,10 +124,11 @@ export const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  max-width: 180rem;
-  width: 90vw;
+  max-width: 145rem;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 1rem 2.5rem;
+
+  box-sizing: content-box;
 
   a {
     text-decoration: none;

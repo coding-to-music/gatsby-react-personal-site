@@ -8,6 +8,6 @@ export default createGlobalStyle`
         src: local('Roboto'),
         url(${Roboto}) format('truetype');
         font-weight: 300;
-        font-style: normal;
+        font-style: normal; 
     }
 `;
