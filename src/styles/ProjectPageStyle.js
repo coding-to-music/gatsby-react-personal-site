@@ -15,6 +15,10 @@ export const ProjectPageContent = styled.div`
   margin: 0 auto;
 
   padding-top: 20rem;
+
+  @media only screen and (max-width: 56.25em) {
+    @content;
+  }
 `;
 
 // NOTE: ProjectPageOverview
@@ -22,12 +26,16 @@ export const ProjectPageContent = styled.div`
 export const ProjectPageOverview = styled.div`
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
+  align-items: center;
 
   padding-bottom: 5rem;
   margin-bottom: 8rem;
 
   border-bottom: 2px solid #190e42;
+
+  @media only screen and (max-width: 65em) {
+    flex-direction: column;
+  }
 
   .projectPage-overview-content {
     display: flex;
@@ -39,7 +47,18 @@ export const ProjectPageOverview = styled.div`
 
     font-size: 3rem;
 
+    @media only screen and (max-width: 65em) {
+      align-items: center;
+
+      width: 100%;
+      max-width: 80rem;
+      margin-bottom: 5rem;
+      padding: 0;
+    }
+
     h1 {
+      margin-bottom: 2rem;
+
       font-size: 4rem;
       font-family: Manrope;
       font-weight: 600;
@@ -47,6 +66,8 @@ export const ProjectPageOverview = styled.div`
     }
 
     p {
+      margin-bottom: 2rem;
+
       font-size: 2rem;
       font-family: PoppinsRegular;
       font-weight: 400;
@@ -60,6 +81,8 @@ export const ProjectPageOverview = styled.div`
 
       display: flex;
       align-items: center;
+
+      margin-bottom: 2rem;
 
       #WebGL {
         svg {
@@ -84,6 +107,8 @@ export const ProjectPageOverview = styled.div`
 
     & > div:nth-of-type(2) {
       display: flex;
+
+      margin-bottom: 2rem;
 
       span {
         display: inline-block;
@@ -111,6 +136,13 @@ export const ProjectPageImage = styled(GatsbyImage)`
   object-fit: contain;
 
   border-radius: 1rem;
+
+  @media only screen and (max-width: 65em) {
+    align-items: center;
+    width: 100%;
+    max-width: 80rem;
+    /* margin-bottom: 5rem; */
+  }
 `;
 
 export const ProjectPageMore = styled.a`
@@ -146,10 +178,22 @@ export const ProjectPageStory = styled.div`
 
   border-bottom: 2px solid #190e42;
 
+  @media only screen and (max-width: 65em) {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
   & > div:first-of-type {
     display: block;
 
     width: 60%;
+
+    @media only screen and (max-width: 65em) {
+      width: 100%;
+      max-width: 80rem;
+      margin-bottom: 8rem;
+    }
 
     h1 {
       margin-bottom: 2rem;
@@ -195,6 +239,17 @@ export const ProjectPageStory = styled.div`
 
     width: 25%;
 
+    @media only screen and (max-width: 65em) {
+      position: static;
+      top: 0;
+
+      align-items: center;
+
+      width: 100%;
+      max-width: 28rem;
+      margin-bottom: 10rem;
+    }
+
     h1 {
       margin-bottom: 1rem;
 
@@ -225,6 +280,11 @@ export const ProjectPageStory = styled.div`
       justify-content: space-between;
 
       width: 60%;
+
+      @media only screen and (max-width: 65em) {
+        width: 90%;
+      }
+
       a {
         text-decoration: none;
 

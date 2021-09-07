@@ -10,7 +10,7 @@ import moment from "moment";
 
 import Loading from "../components/loading/Loading";
 import NavBar from "../components/navBar/NavBar";
-import ContentfulAbout from "../data/ContentfulAbout";
+import ContentfulAbout from "../components/ContentfulAbout";
 import Projects from "../components/projects/Projects";
 
 import {
