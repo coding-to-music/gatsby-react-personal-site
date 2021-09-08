@@ -5,6 +5,7 @@ import { LoadingScreen, Loader } from "./LoadingStyle";
 
 const Loading = ({ timeLoad }) => {
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const timeOut = setTimeout(() => {
       setIsLoading(false);
@@ -13,6 +14,9 @@ const Loading = ({ timeLoad }) => {
       clearTimeout(timeOut);
     };
   }, []);
+
+  console.log("test");
+
   return (
     <>
       {isLoading && (

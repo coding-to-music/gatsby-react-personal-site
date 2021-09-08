@@ -1,4 +1,11 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+const fadeVertically = keyframes`
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+`;
 
 export const AboutSection = styled.section`
   padding: 8rem 0;
@@ -7,6 +14,8 @@ export const AboutSection = styled.section`
     var(--color-blue-dark),
     var(--color-blue-darker) 50%
   );
+
+  overflow: hidden;
 `;
 
 export const AboutContainer = styled.article`
@@ -32,6 +41,13 @@ export const AboutContainer = styled.article`
       width: 92vw;
     }
 
+    h1,
+    h3,
+    p {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
     h1 {
       position: relative;
 
@@ -40,6 +56,13 @@ export const AboutContainer = styled.article`
       font-size: 4rem;
       font-family: Manrope;
       text-align: center;
+
+      ${(props) =>
+        props.animateText &&
+        css`
+          animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 1
+            forwards;
+        `};
 
       &:after {
         content: "";
@@ -57,6 +80,13 @@ export const AboutContainer = styled.article`
       }
     }
     h3 {
+      ${(props) =>
+        props.animateText &&
+        css`
+          animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 0.4s 1
+            forwards;
+        `};
+
       margin-bottom: 4rem;
 
       font-size: 2.7rem;
@@ -65,6 +95,13 @@ export const AboutContainer = styled.article`
       text-align: center;
     }
     p {
+      ${(props) =>
+        props.animateText &&
+        css`
+          animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 0.7s 1
+            forwards;
+        `};
+
       font-size: 1.8rem;
       font-family: ManropeLight;
       font-weight: 100;
@@ -80,6 +117,15 @@ export const AboutContainer = styled.article`
 
     align-items: center;
     h1 {
+      opacity: 0;
+      transform: translateY(100%);
+      ${(props) =>
+        props.animateStacks &&
+        css`
+          animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 0.1s 1
+            forwards;
+        `};
+
       margin: 3.5rem 0;
 
       font-size: 4rem;
@@ -96,6 +142,26 @@ export const SkillBox = styled.div`
   flex-wrap: wrap;
 
   gap: 2rem;
+
+  opacity: 0;
+  transform: translateY(100%);
+
+  &:first-of-type {
+    ${(props) =>
+      props.animateStacks &&
+      css`
+        animation: ${fadeVertically} 0.75s cubic-bezier(0.5, 0, 0, 1) 0.3s 1
+          forwards;
+      `};
+  }
+  &:nth-of-type(2) {
+    ${(props) =>
+      props.animateStacks &&
+      css`
+        animation: ${fadeVertically} 0.75s cubic-bezier(0.5, 0, 0, 1) 0.65s 1
+          forwards;
+      `};
+  }
 
   div {
     display: flex;

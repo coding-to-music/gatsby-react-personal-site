@@ -24,6 +24,8 @@ export const LoadingScreen = styled.section`
   opacity: 1;
   transition: 1s opacity;
 
+  opacity: 1;
+
   &.fade-out {
     opacity: 0;
   }

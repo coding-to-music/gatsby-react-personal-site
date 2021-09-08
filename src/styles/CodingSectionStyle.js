@@ -1,13 +1,21 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 import DashboardSvg from "../assets/svgs/dashboard.svg";
+
+const fadeVertically = keyframes`
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+`;
 
 export const CodingSection = styled.section`
   position: relative;
   z-index: 10;
 
   background-color: var(--color-grey-main);
+  overflow: hidden;
 `;
 
 export const CodingContainer = styled.article`
@@ -15,6 +23,14 @@ export const CodingContainer = styled.article`
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+
+  opacity: 0;
+  transform: translateY(100%);
+  ${(props) =>
+    props.animateText &&
+    css`
+      animation: ${fadeVertically} 0.6s ease-out 1 forwards;
+    `};
 
   max-width: 150rem;
   width: 95vw;
@@ -59,6 +75,13 @@ export const DeviceContainer = styled.article`
 
     width: 25%;
 
+    transform: translateY(100%);
+    ${(props) =>
+      props.animatePhone &&
+      css`
+        animation: ${fadeVertically} 0.6s ease-out 1 forwards;
+      `};
+
     @media only screen and (max-width: 56.25em) {
       width: 50%;
       margin-bottom: 5rem;
@@ -79,22 +102,32 @@ export const DeviceContainer = styled.article`
       border-radius: 2.8rem;
     }
   }
+
+  & > div:nth-of-type(2) {
+    width: 65%;
+    height: max-content;
+
+    opacity: 0;
+    transform: translateY(100%);
+    ${(props) =>
+      props.animateDash &&
+      css`
+        animation: ${fadeVertically} 0.6s ease-out 1 forwards;
+      `};
+
+    @media only screen and (max-width: 56.25em) {
+      width: 100%;
+    }
+  }
 `;
-export const PCImage = styled(GatsbyImage)`
-  position: relative;
-  width: 70%;
-`;
+
 export const PhoneImage = styled(GatsbyImage)`
   width: 100%;
 `;
 
 export const DashSvg = styled(DashboardSvg)`
-  width: 65%;
+  width: 100%;
   height: max-content;
-
-  @media only screen and (max-width: 56.25em) {
-    width: 100%;
-  }
 `;
 
 export const CodingBtn = styled.button.attrs({

@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import StandSvg from "../assets/svgs/stand.svg";
 
 // TODO: Find a way to not use static folder for backimg svgs
-const HHeroGlow = require("../../static/hero-glow.svg").default;
+const HeroGlow = require("../../static/hero-glow.svg").default;
 
 const updown = keyframes`
     from {
@@ -12,7 +12,13 @@ const updown = keyframes`
     }to {
         transform: translateY(-10px);
     }
+`;
 
+const fadeVertically = keyframes`
+to {
+    opacity: 1;
+    transform: translateX(0);
+}
 `;
 
 export const Header = styled.header`
@@ -20,7 +26,7 @@ export const Header = styled.header`
 
   display: block;
   /* height: 95vh; */
-  background-image: url("${HHeroGlow}"),
+  background-image: url("${HeroGlow}"),
     linear-gradient(
       to left bottom,
       var(--color-blue-dark),
@@ -64,6 +70,12 @@ export const HeroArticle = styled.article`
     }
 
     h1 {
+      transition: all 1s;
+      opacity: 0;
+      transform: translateY(150%);
+
+      animation: ${fadeVertically} 0.7s ease-out 0.1s 1 forwards;
+
       margin-bottom: 1rem;
 
       font-size: 7.5rem;
@@ -82,6 +94,12 @@ export const HeroArticle = styled.article`
     }
 
     h3 {
+      transition: all 1s;
+      opacity: 0;
+      transform: translateY(50%);
+
+      animation: ${fadeVertically} 0.7s ease-out 0.4s 1 forwards;
+
       font-size: 2.4rem;
       font-family: ManropeLight;
       font-weight: 400;
@@ -101,16 +119,13 @@ export const GlobeContainer = styled.div`
   justify-content: center;
 
   width: 65rem !important;
-  /* margin-left: auto; */
-
-  /* overflow: hidden; */
 `;
 
 export const GlobeCanvas = styled.canvas`
   display: block;
+
   width: 130rem !important;
   height: auto !important;
-  /* height: 65.61rem !important; */
 `;
 
 export const UFOImage = styled(GatsbyImage)`

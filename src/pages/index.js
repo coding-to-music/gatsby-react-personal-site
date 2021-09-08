@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import loadable from "@loadable/component";
 
 import { useStaticQuery, graphql } from "gatsby";
@@ -45,6 +45,7 @@ import { ContactSection } from "../styles/ContactSectionStyle";
 
 import skills from "../constants/skills";
 import basics from "../constants/basics";
+import onScreenIntersection from "../utils/onScreenIntersection";
 
 const HomeGlobe = loadable(() => import("../components/HomeGlobe"));
 
@@ -80,23 +81,69 @@ export default function Index() {
   const phoneMockupImage = getImage(phoneMockupImageData);
   const ufoImage = getImage(UfoImageData);
 
+  // Gatsby Link component retaining scroll position and not resetting to top
+  useEffect(() => window.scrollTo(0, 0), []);
+
+  const loadTime = 600;
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadTimeout = setTimeout(() => {
+      setIsLoaded(true);
+    }, loadTime);
+    return () => {
+      clearTimeout(loadTimeout);
+    };
+  }, []);
+
+  ////////////////////////////////
+  // NOTE: SCROLL ANIMATIONS
+  ////////////////////////////////
+
+  // Code Section
+  const codeContainerRef = useRef();
+  const codePhoneRef = useRef();
+  const codeDashRef = useRef();
+
+  const codeContainerView = onScreenIntersection(
+    codeContainerRef,
+    -150,
+    true,
+    10
+  );
+  const codePhoneView = onScreenIntersection(codePhoneRef, -100, true, 10);
+  const codeDashView = onScreenIntersection(codeDashRef, -100, true, 10);
+
+  // About Section
+  const aboutTextRef = useRef();
+  const aboutStacksRef = useRef();
+
+  const aboutTextView = onScreenIntersection(aboutTextRef, -150, false, 10);
+  const aboutStacksView = onScreenIntersection(aboutStacksRef, -150, false, 10);
+
+  // About Section
+  const projectTextRef = useRef();
+  const projectTextView = onScreenIntersection(projectTextRef, -150, false, 10);
+
   return (
     <>
-      {/* <Loading timeLoad={500} /> */}
+      <Loading timeLoad={loadTime} />
       <HomeGlobe />
+
       <div>
         <Header>
-          <NavBar navColor="white" />
+          {isLoaded && <NavBar navColor="white" />}
           <HeroArticle>
-            <div>
-              <h1>Hello, I'm Ilias. An aspiring software developer.</h1>
-              <h3>
-                I'm just a guy that enjoys programming daily and building cool
-                stuff — Front-end design and solving problems are my favourite
-                part. My goal is to always stand out.
-              </h3>
-            </div>
-
+            {isLoaded && (
+              <div>
+                <h1>Hello, I'm Ilias. An aspiring software developer.</h1>
+                <h3>
+                  I'm just a guy that enjoys programming daily and building cool
+                  stuff — Front-end design and solving problems are my favourite
+                  part. My goal is to always stand out.
+                </h3>
+              </div>
+            )}
             <GlobeContainer>
               <GlobeCanvas id="globe_canvas" />
             </GlobeContainer>
@@ -104,27 +151,39 @@ export default function Index() {
           <UFOImage image={ufoImage} alt="Ufo" />
           <Stand />
         </Header>
+
         <main>
           <CodingSection>
-            <CodingContainer>
+            <CodingContainer
+              ref={codeContainerRef}
+              animateText={codeContainerView}
+            >
               <h1>Always coding and working on new projects</h1>
               <CodingBtn>About me</CodingBtn>
-              <DeviceContainer>
-                <div>
+              <DeviceContainer
+                animatePhone={codePhoneView}
+                animateDash={codeDashView}
+              >
+                <div ref={codePhoneRef}>
                   <PhoneImage image={phoneMockupImage} alt="Phone" />
 
                   <video playsInline muted loop autoPlay preload="none">
                     <source src={CodeGitVideo} type="video/mp4" />
                   </video>
                 </div>
-                <DashSvg />
+                <div ref={codeDashRef}>
+                  <DashSvg />
+                </div>
               </DeviceContainer>
             </CodingContainer>
           </CodingSection>
 
           <AboutSection>
-            <AboutContainer>
-              <div>
+            <AboutContainer
+              animateText={aboutTextView}
+              animateStacks={aboutStacksView}
+            >
+              <div ref={aboutTextRef}>
                 <h1>Ilias Allek</h1>
                 <h3>Aspiring Software Developer</h3>
                 <p>
@@ -139,9 +198,9 @@ export default function Index() {
                   exercice and hang out with friends.
                 </p>
               </div>
-              <div>
+              <div ref={aboutStacksRef}>
                 <h1>Skills</h1>
-                <SkillBox>
+                <SkillBox animateStacks={aboutStacksView}>
                   {skills.map((skill) => {
                     return (
                       <div key={skill.id}>
@@ -152,7 +211,7 @@ export default function Index() {
                   })}
                 </SkillBox>
                 <h1>Basics</h1>
-                <SkillBox>
+                <SkillBox animateStacks={aboutStacksView}>
                   {basics.map((basic) => {
                     return (
                       <div key={basic.id}>
@@ -167,8 +226,8 @@ export default function Index() {
           </AboutSection>
 
           <ProjectSection>
-            <ProjectContainer>
-              <h1>Recent Projects</h1>
+            <ProjectContainer animateText={projectTextView}>
+              <h1 ref={projectTextRef}>Recent Projects</h1>
               <Projects />
             </ProjectContainer>
           </ProjectSection>

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import ThreeGlobe from "three-globe";
 import {
   WebGLRenderer,
@@ -47,8 +47,6 @@ export function init() {
 
   const width = "1300";
   const height = "656.1";
-
-  console.log(canvRef);
 
   renderer.setClearColor(0x000000, 0);
   // renderer.outputEncoding = THREE.sRGBEncoding;
@@ -195,8 +193,6 @@ export const HomeGlobe = () => {
   initGlobe();
   onWindowResize();
   animate();
-
-  console.log("code");
 
   return null;
 };

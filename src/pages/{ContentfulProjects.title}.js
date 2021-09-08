@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 //NOTE: https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/
 
-import React from "react";
+import React, { useEffect } from "react";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import slugify from "slugify";
@@ -82,6 +82,8 @@ const ProjectTemplate = (props) => {
   const projectUsed = used && used.used.split("\n");
   const projectLesson = lesson && lesson.lesson.split("\n");
   const projectConclusion = conclusion && conclusion.conclusion.split("\n");
+
+  useEffect(() => window.scrollTo(0, 0), []);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import slugify from "slugify";
@@ -14,6 +14,7 @@ import {
 } from "./ProjectsStyle";
 
 import stacks from "../../constants/stacks";
+import onScreenIntersection from "../../utils/onScreenIntersection";
 
 const query = graphql`
   {
@@ -55,12 +56,21 @@ const Projects = ({ ignoreProject }) => {
         } = project;
         const projectThumbnail = getImage(gatsbyImageData);
         if (title !== ignoreProject) {
+          const projectRef = useRef();
+          const projectView = onScreenIntersection(projectRef, -150, true, 10);
           return (
-            <ProjectBox key={project.id}>
-              <ProjectImage
-                image={projectThumbnail}
-                alt={`${project.title} thumbnail`}
-              />
+            <ProjectBox
+              key={project.id}
+              ref={projectRef}
+              animateProject={projectView}
+            >
+              <div>
+                <ProjectImage
+                  image={projectThumbnail}
+                  alt={`${project.title} thumbnail`}
+                />
+              </div>
+
               <ProjectContent>
                 <div>
                   <h2>{project.title}</h2>

@@ -1,6 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
+
+import { fadeVertically } from "../../abstracts/animations";
 
 export const ProjectLink = styled(Link)`
   background-color: transparent;
@@ -18,6 +20,13 @@ export const ProjectBox = styled.div`
   justify-content: space-between;
 
   transition: all ease 0.4s;
+  opacity: 0;
+  transform: translateY(100%);
+  ${(props) =>
+    props.animateProject &&
+    css`
+      animation: ${fadeVertically} 0.6s ease-out 1 forwards;
+    `};
 
   box-shadow: var(--shadow-light);
 
@@ -28,23 +37,31 @@ export const ProjectBox = styled.div`
     margin-bottom: 10rem;
   }
 
-  &:hover {
-    transform: scale(1.02);
-  }
-
   @media only screen and (max-width: 65em) {
     display: flex;
     flex-direction: column;
   }
+
+  & > div:first-of-type {
+    width: 48%;
+    height: max-content;
+    object-fit: contain;
+
+    overflow: hidden;
+
+    @media only screen and (max-width: 65em) {
+      width: 100%;
+    }
+  }
 `;
 
 export const ProjectImage = styled(GatsbyImage)`
-  width: 48%;
-  height: max-content;
-  object-fit: contain;
+  transition: all ease 0.4s;
 
-  @media only screen and (max-width: 65em) {
-    width: 100%;
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(1.1);
   }
 `;
 
@@ -58,6 +75,8 @@ export const ProjectContent = styled.article`
   padding: 0 4rem;
 
   font-size: 3rem;
+
+  overflow: hidden;
 
   @media only screen and (max-width: 65em) {
     width: 100%;
