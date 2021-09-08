@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { GatsbyImage } from "gatsby-plugin-image";
+import { fadeVertically } from "../abstracts/animations";
 
 export const ProjectPage = styled.div`
   height: 100%;
@@ -56,7 +57,18 @@ export const ProjectPageOverview = styled.div`
       padding: 0;
     }
 
+    h1,
+    p,
+    & > div {
+      transition: all ease 0.4s;
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
     h1 {
+      animation: ${fadeVertically} 0.75s cubic-bezier(0.5, 0, 0, 1) 0.1s
+        forwards;
+
       margin-bottom: 2rem;
 
       font-size: 4rem;
@@ -66,6 +78,9 @@ export const ProjectPageOverview = styled.div`
     }
 
     p {
+      animation: ${fadeVertically} 0.75s cubic-bezier(0.5, 0, 0, 1) 0.2s
+        forwards;
+
       margin-bottom: 2rem;
 
       font-size: 2rem;
@@ -79,8 +94,8 @@ export const ProjectPageOverview = styled.div`
       display: flex;
       align-items: center;
 
-      display: flex;
-      align-items: center;
+      animation: ${fadeVertically} 0.75s cubic-bezier(0.5, 0, 0, 1) 0.8s
+        forwards;
 
       margin-bottom: 2rem;
 
@@ -107,6 +122,9 @@ export const ProjectPageOverview = styled.div`
 
     & > div:nth-of-type(2) {
       display: flex;
+
+      animation: ${fadeVertically} 0.75s cubic-bezier(0.5, 0, 0, 1) 0.8s
+        forwards;
 
       margin-bottom: 2rem;
 
@@ -135,6 +153,12 @@ export const ProjectPageImage = styled(GatsbyImage)`
   height: max-content;
   object-fit: contain;
 
+  transition: all ease 0.2s;
+  opacity: 0;
+  transform: translateY(5px);
+
+  animation: ${fadeVertically} 0.75s cubic-bezier(0.5, 0, 0, 1) 0.8s forwards;
+
   border-radius: 1rem;
 
   @media only screen and (max-width: 65em) {
@@ -146,7 +170,11 @@ export const ProjectPageImage = styled(GatsbyImage)`
 `;
 
 export const ProjectPageMore = styled.a`
-  transition: all 0.2s;
+  transition: all ease 0.2s;
+  opacity: 0;
+  transform: translateY(100%);
+
+  animation: ${fadeVertically} 0.75s cubic-bezier(0.5, 0, 0, 1) 0.8s forwards;
 
   width: max-content;
 

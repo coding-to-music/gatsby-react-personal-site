@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 //NOTE: https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import slugify from "slugify";
@@ -26,6 +26,7 @@ import {
 
 import stacks from "../constants/stacks";
 import socials from "../constants/socials";
+import onScreenIntersection from "../utils/onScreenIntersection";
 
 export const query = graphql`
   query getSingleProject($id: String) {
@@ -85,111 +86,142 @@ const ProjectTemplate = (props) => {
 
   useEffect(() => window.scrollTo(0, 0), []);
 
+  const loadTime = 500;
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadTimeout = setTimeout(() => {
+      setIsLoaded(true);
+    }, loadTime);
+    return () => {
+      clearTimeout(loadTimeout);
+    };
+  }, []);
+
+  ////////////////////////////////
+  // NOTE: SCROLL ANIMATIONS
+  ////////////////////////////////
+
+  const projectOverviewRef = useRef();
+  const projectOverviewView = onScreenIntersection(
+    projectOverviewRef,
+    -150,
+    true,
+    10
+  );
+
   return (
     <>
-      <Loading timeLoad={500} />
-      <NavBar navColor="#102a42" />
-      <ProjectPage>
-        <ProjectPageContent>
-          <ProjectPageOverview>
-            <article className="projectPage-overview-content">
-              <h1>{projectName}</h1>
-              <p>{projectDescription}</p>
-              <div>
-                {projectStacks.map((stack) => {
-                  return (
-                    <span key={stack} id={stack}>
-                      {
-                        stacks.find(
-                          (stackObject) => stackObject.title === stack
-                        ).icon
-                      }
-                    </span>
-                  );
-                })}
-              </div>
-              <div>
-                {projectTags.map((tag) => {
-                  return <span key={tag}>{tag}</span>;
-                })}
-              </div>
-              <ProjectPageMore href={slugify(projectName, { lower: true })}>
-                View the site
-              </ProjectPageMore>
-            </article>
-            <ProjectPageImage
-              image={projectThumbnail}
-              alt={`${projectName} thumbnail`}
-            />
-          </ProjectPageOverview>
+      <Loading timeLoad={loadTime} />
+      {isLoaded && (
+        <>
+          <NavBar navColor="#102a42" />
+          <ProjectPage>
+            <ProjectPageContent>
+              <ProjectPageOverview
+                ref={projectOverviewRef}
+                animateOverview={projectOverviewView}
+              >
+                <article className="projectPage-overview-content">
+                  <h1>{projectName}</h1>
+                  <p>{projectDescription}</p>
+                  <div>
+                    {projectStacks.map((stack) => {
+                      return (
+                        <span key={stack} id={stack}>
+                          {
+                            stacks.find(
+                              (stackObject) => stackObject.title === stack
+                            ).icon
+                          }
+                        </span>
+                      );
+                    })}
+                  </div>
+                  <div>
+                    {projectTags.map((tag) => {
+                      return <span key={tag}>{tag}</span>;
+                    })}
+                  </div>
+                  <ProjectPageMore href={slugify(projectName, { lower: true })}>
+                    View the site
+                  </ProjectPageMore>
+                </article>
+                <ProjectPageImage
+                  image={projectThumbnail}
+                  alt={`${projectName} thumbnail`}
+                />
+              </ProjectPageOverview>
 
-          <ProjectPageStory>
-            <div>
-              <h1>What I made 💁‍♂️</h1>
-              <p>{projectResume && projectResume.resume}</p>
-              <h1>What I used 🔷</h1>
-              <div className="projectPage-used">
-                {projectUsed &&
-                  projectUsed.map((el, idx) => {
-                    if (idx % 2 === 0) {
-                      return <h3 key={el}>{el}</h3>;
-                    }
-                    return <p key={el}>{el}</p>;
-                  })}
-              </div>
-              <h1>About this production 🥳</h1>
-              <div>
-                <ContentfulAbout title={projectName} />
-              </div>
-              <h1>What I learned ✅</h1>
-              <div className="projectPage-lesson">
-                {projectLesson &&
-                  projectLesson.map((el, idx) => {
-                    if (idx % 2 === 0) {
-                      return <p key={el}>{el}</p>;
-                    }
-                    return null;
-                  })}
-              </div>
-              <h1>Finally 😎</h1>
-              <div className="projectPage-conclusion">
-                {projectConclusion &&
-                  projectConclusion.map((el, idx) => {
-                    if (idx % 2 === 0) {
-                      return <p key={el}>{el}</p>;
-                    }
-                    return null;
-                  })}
-              </div>
-            </div>
+              <ProjectPageStory>
+                <div>
+                  <h1>What I made 💁‍♂️</h1>
+                  <p>{projectResume && projectResume.resume}</p>
+                  <h1>What I used 🔷</h1>
+                  <div className="projectPage-used">
+                    {projectUsed &&
+                      projectUsed.map((el, idx) => {
+                        if (idx % 2 === 0) {
+                          return <h3 key={el}>{el}</h3>;
+                        }
+                        return <p key={el}>{el}</p>;
+                      })}
+                  </div>
+                  <h1>About this production 🥳</h1>
+                  <div>
+                    <ContentfulAbout title={projectName} />
+                  </div>
+                  <h1>What I learned ✅</h1>
+                  <div className="projectPage-lesson">
+                    {projectLesson &&
+                      projectLesson.map((el, idx) => {
+                        if (idx % 2 === 0) {
+                          return <p key={el}>{el}</p>;
+                        }
+                        return null;
+                      })}
+                  </div>
+                  <h1>Finally 😎</h1>
+                  <div className="projectPage-conclusion">
+                    {projectConclusion &&
+                      projectConclusion.map((el, idx) => {
+                        if (idx % 2 === 0) {
+                          return <p key={el}>{el}</p>;
+                        }
+                        return null;
+                      })}
+                  </div>
+                </div>
 
-            <div>
-              <h1>{projectName}</h1>
-              <span>{moment().format("MMM Do, YYYY")}</span>
-              <ProjectPageBtn>View the site</ProjectPageBtn>
-              <ProjectPageBtn>Github</ProjectPageBtn>
-              <h2>Share</h2>
-              <h3>If you like this work, please share.</h3>
-              <ul>
-                {socials.map((social) => (
-                  <a
-                    key={social.id}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </ul>
-            </div>
-          </ProjectPageStory>
-          <ProjectPageOthers>
-            <h1>Other Works</h1>
-            <Projects ignoreProject={projectName} />
-          </ProjectPageOthers>
-        </ProjectPageContent>
-      </ProjectPage>
+                <div>
+                  <h1>{projectName}</h1>
+                  <span>{moment().format("MMM Do, YYYY")}</span>
+                  <ProjectPageBtn>View the site</ProjectPageBtn>
+                  <ProjectPageBtn>Github</ProjectPageBtn>
+                  <h2>Share</h2>
+                  <h3>If you like this work, please share.</h3>
+                  <ul>
+                    {socials.map((social) => (
+                      <a
+                        key={social.id}
+                        href={social.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {social.icon}
+                      </a>
+                    ))}
+                  </ul>
+                </div>
+              </ProjectPageStory>
+              <ProjectPageOthers>
+                <h1>Other Works</h1>
+                <Projects ignoreProject={projectName} />
+              </ProjectPageOthers>
+            </ProjectPageContent>
+          </ProjectPage>
+        </>
+      )}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import {
   ContactContainer,
@@ -10,6 +10,8 @@ import {
   EmailSvg,
   MessageAreaSvg,
 } from "./ContactStyle";
+
+import onScreenIntersection from "../../utils/onScreenIntersection";
 
 const Contact = () => {
   const [isNameValid, setIsNameValid] = useState(false);
@@ -30,9 +32,16 @@ const Contact = () => {
       setIsEmailValid(false);
     }
   };
+
+  const contactTextRef = useRef();
+  const contactView = onScreenIntersection(contactTextRef, -150, false, 10);
+
+  const contactFormRef = useRef();
+  const contactFormView = onScreenIntersection(contactFormRef, -150, false, 10);
+
   return (
-    <ContactContainer>
-      <div>
+    <ContactContainer animateText={contactView}>
+      <div ref={contactTextRef}>
         <h2>
           Contact details<span>:</span>
         </h2>
@@ -40,12 +49,22 @@ const Contact = () => {
         <h1>
           For employer<span>:</span>
         </h1>
-        <ContactBtn style={{ alignSelf: "flex-start" }}>DOWNLOAD CV</ContactBtn>
+        <ContactBtn
+          animateBtn={contactView}
+          style={{ alignSelf: "flex-start" }}
+        >
+          DOWNLOAD CV
+        </ContactBtn>
       </div>
       <div>
         <h1>Say Hello</h1>
         <div>
-          <ContactForm action="https://formspree.io/f/xvoddwlj" method="POST">
+          <ContactForm
+            ref={contactFormRef}
+            animateForm={contactFormView}
+            action="https://formspree.io/f/xvoddwlj"
+            method="POST"
+          >
             <div>
               <div>
                 <ContactInput
