@@ -109,21 +109,21 @@ export default function Index() {
     codeContainerRef,
     -150,
     true,
-    10
+    1
   );
-  const codePhoneView = onScreenIntersection(codePhoneRef, -100, true, 10);
-  const codeDashView = onScreenIntersection(codeDashRef, -100, true, 10);
+  const codePhoneView = onScreenIntersection(codePhoneRef, -100, true, 1);
+  const codeDashView = onScreenIntersection(codeDashRef, -100, true, 1);
 
   // About Section
   const aboutTextRef = useRef();
   const aboutStacksRef = useRef();
 
-  const aboutTextView = onScreenIntersection(aboutTextRef, -150, false, 10);
-  const aboutStacksView = onScreenIntersection(aboutStacksRef, -150, false, 10);
+  const aboutTextView = onScreenIntersection(aboutTextRef, -150, false, 1);
+  const aboutStacksView = onScreenIntersection(aboutStacksRef, -150, false, 1);
 
   // About Section
   const projectTextRef = useRef();
-  const projectTextView = onScreenIntersection(projectTextRef, -150, false, 10);
+  const projectTextView = onScreenIntersection(projectTextRef, -150, false, 1);
 
   return (
     <>

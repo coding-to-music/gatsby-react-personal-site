@@ -145,7 +145,7 @@ export const ContactForm = styled.form`
     & > div {
       transition: all ease 0.4s;
       opacity: 0;
-      transform: translateY(100%);
+      transform: translateY(200%);
       ${(props) =>
         props.animateForm &&
         css`

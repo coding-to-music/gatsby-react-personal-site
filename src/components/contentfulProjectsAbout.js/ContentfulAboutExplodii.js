@@ -36,6 +36,10 @@ const Container = styled.div`
 const AboutImage = styled(GatsbyImage)`
   width: 120%;
   margin-top: 8rem;
+
+  @media only screen and (max-width: 65em) {
+    width: 100%;
+  }
 `;
 
 export const query = graphql`

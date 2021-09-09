@@ -107,7 +107,7 @@ export const DeviceContainer = styled.article`
     width: 65%;
     height: max-content;
 
-    opacity: 0;
+    opacity: 1;
     transform: translateY(100%);
     ${(props) =>
       props.animateDash &&

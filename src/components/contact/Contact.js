@@ -47,7 +47,7 @@ const Contact = () => {
         </h2>
         <h3>iliasallek.aek@gmail.com</h3>
         <h1>
-          For employer<span>:</span>
+          For employers<span>:</span>
         </h1>
         <ContactBtn
           animateBtn={contactView}
