@@ -242,7 +242,7 @@ export const ContactBtn = styled.button`
   ${(props) =>
     props.animateBtn &&
     css`
-      animation: ${fadeVertically} 0.6s ease-out 0.4s 1 forwards;
+      animation: ${fadeVertically} 0.6s ease-out 0.5s 1 forwards;
     `};
 
   box-shadow: rgb(8 84 207 / 60%) 0px 0.65rem 1.6rem 0px;

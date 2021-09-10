@@ -111,7 +111,9 @@ const Contact = () => {
               />
               <MessageAreaSvg isvalid={isTextValid ? 1 : 0} />
             </div>
-            <ContactBtn type="submit">SUBMIT</ContactBtn>
+            <ContactBtn type="submit" animateBtn={contactFormView}>
+              SUBMIT
+            </ContactBtn>
           </ContactForm>
         </div>
       </div>

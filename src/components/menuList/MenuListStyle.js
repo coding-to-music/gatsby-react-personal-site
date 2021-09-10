@@ -1,5 +1,4 @@
 import styled, { css, keyframes } from "styled-components";
-import { Link } from "gatsby";
 
 export const FixedBox = styled.aside`
   position: fixed;
