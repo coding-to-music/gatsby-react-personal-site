@@ -131,7 +131,7 @@ export default function Index() {
   return (
     <>
       <Seo title="Home" />
-      <HomeGlobe shouldReRender={shouldReRender} />
+      {!shouldReRender && <HomeGlobe shouldReRender={shouldReRender} />}
       <Loading timeLoad={loadTime} />
 
       <div>
@@ -148,11 +148,10 @@ export default function Index() {
                 </h3>
               </div>
             )}
-            {!shouldReRender && (
-              <GlobeContainer>
-                <GlobeCanvas id="globe_canvas" />
-              </GlobeContainer>
-            )}
+
+            <GlobeContainer>
+              <GlobeCanvas id="globe_canvas" />
+            </GlobeContainer>
           </HeroArticle>
           <UFOImage image={ufoImage} alt="Ufo" />
           <Stand />
