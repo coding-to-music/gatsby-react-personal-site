@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 
-import MenuList from "../temp/MenuList";
+import MenuList from "../menuList/MenuList";
 import { MenuBox, NavContainer, Nav, CloseMenu } from "./NavBarStyle";
 
 const NavBar = ({ navColor }) => {
