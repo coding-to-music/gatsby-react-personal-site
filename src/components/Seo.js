@@ -1,3 +1,5 @@
+// NOTE: https://www.gatsbyjs.com/docs/add-seo-component#gatsby-skip-here
+
 import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
