@@ -85,7 +85,7 @@ export default function Index() {
   // Gatsby Link component retaining scroll position and not resetting to top
   useEffect(() => window.scrollTo(0, 0), []);
 
-  const loadTime = 1000;
+  const loadTime = 2000;
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
