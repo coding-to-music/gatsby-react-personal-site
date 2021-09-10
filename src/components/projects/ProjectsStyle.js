@@ -114,8 +114,7 @@ export const ProjectContent = styled.article`
       margin-right: 1rem;
 
       font-size: 3rem;
-      font-family: ManropeLight;
-      font-weight: 600;
+      font-family: ManropeMedium;
       color: black;
     }
     div {
@@ -223,9 +222,8 @@ export const ProjectBtn = styled.button.attrs({
   /* background-color: rgba(25, 14, 66, 1); */
 
   color: black;
-  font-family: ManropeLight;
+  font-family: ManropeMedium;
   font-size: 1.8rem;
-  font-weight: 600;
   letter-spacing: 1px;
   white-space: nowrap;
 
@@ -252,9 +250,8 @@ export const ProjectMore = styled(Link)`
   border-bottom: 2px solid rgba(25, 14, 66, 1);
 
   color: rgba(25, 14, 66, 1);
-  font-family: ManropeLight;
+  font-family: ManropeMedium;
   font-size: 1.7rem;
-  font-weight: 600;
   line-height: 2.2rem;
   text-decoration: none;
 

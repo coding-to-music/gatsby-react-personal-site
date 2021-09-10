@@ -12,12 +12,11 @@ const Container = styled.div`
     margin-bottom: 3rem;
     li {
       list-style-position: inside;
-      text-indent: -2.45rem;
-      padding-left: 2rem;
+      text-indent: -2.85rem;
+      padding-left: 2.3rem;
 
-      font-size: 1.8rem;
-      font-family: PoppinsRegular;
-      font-weight: 600;
+      font-size: 2rem;
+      font-family: ManropeMedium;
       color: #555454;
 
       &:not(:last-child) {

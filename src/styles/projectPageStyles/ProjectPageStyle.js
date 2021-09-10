@@ -131,7 +131,9 @@ export const ProjectPageOverview = styled.div`
       span {
         display: inline-block;
 
-        margin-right: 1rem;
+        &:not(:last-of-type) {
+          margin-right: 1rem;
+        }
         padding: 0.4rem 0.8rem;
 
         background: #190e42;
@@ -181,9 +183,8 @@ export const ProjectPageMore = styled.a`
   border-bottom: 2px solid rgba(8, 84, 207, 1);
 
   color: rgba(8, 84, 207, 1);
-  font-family: ManropeLight;
+  font-family: ManropeMedium;
   font-size: 1.7rem;
-  font-weight: 600;
   line-height: 2.2rem;
   text-decoration: none;
 
@@ -227,7 +228,7 @@ export const ProjectPageStory = styled.div`
       margin-bottom: 2rem;
 
       font-size: 3.2rem;
-      font-family: ManropeLight;
+      font-family: ManropeMedium;
 
       &:not(:first-child) {
         margin-top: 8rem;
@@ -251,6 +252,7 @@ export const ProjectPageStory = styled.div`
 
     .projectPage-used {
       h3 {
+        font-family: ManropeMedium;
         font-size: 2.2rem;
       }
     }
@@ -282,7 +284,7 @@ export const ProjectPageStory = styled.div`
       margin-bottom: 1rem;
 
       font-size: 3.2rem;
-      font-family: ManropeLight;
+      font-family: ManropeMedium;
     }
 
     span {
@@ -295,7 +297,9 @@ export const ProjectPageStory = styled.div`
 
     h2 {
       margin-top: 2rem;
+
       font-size: 2.5rem;
+      font-family: ManropeMedium;
     }
     h3 {
       margin-bottom: 2rem;
@@ -341,6 +345,7 @@ export const ProjectPageOthers = styled.div`
     margin: 5rem 0;
 
     text-align: center;
+    font-family: ManropeMedium;
     font-size: 3.5rem;
   }
 `;
@@ -361,9 +366,8 @@ export const ProjectPageBtn = styled.button.attrs({
   /* background-color: rgba(25, 14, 66, 1); */
 
   color: black;
-  font-family: ManropeLight;
+  font-family: ManropeMedium;
   font-size: 1.8rem;
-  font-weight: 600;
   letter-spacing: 1px;
   white-space: nowrap;
 

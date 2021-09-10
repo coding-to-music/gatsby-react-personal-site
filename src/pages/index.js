@@ -129,8 +129,8 @@ export default function Index() {
   return (
     <>
       <Seo title="Home" />
-      <Loading timeLoad={loadTime} />
       <HomeGlobe />
+      <Loading timeLoad={loadTime} />
 
       <div>
         <Header>

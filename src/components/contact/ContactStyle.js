@@ -67,7 +67,7 @@ export const ContactContainer = styled.article`
       margin-bottom: 3.5rem;
 
       font-size: 2.6rem;
-      font-family: ManropeLight;
+      font-family: ManropeMedium;
       color: #2b2d42;
     }
 
@@ -149,7 +149,7 @@ export const ContactForm = styled.form`
       ${(props) =>
         props.animateForm &&
         css`
-          animation: ${fadeVertically} 0.6s ease-out 0.2s 1 forwards;
+          animation: ${fadeVertically} 0.6s linear 0.2s 1 forwards;
         `};
     }
 
@@ -165,7 +165,7 @@ export const ContactForm = styled.form`
     ${(props) =>
       props.animateForm &&
       css`
-        animation: ${fadeVertically} 0.6s ease-out 0.3s 1 forwards;
+        animation: ${fadeVertically} 0.6s linear 0.3s 1 forwards;
       `};
   }
 `;
@@ -253,10 +253,9 @@ export const ContactBtn = styled.button`
   background-color: rgba(8, 84, 207, 1);
 
   color: white;
-  font-family: ManropeLight;
+  font-family: ManropeMedium;
   font-display: fallback;
   font-size: 1.8rem;
-  font-weight: 600;
   letter-spacing: 1px;
   white-space: nowrap;
 
