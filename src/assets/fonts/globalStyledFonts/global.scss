@@ -7,6 +7,14 @@
 }
 
 @font-face {
+  font-family: "ManropeMedium";
+  src: local("ManropeMedium"),
+    url("../Manrope-VariableFont_wght.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "ManropeLight";
   src: local("ManropeLight"),
     url("../Manrope-VariableFont_wght.ttf") format("truetype");

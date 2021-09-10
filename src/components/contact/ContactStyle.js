@@ -27,7 +27,7 @@ export const ContactContainer = styled.article`
 
     @media only screen and (max-width: 59.5em) {
       align-items: center;
-      margin-bottom: 5rem;
+      margin-bottom: 10rem;
       width: 100%;
       button {
         align-self: center !important;

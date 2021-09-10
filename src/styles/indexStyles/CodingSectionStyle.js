@@ -145,9 +145,8 @@ export const CodingBtn = styled.button.attrs({
   background-color: rgba(8, 84, 207, 1);
 
   color: white;
-  font-family: ManropeLight;
+  font-family: ManropeMedium;
   font-size: 1.8rem;
-  font-weight: 600;
   letter-spacing: 1px;
   white-space: nowrap;
 
