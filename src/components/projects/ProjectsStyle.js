@@ -187,7 +187,7 @@ export const ProjectContent = styled.article`
         display: flex;
 
         &:not(:last-child) {
-          margin-right: 0.4rem;
+          margin-right: 0.8rem;
         }
 
         svg {

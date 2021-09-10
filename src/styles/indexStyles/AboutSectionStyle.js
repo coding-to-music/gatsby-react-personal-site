@@ -170,7 +170,7 @@ export const SkillBox = styled.div`
     align-items: center;
     flex-direction: column;
 
-    margin: 1rem 2rem;
+    margin: 1rem 2.5rem;
 
     svg {
       width: 5rem;
