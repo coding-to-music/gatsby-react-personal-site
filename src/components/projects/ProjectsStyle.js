@@ -174,7 +174,7 @@ export const ProjectContent = styled.article`
 
       flex-wrap: wrap;
       gap: 0.8rem;
-      grid-gap: 2rem;
+      grid-gap: 0.8rem;
 
       #WebGL {
         svg {
