@@ -38,7 +38,7 @@ const query = graphql`
   }
 `;
 
-const Projects = ({ ignoreProject }) => {
+const Projects = ({ ignoreProject, setShouldReRender }) => {
   const data = useStaticQuery(query);
 
   const {
@@ -100,6 +100,9 @@ const Projects = ({ ignoreProject }) => {
                     <ProjectBtn>Code</ProjectBtn>
                     <ProjectMore
                       to={`/${slugify(project.title, { lower: true })}`}
+                      onClick={() => {
+                        setShouldReRender(true);
+                      }}
                     >
                       More
                     </ProjectMore>
@@ -118,10 +121,12 @@ const Projects = ({ ignoreProject }) => {
 Projects.propTypes = {
   // Not render a certain project
   ignoreProject: PropTypes.string,
+  setShouldReRender: PropTypes.func,
 };
 
 Projects.defaultProps = {
   ignoreProject: "",
+  setShouldReRender: () => {},
 };
 
 export default Projects;

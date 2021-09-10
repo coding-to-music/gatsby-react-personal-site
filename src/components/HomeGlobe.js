@@ -189,28 +189,30 @@ export function animate() {
   requestAnimationFrame(animate);
 }
 
-export const HomeGlobe = ({ shouldRender }) => {
-  init();
-  initGlobe();
-  onWindowResize();
-  animate();
+export const HomeGlobe = ({ shouldReRender }) => {
+  console.log(shouldReRender);
+  if (!shouldReRender) {
+    init();
+    initGlobe();
+    onWindowResize();
+    animate();
+  }
 
   return null;
 };
 
 const areEqual = (prevProps, nextProps) => {
-  console.log(prevProps, nextProps);
-  if (prevProps === nextProps) {
-    return false;
+  if (prevProps.shouldReRender === nextProps.shouldReRender) {
+    return true;
   }
-  return true;
+  return false;
 };
 
 HomeGlobe.propTypes = {
-  shouldRender: PropTypes.bool,
+  shouldReRender: PropTypes.bool,
 };
 HomeGlobe.defaultProps = {
-  shouldRender: false,
+  shouldReRender: false,
 };
 
 export default React.memo(HomeGlobe, areEqual);

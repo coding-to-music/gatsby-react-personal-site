@@ -97,7 +97,7 @@ export default function Index() {
     };
   }, []);
 
-  const [shouldRender, setShouldRender] = useState(false);
+  const [shouldReRender, setShouldReRender] = useState(false);
 
   ////////////////////////////////
   // NOTE: SCROLL ANIMATIONS
@@ -131,7 +131,7 @@ export default function Index() {
   return (
     <>
       <Seo title="Home" />
-      <HomeGlobe shouldRender={shouldRender} />
+      <HomeGlobe shouldReRender={shouldReRender} />
       <Loading timeLoad={loadTime} />
 
       <div>
@@ -148,9 +148,11 @@ export default function Index() {
                 </h3>
               </div>
             )}
-            <GlobeContainer>
-              <GlobeCanvas id="globe_canvas" />
-            </GlobeContainer>
+            {!shouldReRender && (
+              <GlobeContainer>
+                <GlobeCanvas id="globe_canvas" />
+              </GlobeContainer>
+            )}
           </HeroArticle>
           <UFOImage image={ufoImage} alt="Ufo" />
           <Stand />
@@ -163,14 +165,7 @@ export default function Index() {
               animateText={codeContainerView}
             >
               <h1>Always coding and working on new projects</h1>
-              <CodingBtn
-                onClick={() => {
-                  console.log("hey");
-                  setShouldRender(true);
-                }}
-              >
-                About me
-              </CodingBtn>
+              <CodingBtn>About me</CodingBtn>
               <DeviceContainer
                 animatePhone={codePhoneView}
                 animateDash={codeDashView}
@@ -239,7 +234,7 @@ export default function Index() {
           <ProjectSection>
             <ProjectContainer animateText={projectTextView}>
               <h1 ref={projectTextRef}>Recent Projects</h1>
-              <Projects />
+              <Projects setShouldReRender={setShouldReRender} />
             </ProjectContainer>
           </ProjectSection>
 
