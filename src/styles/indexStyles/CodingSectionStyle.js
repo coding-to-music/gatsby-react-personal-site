@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import DashboardSvg from "../assets/svgs/dashboard.svg";
+import DashboardSvg from "../../assets/svgs/dashboard.svg";
 
 const fadeVertically = keyframes`
 to {

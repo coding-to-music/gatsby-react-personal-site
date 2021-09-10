@@ -15,8 +15,6 @@ const Loading = ({ timeLoad }) => {
     };
   }, []);
 
-  console.log("test");
-
   return (
     <>
       {isLoading && (

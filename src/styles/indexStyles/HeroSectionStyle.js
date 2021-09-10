@@ -1,10 +1,10 @@
 import styled, { keyframes } from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import StandSvg from "../assets/svgs/stand.svg";
+import StandSvg from "../../assets/svgs/stand.svg";
 
 // TODO: Find a way to not use static folder for backimg svgs
-const HeroGlow = require("../../static/hero-glow.svg").default;
+const HeroGlow = require("../../../static/hero-glow.svg").default;
 
 const updown = keyframes`
     from {

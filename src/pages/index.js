@@ -9,6 +9,7 @@ import Loading from "../components/loading/Loading";
 import NavBar from "../components/navBar/NavBar";
 import Projects from "../components/projects/Projects";
 import Contact from "../components/contact/Contact";
+import Seo from "../components/Seo";
 
 import CodeGitVideo from "../assets/videos/codingGit.mp4";
 
@@ -19,7 +20,7 @@ import {
   GlobeCanvas,
   UFOImage,
   Stand,
-} from "../styles/HeroSectionStyle";
+} from "../styles/indexStyles/HeroSectionStyle";
 
 import {
   CodingSection,
@@ -28,20 +29,20 @@ import {
   DeviceContainer,
   PhoneImage,
   DashSvg,
-} from "../styles/CodingSectionStyle";
+} from "../styles/indexStyles/CodingSectionStyle";
 
 import {
   AboutSection,
   AboutContainer,
   SkillBox,
-} from "../styles/AboutSectionStyle";
+} from "../styles/indexStyles/AboutSectionStyle";
 
 import {
   ProjectSection,
   ProjectContainer,
-} from "../styles/ProjectSectionStyle";
+} from "../styles/indexStyles/ProjectSectionStyle";
 
-import { ContactSection } from "../styles/ContactSectionStyle";
+import { ContactSection } from "../styles/indexStyles/ContactSectionStyle";
 
 import skills from "../constants/skills";
 import basics from "../constants/basics";
@@ -127,6 +128,7 @@ export default function Index() {
 
   return (
     <>
+      <Seo title="Home" />
       <Loading timeLoad={loadTime} />
       <HomeGlobe />
 

@@ -15,7 +15,6 @@ import "../assets/fonts/globalStyledFonts/global.scss";
 import Footer from "./Footer";
 
 const Layout = ({ children }) => {
-  //   console.log(children);
   return (
     <>
       {children}

@@ -9,7 +9,14 @@ require("dotenv").config({
 });
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: "WebDev Personal Website",
+    description: "Awesome Webdev Portfolio built with Gatsby and Contentful",
+    titleTemplate: "%s | WebDev Portfolio",
+    url: "https://iliasallek.com",
+    twitterUsername: "@IAllekAmazigh",
+    image: "/personal-website-thumbnail.png",
+  },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
@@ -46,5 +53,6 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-react-helmet`,
   ],
 };

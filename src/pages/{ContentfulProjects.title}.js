@@ -12,6 +12,7 @@ import Loading from "../components/loading/Loading";
 import NavBar from "../components/navBar/NavBar";
 import ContentfulAbout from "../components/ContentfulAbout";
 import Projects from "../components/projects/Projects";
+import Seo from "../components/Seo";
 
 import {
   ProjectPage,
@@ -22,7 +23,7 @@ import {
   ProjectPageStory,
   ProjectPageOthers,
   ProjectPageBtn,
-} from "../styles/ProjectPageStyle";
+} from "../styles/projectPageStyles/ProjectPageStyle";
 
 import stacks from "../constants/stacks";
 import socials from "../constants/socials";
@@ -42,6 +43,9 @@ export const query = graphql`
       }
       thumbnail {
         gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
+        file {
+          url
+        }
       }
       resume {
         resume
@@ -71,7 +75,10 @@ const ProjectTemplate = (props) => {
     title: projectName,
     description: { description: projectDescription },
     content: { stacks: projectStacks, tags: projectTags },
-    thumbnail: { gatsbyImageData },
+    thumbnail: {
+      gatsbyImageData,
+      file: { url: projectUrl },
+    },
     resume: projectResume,
     used,
     lesson,
@@ -112,6 +119,11 @@ const ProjectTemplate = (props) => {
 
   return (
     <>
+      <Seo
+        title={projectName}
+        description={projectDescription}
+        image={projectUrl}
+      />
       <Loading timeLoad={loadTime} />
       {isLoaded && (
         <>

@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import { GatsbyImage } from "gatsby-plugin-image";
-import { fadeVertically } from "../abstracts/animations";
+import { fadeVertically } from "../../abstracts/animations";
 
 export const ProjectPage = styled.div`
   height: 100%;
