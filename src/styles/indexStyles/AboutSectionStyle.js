@@ -141,7 +141,7 @@ export const SkillBox = styled.div`
   align-items: center;
   flex-wrap: wrap;
 
-  gap: 2rem;
+  /* gap: 2rem; */
   grid-gap: 2rem;
 
   opacity: 0;

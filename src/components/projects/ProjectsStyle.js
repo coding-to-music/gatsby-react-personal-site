@@ -173,7 +173,7 @@ export const ProjectContent = styled.article`
       margin-right: 1rem;
 
       flex-wrap: wrap;
-      gap: 0.8rem;
+      /* gap: 0.8rem; */
       grid-gap: 0.8rem;
 
       #WebGL {

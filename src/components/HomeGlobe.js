@@ -165,7 +165,7 @@ export function initGlobe() {
   globeMaterial.emissiveIntensity = 0.1;
   globeMaterial.shininess = 1;
   // NOTE Cool stuff
-  // globeMaterial.wireframe = true;
+  //   globeMaterial.wireframe = true;
 
   // Initialize the glow
   const options = {
