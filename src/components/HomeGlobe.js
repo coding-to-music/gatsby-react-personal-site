@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import PropTypes from "prop-types";
 import ThreeGlobe from "three-globe";
 import {
   WebGLRenderer,
@@ -188,7 +189,7 @@ export function animate() {
   requestAnimationFrame(animate);
 }
 
-export const HomeGlobe = () => {
+export const HomeGlobe = ({ shouldRender }) => {
   init();
   initGlobe();
   onWindowResize();
@@ -197,4 +198,19 @@ export const HomeGlobe = () => {
   return null;
 };
 
-export default React.memo(HomeGlobe);
+const areEqual = (prevProps, nextProps) => {
+  console.log(prevProps, nextProps);
+  if (prevProps === nextProps) {
+    return false;
+  }
+  return true;
+};
+
+HomeGlobe.propTypes = {
+  shouldRender: PropTypes.bool,
+};
+HomeGlobe.defaultProps = {
+  shouldRender: false,
+};
+
+export default React.memo(HomeGlobe, areEqual);

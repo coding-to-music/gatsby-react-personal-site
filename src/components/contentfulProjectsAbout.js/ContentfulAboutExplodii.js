@@ -12,10 +12,6 @@ const Container = styled.div`
   ul {
     margin-bottom: 3rem;
     li {
-      list-style-position: inside;
-      text-indent: -2.85rem;
-      padding-left: 2.3rem;
-
       font-size: 2rem;
       font-family: ManropeMedium;
       color: #555454;

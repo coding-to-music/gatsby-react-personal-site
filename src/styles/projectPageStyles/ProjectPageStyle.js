@@ -302,6 +302,8 @@ export const ProjectPageStory = styled.div`
       font-family: ManropeMedium;
     }
     h3 {
+      font-family: ManropeMedium;
+
       margin-bottom: 2rem;
       font-size: 1.7rem;
       color: #242323;

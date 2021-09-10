@@ -97,6 +97,8 @@ export default function Index() {
     };
   }, []);
 
+  const [shouldRender, setShouldRender] = useState(false);
+
   ////////////////////////////////
   // NOTE: SCROLL ANIMATIONS
   ////////////////////////////////
@@ -129,7 +131,7 @@ export default function Index() {
   return (
     <>
       <Seo title="Home" />
-      <HomeGlobe />
+      <HomeGlobe shouldRender={shouldRender} />
       <Loading timeLoad={loadTime} />
 
       <div>
@@ -161,7 +163,14 @@ export default function Index() {
               animateText={codeContainerView}
             >
               <h1>Always coding and working on new projects</h1>
-              <CodingBtn>About me</CodingBtn>
+              <CodingBtn
+                onClick={() => {
+                  console.log("hey");
+                  setShouldRender(true);
+                }}
+              >
+                About me
+              </CodingBtn>
               <DeviceContainer
                 animatePhone={codePhoneView}
                 animateDash={codeDashView}
