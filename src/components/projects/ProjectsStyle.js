@@ -173,8 +173,8 @@ export const ProjectContent = styled.article`
       margin-right: 1rem;
 
       flex-wrap: wrap;
-      /* gap: 0.8rem; */
-      grid-gap: 0.8rem;
+      /* gap: 0.8rem;
+      grid-gap: 0.8rem; */
 
       #WebGL {
         svg {
@@ -186,9 +186,9 @@ export const ProjectContent = styled.article`
       span {
         display: flex;
 
-        /* &:not(:last-child) {
-          margin-right: 0.85rem;
-        } */
+        &:not(:last-child) {
+          margin-right: 0.4rem;
+        }
 
         svg {
           width: 3rem;

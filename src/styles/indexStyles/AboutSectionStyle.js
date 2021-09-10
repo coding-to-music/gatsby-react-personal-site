@@ -141,8 +141,8 @@ export const SkillBox = styled.div`
   align-items: center;
   flex-wrap: wrap;
 
-  /* gap: 2rem; */
-  grid-gap: 2rem;
+  /* gap: 2rem;
+  grid-gap: 2rem; */
 
   opacity: 0;
   transform: translateY(100%);
@@ -170,7 +170,7 @@ export const SkillBox = styled.div`
     align-items: center;
     flex-direction: column;
 
-    margin: 0 2rem;
+    margin: 1rem 2rem;
 
     svg {
       width: 5rem;
