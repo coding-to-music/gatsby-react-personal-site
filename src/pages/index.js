@@ -47,6 +47,7 @@ import { ContactSection } from "../styles/indexStyles/ContactSectionStyle";
 import skills from "../constants/skills";
 import basics from "../constants/basics";
 import onScreenIntersection from "../utils/onScreenIntersection";
+import { useGlobe } from "../context/GlobeContext";
 
 const HomeGlobe = loadable(() => import("../components/HomeGlobe"));
 
@@ -97,8 +98,6 @@ export default function Index() {
     };
   }, []);
 
-  const [shouldReRender, setShouldReRender] = useState(false);
-
   ////////////////////////////////
   // NOTE: SCROLL ANIMATIONS
   ////////////////////////////////
@@ -128,10 +127,12 @@ export default function Index() {
   const projectTextRef = useRef();
   const projectTextView = onScreenIntersection(projectTextRef, -150, false, 1);
 
+  const isGlobe = useGlobe();
+
   return (
     <>
       <Seo title="Home" />
-      <HomeGlobe shouldReRender={shouldReRender} />
+      <HomeGlobe />
       <Loading timeLoad={loadTime} />
 
       <div>
@@ -150,7 +151,7 @@ export default function Index() {
             )}
 
             <GlobeContainer>
-              <GlobeCanvas id="globe_canvas" />
+              {isGlobe && <GlobeCanvas id="globe_canvas" />}
             </GlobeContainer>
           </HeroArticle>
           <UFOImage image={ufoImage} alt="Ufo" />
@@ -233,7 +234,7 @@ export default function Index() {
           <ProjectSection>
             <ProjectContainer animateText={projectTextView}>
               <h1 ref={projectTextRef}>Recent Projects</h1>
-              <Projects setShouldReRender={setShouldReRender} />
+              <Projects />
             </ProjectContainer>
           </ProjectSection>
 

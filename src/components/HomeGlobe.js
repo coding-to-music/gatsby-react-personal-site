@@ -1,6 +1,7 @@
-import React, { useMemo, useState } from "react";
-import PropTypes from "prop-types";
+import React from "react";
+
 import ThreeGlobe from "three-globe";
+
 import {
   WebGLRenderer,
   Scene,
@@ -15,11 +16,14 @@ import {
   PointLight,
   SphereGeometry,
 } from "three";
+
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { createGlowMesh } from "three-glow-mesh";
 import countries from "../data/globe-data-min.json";
 import travelHistory from "../data/globe-travels";
 import airportHistory from "../data/globe-cities";
+
+import { useGlobe } from "../context/GlobeContext";
 
 const windowGlobal = typeof window !== "undefined" && window;
 
@@ -115,7 +119,7 @@ function init() {
   controls.minPolarAngle = Math.PI / 3.5;
   controls.maxPolarAngle = Math.PI - Math.PI / 3;
 
-  windowGlobal.addEventListener("resize", onWindowResize, false);
+  //   windowGlobal.addEventListener("resize", onWindowResize, false);
 }
 
 // SECTION Globe
@@ -190,14 +194,26 @@ function animate() {
 }
 
 function destroyThree() {
+  //   cancelAnimationFrame(animate);
   while (scene.children.length > 0) {
     scene.remove(scene.children[0]);
   }
   renderer.clear();
+
+  //   renderer = null;
+  //   camera = null;
+  //   scene = null;
+  //   controls = null;
+
+  //   Globe = null;
 }
 
-export const HomeGlobe = ({ shouldReRender }) => {
-  if (!shouldReRender) {
+export const HomeGlobe = () => {
+  const isGlobe = useGlobe();
+
+  console.log(isGlobe);
+
+  if (isGlobe) {
     init();
     initGlobe();
     onWindowResize();
@@ -209,18 +225,4 @@ export const HomeGlobe = ({ shouldReRender }) => {
   return null;
 };
 
-const areEqual = (prevProps, nextProps) => {
-  if (prevProps.shouldReRender === nextProps.shouldReRender) {
-    return true;
-  }
-  return false;
-};
-
-HomeGlobe.propTypes = {
-  shouldReRender: PropTypes.bool,
-};
-HomeGlobe.defaultProps = {
-  shouldReRender: false,
-};
-
-export default React.memo(HomeGlobe, areEqual);
+export default React.memo(HomeGlobe);

@@ -29,7 +29,7 @@ const Container = styled.footer`
 
 const Footer = () => {
   const contactTextRef = useRef();
-  const contactView = onScreenIntersection(contactTextRef, -50, false, 10);
+  const contactView = onScreenIntersection(contactTextRef, -20, false, 10);
 
   return (
     <Container ref={contactTextRef} animateText={contactView}>

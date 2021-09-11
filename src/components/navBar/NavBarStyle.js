@@ -142,7 +142,7 @@ export const Nav = styled.div`
 
   box-sizing: content-box;
 
-  a {
+  & > div:first-of-type {
     text-decoration: none;
     cursor: pointer;
     h3 {
@@ -169,7 +169,7 @@ export const Nav = styled.div`
     }
   }
 
-  & > div:first-of-type {
+  & > div:nth-of-type(2) {
     display: flex;
     align-items: center;
     h3 {

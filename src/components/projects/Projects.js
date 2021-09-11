@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import slugify from "slugify";
 import PropTypes from "prop-types";
+import { useGlobeUpdate } from "../../context/GlobeContext";
 
 import {
   ProjectsContainer,
@@ -38,12 +39,14 @@ const query = graphql`
   }
 `;
 
-const Projects = ({ ignoreProject, setShouldReRender }) => {
+const Projects = ({ ignoreProject }) => {
   const data = useStaticQuery(query);
 
   const {
     allContentfulProjects: { nodes: projects },
   } = data;
+
+  const setIsGlobe = useGlobeUpdate();
 
   return (
     <ProjectsContainer>
@@ -73,7 +76,13 @@ const Projects = ({ ignoreProject, setShouldReRender }) => {
 
               <ProjectContent>
                 <div>
-                  <h2>{project.title}</h2>
+                  <h2
+                    onClick={() => {
+                      setIsGlobe((state) => !state);
+                    }}
+                  >
+                    {project.title}
+                  </h2>
                   <div>
                     {projectTags.map((tag) => {
                       return <span key={tag}>{tag}</span>;
@@ -101,7 +110,7 @@ const Projects = ({ ignoreProject, setShouldReRender }) => {
                     <ProjectMore
                       to={`/${slugify(project.title, { lower: true })}`}
                       onClick={() => {
-                        setShouldReRender(true);
+                        setIsGlobe(false);
                       }}
                     >
                       More
@@ -121,12 +130,10 @@ const Projects = ({ ignoreProject, setShouldReRender }) => {
 Projects.propTypes = {
   // Not render a certain project
   ignoreProject: PropTypes.string,
-  setShouldReRender: PropTypes.func,
 };
 
 Projects.defaultProps = {
   ignoreProject: "",
-  setShouldReRender: () => {},
 };
 
 export default Projects;
