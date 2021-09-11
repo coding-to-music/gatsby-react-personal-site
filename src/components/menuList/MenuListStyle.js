@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import styled, { css, keyframes } from "styled-components";
 
 export const FixedBox = styled.aside`

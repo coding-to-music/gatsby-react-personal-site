@@ -47,7 +47,7 @@ import { ContactSection } from "../styles/indexStyles/ContactSectionStyle";
 import skills from "../constants/skills";
 import basics from "../constants/basics";
 import onScreenIntersection from "../utils/onScreenIntersection";
-import { useGlobe } from "../context/GlobeContext";
+import { useLoading } from "../context/LoadingContext";
 
 const HomeGlobe = loadable(() => import("../components/HomeGlobe"));
 
@@ -86,17 +86,19 @@ export default function Index() {
   // Gatsby Link component retaining scroll position and not resetting to top
   useEffect(() => window.scrollTo(0, 0), []);
 
-  const loadTime = 2000;
-  const [isLoaded, setIsLoaded] = useState(false);
+  const isLoaded = useLoading();
 
-  useEffect(() => {
-    const loadTimeout = setTimeout(() => {
-      setIsLoaded(true);
-    }, loadTime);
-    return () => {
-      clearTimeout(loadTimeout);
-    };
-  }, []);
+  const loadTime = 20000;
+  //   const [isLoaded, setIsLoaded] = useState(false);
+
+  //   useEffect(() => {
+  //     const loadTimeout = setTimeout(() => {
+  //       setIsLoaded(true);
+  //     }, loadTime);
+  //     return () => {
+  //       clearTimeout(loadTimeout);
+  //     };
+  //   }, []);
 
   ////////////////////////////////
   // NOTE: SCROLL ANIMATIONS
@@ -127,13 +129,11 @@ export default function Index() {
   const projectTextRef = useRef();
   const projectTextView = onScreenIntersection(projectTextRef, -150, false, 1);
 
-  const isGlobe = useGlobe();
-
   return (
     <>
       <Seo title="Home" />
       <HomeGlobe />
-      <Loading timeLoad={loadTime} />
+      {!isLoaded && <Loading timeLoad={loadTime} />}
 
       <div>
         <Header>
@@ -151,97 +151,103 @@ export default function Index() {
             )}
 
             <GlobeContainer>
-              {isGlobe && <GlobeCanvas id="globe_canvas" />}
+              <GlobeCanvas id="globe_canvas" />
             </GlobeContainer>
           </HeroArticle>
-          <UFOImage image={ufoImage} alt="Ufo" />
-          <Stand />
+          {isLoaded && (
+            <>
+              <UFOImage image={ufoImage} alt="Ufo" />
+              <Stand />
+            </>
+          )}
         </Header>
 
-        <main>
-          <CodingSection>
-            <CodingContainer
-              ref={codeContainerRef}
-              animateText={codeContainerView}
-            >
-              <h1>Always coding and working on new projects</h1>
-              <CodingBtn>About me</CodingBtn>
-              <DeviceContainer
-                animatePhone={codePhoneView}
-                animateDash={codeDashView}
+        {isLoaded && (
+          <main>
+            <CodingSection>
+              <CodingContainer
+                ref={codeContainerRef}
+                animateText={codeContainerView}
               >
-                <div ref={codePhoneRef}>
-                  <PhoneImage image={phoneMockupImage} alt="Phone" />
+                <h1>Always coding and working on new projects</h1>
+                <CodingBtn>About me</CodingBtn>
+                <DeviceContainer
+                  animatePhone={codePhoneView}
+                  animateDash={codeDashView}
+                >
+                  <div ref={codePhoneRef}>
+                    <PhoneImage image={phoneMockupImage} alt="Phone" />
 
-                  <video playsInline muted loop autoPlay preload="none">
-                    <source src={CodeGitVideo} type="video/mp4" />
-                  </video>
+                    <video playsInline muted loop autoPlay preload="none">
+                      <source src={CodeGitVideo} type="video/mp4" />
+                    </video>
+                  </div>
+                  <div ref={codeDashRef}>
+                    <DashSvg />
+                  </div>
+                </DeviceContainer>
+              </CodingContainer>
+            </CodingSection>
+
+            <AboutSection>
+              <AboutContainer
+                animateText={aboutTextView}
+                animateStacks={aboutStacksView}
+              >
+                <div ref={aboutTextRef}>
+                  <h1>Ilias Allek</h1>
+                  <h3>Aspiring Software Developer</h3>
+                  <p>
+                    I'v graduated from Montreal University on December 2020 with
+                    a Bachelor of Mathematics / minor in statistics. Before
+                    graduating, I was wondering about my future and what I will
+                    do next, I didn't wanna pursue academics, It didn't seem fit
+                    to me. I'v decided that I will dedicate my time learning
+                    programming. Over this time I learned bulding responsive
+                    websites, full stack web applications based on React,Gatsby,
+                    NodeJS and more. On my free time, I like to play soccer,
+                    exercice and hang out with friends.
+                  </p>
                 </div>
-                <div ref={codeDashRef}>
-                  <DashSvg />
+                <div ref={aboutStacksRef}>
+                  <h1>Skills</h1>
+                  <SkillBox animateStacks={aboutStacksView}>
+                    {skills.map((skill) => {
+                      return (
+                        <div key={skill.id}>
+                          {skill.icon}
+                          <span>{skill.title}</span>
+                        </div>
+                      );
+                    })}
+                  </SkillBox>
+                  <h1>Basics</h1>
+                  <SkillBox animateStacks={aboutStacksView}>
+                    {basics.map((basic) => {
+                      return (
+                        <div key={basic.id}>
+                          {basic.icon}
+                          <span>{basic.title}</span>
+                        </div>
+                      );
+                    })}
+                  </SkillBox>
                 </div>
-              </DeviceContainer>
-            </CodingContainer>
-          </CodingSection>
+              </AboutContainer>
+            </AboutSection>
 
-          <AboutSection>
-            <AboutContainer
-              animateText={aboutTextView}
-              animateStacks={aboutStacksView}
-            >
-              <div ref={aboutTextRef}>
-                <h1>Ilias Allek</h1>
-                <h3>Aspiring Software Developer</h3>
-                <p>
-                  I'v graduated from Montreal University on December 2020 with a
-                  Bachelor of Mathematics / minor in statistics. Before
-                  graduating, I was wondering about my future and what I will do
-                  next, I didn't wanna pursue academics, It didn't seem fit to
-                  me. I'v decided that I will dedicate my time learning
-                  programming. Over this time I learned bulding responsive
-                  websites, full stack web applications based on React,Gatsby,
-                  NodeJS and more. On my free time, I like to play soccer,
-                  exercice and hang out with friends.
-                </p>
-              </div>
-              <div ref={aboutStacksRef}>
-                <h1>Skills</h1>
-                <SkillBox animateStacks={aboutStacksView}>
-                  {skills.map((skill) => {
-                    return (
-                      <div key={skill.id}>
-                        {skill.icon}
-                        <span>{skill.title}</span>
-                      </div>
-                    );
-                  })}
-                </SkillBox>
-                <h1>Basics</h1>
-                <SkillBox animateStacks={aboutStacksView}>
-                  {basics.map((basic) => {
-                    return (
-                      <div key={basic.id}>
-                        {basic.icon}
-                        <span>{basic.title}</span>
-                      </div>
-                    );
-                  })}
-                </SkillBox>
-              </div>
-            </AboutContainer>
-          </AboutSection>
+            <ProjectSection>
+              <ProjectContainer animateText={projectTextView}>
+                <h1 ref={projectTextRef}>Recent Projects</h1>
+                <Projects />
+              </ProjectContainer>
+            </ProjectSection>
 
-          <ProjectSection>
-            <ProjectContainer animateText={projectTextView}>
-              <h1 ref={projectTextRef}>Recent Projects</h1>
-              <Projects />
-            </ProjectContainer>
-          </ProjectSection>
-
-          <ContactSection>
-            <Contact />
-          </ContactSection>
-        </main>
+            <ContactSection>
+              <Contact />
+            </ContactSection>
+          </main>
+        )}
       </div>
     </>
   );

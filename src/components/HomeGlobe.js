@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import ThreeGlobe from "three-globe";
 
@@ -24,6 +24,7 @@ import travelHistory from "../data/globe-travels";
 import airportHistory from "../data/globe-cities";
 
 import { useGlobe } from "../context/GlobeContext";
+import { useLoadingUpdate } from "../context/LoadingContext";
 
 const windowGlobal = typeof window !== "undefined" && window;
 
@@ -36,6 +37,9 @@ let Globe;
 
 // BUG: Creating a new canvas outside gatsby body
 const canvRef = document.getElementById("globe_canvas");
+
+let fpsId;
+let ticks = 0;
 
 function onWindowResize() {
   camera.updateProjectionMatrix();
@@ -185,16 +189,8 @@ function initGlobe() {
   scene.add(Globe);
 }
 
-function animate() {
-  camera.lookAt(scene.position);
-  controls.update();
-  renderer.render(scene, camera);
-
-  requestAnimationFrame(animate);
-}
-
 function destroyThree() {
-  //   cancelAnimationFrame(animate);
+  cancelAnimationFrame(fpsId);
   while (scene.children.length > 0) {
     scene.remove(scene.children[0]);
   }
@@ -210,17 +206,36 @@ function destroyThree() {
 
 export const HomeGlobe = () => {
   const isGlobe = useGlobe();
+  const setIsloaded = useLoadingUpdate();
 
-  console.log(isGlobe);
+  function animate() {
+    fpsId = requestAnimationFrame(animate);
+    camera.lookAt(scene.position);
+    controls.update();
 
-  if (isGlobe) {
-    init();
-    initGlobe();
-    onWindowResize();
-    animate();
-  } else {
-    destroyThree();
+    renderer.render(scene, camera);
+
+    if (ticks === 10) {
+      setIsloaded(true);
+    }
+
+    ticks += 1;
   }
+
+  useEffect(() => {
+    if (isGlobe) {
+      init();
+
+      initGlobe();
+      onWindowResize();
+      animate();
+    } else {
+      destroyThree();
+    }
+    return () => {
+      cancelAnimationFrame(fpsId);
+    };
+  }, []);
 
   return null;
 };

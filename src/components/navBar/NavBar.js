@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import { animateScroll as scroll } from "react-scroll";
 
