@@ -33,12 +33,12 @@ let Globe;
 // BUG: Creating a new canvas outside gatsby body
 const canvRef = document.getElementById("globe_canvas");
 
-export function onWindowResize() {
+function onWindowResize() {
   camera.updateProjectionMatrix();
 }
 
 // SECTION Initializing core ThreeJS elements
-export function init() {
+function init() {
   // Initialize renderer
   renderer = new WebGLRenderer({
     antialias: true,
@@ -119,7 +119,7 @@ export function init() {
 }
 
 // SECTION Globe
-export function initGlobe() {
+function initGlobe() {
   // Initialize the Globe
   Globe = new ThreeGlobe()
     .arcsData(travelHistory.flights)
@@ -181,7 +181,7 @@ export function initGlobe() {
   scene.add(Globe);
 }
 
-export function animate() {
+function animate() {
   camera.lookAt(scene.position);
   controls.update();
   renderer.render(scene, camera);
@@ -189,13 +189,21 @@ export function animate() {
   requestAnimationFrame(animate);
 }
 
+function destroyThree() {
+  while (scene.children.length > 0) {
+    scene.remove(scene.children[0]);
+  }
+  renderer.clear();
+}
+
 export const HomeGlobe = ({ shouldReRender }) => {
-  console.log(shouldReRender);
   if (!shouldReRender) {
     init();
     initGlobe();
     onWindowResize();
     animate();
+  } else {
+    destroyThree();
   }
 
   return null;

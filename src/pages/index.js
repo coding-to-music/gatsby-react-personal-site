@@ -131,7 +131,7 @@ export default function Index() {
   return (
     <>
       <Seo title="Home" />
-      {!shouldReRender && <HomeGlobe shouldReRender={shouldReRender} />}
+      <HomeGlobe shouldReRender={shouldReRender} />
       <Loading timeLoad={loadTime} />
 
       <div>
