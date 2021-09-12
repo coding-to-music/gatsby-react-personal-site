@@ -2,13 +2,12 @@
 /* eslint-disable react/prop-types */
 //NOTE: https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import slugify from "slugify";
 import moment from "moment";
 
-import Loading from "../components/loading/Loading";
 import NavBar from "../components/navBar/NavBar";
 import ContentfulAbout from "../components/ContentfulAbout";
 import Projects from "../components/projects/Projects";
@@ -92,18 +91,6 @@ const ProjectTemplate = (props) => {
   const projectConclusion = conclusion && conclusion.conclusion.split("\n");
 
   useEffect(() => window.scrollTo(0, 0), []);
-
-  const loadTime = 500;
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    const loadTimeout = setTimeout(() => {
-      setIsLoaded(true);
-    }, loadTime);
-    return () => {
-      clearTimeout(loadTimeout);
-    };
-  }, []);
 
   ////////////////////////////////
   // NOTE: SCROLL ANIMATIONS
