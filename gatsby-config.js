@@ -12,7 +12,7 @@ module.exports = {
   siteMetadata: {
     title: "WebDev Personal Website",
     description: "Awesome Webdev Portfolio built with Gatsby and Contentful",
-    titleTemplate: "%s | WebDev Portfolio",
+    titleTemplate: "%s | WebDev Portfolio - Ilias Allek",
     url: "https://iliasallek.com",
     twitterUsername: "@IAllekAmazigh",
     image: "/personal-website-thumbnail.png",

@@ -100,7 +100,7 @@ const ContentfulAboutPersonalWebsite = () => {
       </p>
       <p>
         My personal website is fully responsive, you can use it in any device
-        (runs better in chrome for now);
+        (runs better in chrome for now).
       </p>
       <AboutImage
         image={personalWebsiteAllDevicesImage}
