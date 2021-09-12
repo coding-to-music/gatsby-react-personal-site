@@ -124,7 +124,7 @@ const ProjectTemplate = (props) => {
         description={projectDescription}
         image={projectUrl}
       />
-      <Loading timeLoad={loadTime} />
+      {/* <Loading timeLoad={loadTime} /> */}
       {isLoaded && (
         <>
           <NavBar navColor="#102a42" />

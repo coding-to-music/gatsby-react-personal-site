@@ -11,6 +11,8 @@ const Container = styled.div`
   ul {
     margin-bottom: 3rem;
     li {
+      list-style-position: inside;
+
       font-size: 2rem;
       font-family: ManropeMedium;
       color: #555454;

@@ -76,13 +76,7 @@ const Projects = ({ ignoreProject }) => {
 
               <ProjectContent>
                 <div>
-                  <h2
-                    onClick={() => {
-                      setIsGlobe((state) => !state);
-                    }}
-                  >
-                    {project.title}
-                  </h2>
+                  <h2>{project.title}</h2>
                   <div>
                     {projectTags.map((tag) => {
                       return <span key={tag}>{tag}</span>;
