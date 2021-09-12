@@ -127,7 +127,7 @@ export const PhoneImage = styled(GatsbyImage)`
 
 export const DashSvg = styled(DashboardSvg)`
   width: 100%;
-  height: max-content;
+  height: 100%;
 `;
 
 export const CodingBtn = styled.button.attrs({
