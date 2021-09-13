@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import ThreeGlobe from "three-globe";
 
@@ -191,9 +191,11 @@ function initGlobe() {
 
 function destroyThree() {
   cancelAnimationFrame(fpsId);
+
   while (scene.children.length > 0) {
     scene.remove(scene.children[0]);
   }
+
   renderer.clear();
 
   //   renderer = null;

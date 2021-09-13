@@ -136,32 +136,29 @@ export const UFOImage = styled(GatsbyImage)`
 
   animation: ${updown} 4s ease-in-out alternate infinite forwards;
 
-  filter: hue-rotate(-110deg) drop-shadow(2px 4px 6px black);
+  filter: drop-shadow(4px 6px 8px black);
 
   object-fit: contain;
 
-  width: 40rem;
+  width: 48rem;
   height: auto;
 
-  @media only screen and (max-width: 65.5em) {
+  @media only screen and (max-width: 65em) {
     bottom: -8rem;
     left: 38%;
     right: 0;
 
-    width: 35rem;
-    height: auto;
+    width: 43rem;
   }
   @media only screen and (max-width: 37.5em) {
     left: 20%;
-
-    width: 35rem;
-    height: auto;
+  }
+  @media only screen and (max-width: 28em) {
+    left: 5%;
+    width: 38rem;
   }
   @media only screen and (max-width: 22em) {
-    left: 15%;
-
-    width: 30rem;
-    height: auto;
+    left: -4%;
   }
 `;
 

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import loadable from "@loadable/component";
 
 import { useStaticQuery, graphql } from "gatsby";
@@ -48,6 +48,7 @@ import skills from "../constants/skills";
 import basics from "../constants/basics";
 import onScreenIntersection from "../utils/onScreenIntersection";
 import { useLoading } from "../context/LoadingContext";
+import { useGlobe } from "../context/GlobeContext";
 
 const HomeGlobe = loadable(() => import("../components/HomeGlobe"));
 
@@ -55,7 +56,7 @@ const HomeGlobe = loadable(() => import("../components/HomeGlobe"));
 
 const query = graphql`
   {
-    PhoneMockupData: contentfulAsset(
+    phoneMockupData: contentfulAsset(
       file: { fileName: { eq: "website-mockup-phone.png" } }
     ) {
       file {
@@ -63,7 +64,19 @@ const query = graphql`
       }
       gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
     }
-    UfoData: contentfulAsset(file: { fileName: { eq: "ufo.png" } }) {
+    ufoData: contentfulAsset(file: { fileName: { eq: "ufo.png" } }) {
+      file {
+        fileName
+      }
+      gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
+    }
+    rocketData: contentfulAsset(file: { fileName: { eq: "rocket.png" } }) {
+      file {
+        fileName
+      }
+      gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+    }
+    beyondData: contentfulAsset(file: { fileName: { eq: "beyond.png" } }) {
       file {
         fileName
       }
@@ -75,30 +88,28 @@ const query = graphql`
 export default function Index() {
   const data = useStaticQuery(query);
 
-  const { PhoneMockupData, UfoData } = data;
+  const { phoneMockupData, ufoData, rocketData, beyondData } = data;
 
-  const { gatsbyImageData: phoneMockupImageData } = PhoneMockupData;
-  const { gatsbyImageData: UfoImageData } = UfoData;
+  const { gatsbyImageData: phoneMockupImageData } = phoneMockupData;
+  const { gatsbyImageData: ufoImageData } = ufoData;
+  const { gatsbyImageData: rocketImageData } = rocketData;
+  const { gatsbyImageData: beyondImageData } = beyondData;
 
   const phoneMockupImage = getImage(phoneMockupImageData);
-  const ufoImage = getImage(UfoImageData);
+  const ufoImage = getImage(ufoImageData);
+  const rocketImage = getImage(rocketImageData);
+  const beyondImage = getImage(beyondImageData);
 
   // Gatsby Link component retaining scroll position and not resetting to top
   useEffect(() => window.scrollTo(0, 0), []);
 
   const isLoaded = useLoading();
+  const isGlobe = useGlobe();
 
+  useEffect(() => {
+    console.log(isGlobe);
+  }, []);
   const loadTime = 20000;
-  //   const [isLoaded, setIsLoaded] = useState(false);
-
-  //   useEffect(() => {
-  //     const loadTimeout = setTimeout(() => {
-  //       setIsLoaded(true);
-  //     }, loadTime);
-  //     return () => {
-  //       clearTimeout(loadTimeout);
-  //     };
-  //   }, []);
 
   ////////////////////////////////
   // NOTE: SCROLL ANIMATIONS
@@ -149,14 +160,17 @@ export default function Index() {
                 </h3>
               </div>
             )}
-
-            <GlobeContainer>
-              <GlobeCanvas id="globe_canvas" />
-            </GlobeContainer>
+            {isGlobe ? (
+              <GlobeContainer>
+                <GlobeCanvas id="globe_canvas" />
+              </GlobeContainer>
+            ) : (
+              <PhoneImage image={beyondImage} alt="planet with spaceship" />
+            )}
           </HeroArticle>
           {isLoaded && (
             <>
-              <UFOImage image={ufoImage} alt="Ufo" />
+              <UFOImage image={rocketImage} alt="Ufo" />
               <Stand />
             </>
           )}
