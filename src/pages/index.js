@@ -159,7 +159,7 @@ export default function Index() {
   return (
     <>
       <Seo title="Home" />
-      <HomeGlobe />
+      {isGlobe && <HomeGlobe />}
       {!isLoaded && <Loading timeLoad={loadTime} />}
 
       <div>
