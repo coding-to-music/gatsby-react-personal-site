@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 import StandSvg from "../../assets/svgs/stand.svg";
@@ -76,6 +76,7 @@ export const HeroArticle = styled.article`
 
       animation: ${fadeVertically} 0.7s ease-out 0.1s 1 forwards;
 
+      margin-top: 2rem;
       margin-bottom: 1rem;
 
       font-size: 7.5rem;
@@ -173,4 +174,49 @@ export const Stand = styled(StandSvg)`
   path {
     fill: var(--color-grey-main);
   }
+`;
+
+export const HeroBtn = styled.button.attrs({
+  type: "button",
+})`
+  display: flex;
+  align-items: center;
+
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+  width: 6rem;
+
+  transition: all 0.3s;
+
+  /* box-shadow: rgba(4, 27, 87, 0.6) 0px 0.4rem 1rem 0px; */
+
+  border: none;
+  border-radius: 0.6rem;
+
+  background-color: transparent;
+
+  color: white;
+  font-family: ManropeMedium;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  &:hover {
+    /* box-shadow: rgba(4, 27, 87, 0.6) 0px 0.4rem 1rem 0px; */
+    transform: scale(1.1);
+  }
+`;
+
+export const PlanetImage = styled(GatsbyImage)`
+  width: 100%;
+  height: auto;
+
+  ${(props) =>
+    props.isgray &&
+    css`
+      filter: drop-shadow(2px 4px 6px black) grayscale(0.9);
+    `}
 `;

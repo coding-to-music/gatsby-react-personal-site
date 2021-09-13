@@ -146,7 +146,7 @@ function initGlobe() {
     .arcsTransitionDuration(2000)
     .arcDashInitialGap((e) => e.order * 0.4)
     .labelsData(airportHistory.cities)
-    .labelColor(() => "#eee1e9")
+    .labelColor(() => "transparent")
     .labelDotRadius(0.5)
     .labelSize((e) => e.size)
     .labelText("place")

@@ -29,7 +29,7 @@ export const CodingContainer = styled.article`
   ${(props) =>
     props.animateText &&
     css`
-      animation: ${fadeVertically} 0.6s ease-out 1 forwards;
+      animation: ${fadeVertically} 0.5s ease-out 1 forwards;
     `};
 
   max-width: 150rem;
@@ -79,7 +79,7 @@ export const DeviceContainer = styled.article`
     ${(props) =>
       props.animatePhone &&
       css`
-        animation: ${fadeVertically} 0.6s ease-out 1 forwards;
+        animation: ${fadeVertically} 0.5s ease-out 1 forwards;
       `};
 
     @media only screen and (max-width: 56.25em) {
@@ -112,7 +112,7 @@ export const DeviceContainer = styled.article`
     ${(props) =>
       props.animateDash &&
       css`
-        animation: ${fadeVertically} 0.6s ease-out 1 forwards;
+        animation: ${fadeVertically} 0.5s ease-out 1 forwards;
       `};
 
     @media only screen and (max-width: 56.25em) {

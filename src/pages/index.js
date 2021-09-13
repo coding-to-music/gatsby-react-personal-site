@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import loadable from "@loadable/component";
 
 import { useStaticQuery, graphql } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
 
 import Loading from "../components/loading/Loading";
 import NavBar from "../components/navBar/NavBar";
@@ -20,6 +20,8 @@ import {
   GlobeCanvas,
   UFOImage,
   Stand,
+  HeroBtn,
+  PlanetImage,
 } from "../styles/indexStyles/HeroSectionStyle";
 
 import {
@@ -48,7 +50,7 @@ import skills from "../constants/skills";
 import basics from "../constants/basics";
 import onScreenIntersection from "../utils/onScreenIntersection";
 import { useLoading } from "../context/LoadingContext";
-import { useGlobe } from "../context/GlobeContext";
+import { useGlobe, useGlobeUpdate } from "../context/GlobeContext";
 
 const HomeGlobe = loadable(() => import("../components/HomeGlobe"));
 
@@ -59,12 +61,6 @@ const query = graphql`
     phoneMockupData: contentfulAsset(
       file: { fileName: { eq: "website-mockup-phone.png" } }
     ) {
-      file {
-        fileName
-      }
-      gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
-    }
-    ufoData: contentfulAsset(file: { fileName: { eq: "ufo.png" } }) {
       file {
         fileName
       }
@@ -82,33 +78,53 @@ const query = graphql`
       }
       gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
     }
+    myGlobeData: contentfulAsset(file: { fileName: { eq: "my-globe.png" } }) {
+      file {
+        fileName
+      }
+      gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
+    }
+    beyondPlanetData: contentfulAsset(
+      file: { fileName: { eq: "beyond-globe.png" } }
+    ) {
+      file {
+        fileName
+      }
+      gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
+    }
   }
 `;
 
 export default function Index() {
   const data = useStaticQuery(query);
 
-  const { phoneMockupData, ufoData, rocketData, beyondData } = data;
+  const {
+    phoneMockupData,
+    rocketData,
+    beyondData,
+    myGlobeData,
+    beyondPlanetData,
+  } = data;
 
   const { gatsbyImageData: phoneMockupImageData } = phoneMockupData;
-  const { gatsbyImageData: ufoImageData } = ufoData;
   const { gatsbyImageData: rocketImageData } = rocketData;
   const { gatsbyImageData: beyondImageData } = beyondData;
+  const { gatsbyImageData: myGlobeImageData } = myGlobeData;
+  const { gatsbyImageData: beyondGlobeImageData } = beyondPlanetData;
 
   const phoneMockupImage = getImage(phoneMockupImageData);
-  const ufoImage = getImage(ufoImageData);
   const rocketImage = getImage(rocketImageData);
   const beyondImage = getImage(beyondImageData);
+  const myGlobeImage = getImage(myGlobeImageData);
+  const beyondGlobeImage = getImage(beyondGlobeImageData);
 
   // Gatsby Link component retaining scroll position and not resetting to top
   useEffect(() => window.scrollTo(0, 0), []);
 
   const isLoaded = useLoading();
   const isGlobe = useGlobe();
+  const setIsGlobe = useGlobeUpdate();
 
-  useEffect(() => {
-    console.log(isGlobe);
-  }, []);
   const loadTime = 20000;
 
   ////////////////////////////////
@@ -158,6 +174,28 @@ export default function Index() {
                   stuff — Front-end design and solving problems are my favourite
                   part. My goal is to always stand out.
                 </h3>
+                <div>
+                  <HeroBtn>
+                    {isGlobe ? (
+                      <PlanetImage
+                        image={beyondGlobeImage}
+                        alt="small-planet"
+                        onClick={() => {
+                          setIsGlobe(false);
+                        }}
+                      />
+                    ) : (
+                      <PlanetImage
+                        image={myGlobeImage}
+                        alt="small-globe"
+                        onClick={() => {
+                          window.location.reload();
+                        }}
+                        isgray="true"
+                      />
+                    )}
+                  </HeroBtn>
+                </div>
               </div>
             )}
             {isGlobe ? (
@@ -239,7 +277,7 @@ export default function Index() {
                   <SkillBox animateStacks={aboutStacksView}>
                     {basics.map((basic) => {
                       return (
-                        <div key={basic.id}>
+                        <div key={basic.id} id={basic.title}>
                           {basic.icon}
                           <span>{basic.title}</span>
                         </div>

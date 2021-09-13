@@ -60,7 +60,7 @@ export const AboutContainer = styled.article`
       ${(props) =>
         props.animateText &&
         css`
-          animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 1
+          animation: ${fadeVertically} 0.5s cubic-bezier(0.5, 0, 0, 1) 1
             forwards;
         `};
 
@@ -83,7 +83,7 @@ export const AboutContainer = styled.article`
       ${(props) =>
         props.animateText &&
         css`
-          animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 0.4s 1
+          animation: ${fadeVertically} 0.5s cubic-bezier(0.5, 0, 0, 1) 0.2s 1
             forwards;
         `};
 
@@ -98,7 +98,7 @@ export const AboutContainer = styled.article`
       ${(props) =>
         props.animateText &&
         css`
-          animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 0.7s 1
+          animation: ${fadeVertically} 0.5s cubic-bezier(0.5, 0, 0, 1) 0.4s 1
             forwards;
         `};
 
@@ -122,7 +122,7 @@ export const AboutContainer = styled.article`
       ${(props) =>
         props.animateStacks &&
         css`
-          animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 0.1s 1
+          animation: ${fadeVertically} 0.5s cubic-bezier(0.5, 0, 0, 1) 1
             forwards;
         `};
 
@@ -151,7 +151,7 @@ export const SkillBox = styled.div`
     ${(props) =>
       props.animateStacks &&
       css`
-        animation: ${fadeVertically} 0.75s cubic-bezier(0.5, 0, 0, 1) 0.3s 1
+        animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 0.2s 1
           forwards;
       `};
   }
@@ -159,7 +159,7 @@ export const SkillBox = styled.div`
     ${(props) =>
       props.animateStacks &&
       css`
-        animation: ${fadeVertically} 0.75s cubic-bezier(0.5, 0, 0, 1) 0.65s 1
+        animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 0.4s 1
           forwards;
       `};
   }
@@ -177,12 +177,20 @@ export const SkillBox = styled.div`
       height: 5rem;
       fill: white;
     }
+
     span {
       margin: 1rem 0;
 
       font-size: 1.8rem;
       font-family: ManropeLight;
       font-weight: 100;
+    }
+  }
+  #SAS {
+    svg {
+      path {
+        fill: white !important;
+      }
     }
   }
 `;
