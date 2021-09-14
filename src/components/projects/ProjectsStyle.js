@@ -25,7 +25,7 @@ export const ProjectBox = styled.div`
   ${(props) =>
     props.animateProject &&
     css`
-      animation: ${fadeVertically} 0.6s ease-out 1 forwards;
+      animation: ${fadeVertically} 0.5s ease-out 1 forwards;
     `};
 
   box-shadow: var(--shadow-light);

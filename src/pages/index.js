@@ -18,6 +18,7 @@ import {
   HeroArticle,
   GlobeContainer,
   GlobeCanvas,
+  ExtraPlanetImage,
   UFOImage,
   Stand,
   HeroBtn,
@@ -37,6 +38,7 @@ import {
   AboutSection,
   AboutContainer,
   SkillBox,
+  ProfileImage,
 } from "../styles/indexStyles/AboutSectionStyle";
 
 import {
@@ -92,6 +94,14 @@ const query = graphql`
       }
       gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
     }
+    profilePictureData: contentfulAsset(
+      file: { fileName: { eq: "profile-picture.png" } }
+    ) {
+      file {
+        fileName
+      }
+      gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
+    }
   }
 `;
 
@@ -104,6 +114,7 @@ export default function Index() {
     beyondData,
     myGlobeData,
     beyondPlanetData,
+    profilePictureData,
   } = data;
 
   const { gatsbyImageData: phoneMockupImageData } = phoneMockupData;
@@ -111,17 +122,20 @@ export default function Index() {
   const { gatsbyImageData: beyondImageData } = beyondData;
   const { gatsbyImageData: myGlobeImageData } = myGlobeData;
   const { gatsbyImageData: beyondGlobeImageData } = beyondPlanetData;
+  const { gatsbyImageData: profilePictureImageData } = profilePictureData;
 
   const phoneMockupImage = getImage(phoneMockupImageData);
   const rocketImage = getImage(rocketImageData);
   const beyondImage = getImage(beyondImageData);
   const myGlobeImage = getImage(myGlobeImageData);
   const beyondGlobeImage = getImage(beyondGlobeImageData);
+  const profilePictureImage = getImage(profilePictureImageData);
 
   // Gatsby Link component retaining scroll position and not resetting to top
   useEffect(() => window.scrollTo(0, 0), []);
 
   const isLoaded = useLoading();
+  //   const setIsLoader = useLoadingUpdate();
   const isGlobe = useGlobe();
   const setIsGlobe = useGlobeUpdate();
 
@@ -203,7 +217,10 @@ export default function Index() {
                 <GlobeCanvas id="globe_canvas" />
               </GlobeContainer>
             ) : (
-              <PhoneImage image={beyondImage} alt="planet with spaceship" />
+              <ExtraPlanetImage
+                image={beyondImage}
+                alt="planet with spaceship"
+              />
             )}
           </HeroArticle>
           {isLoaded && (
@@ -247,6 +264,10 @@ export default function Index() {
                 animateStacks={aboutStacksView}
               >
                 <div ref={aboutTextRef}>
+                  <ProfileImage
+                    image={profilePictureImage}
+                    alt="my profile picture"
+                  />
                   <h1>Ilias Allek</h1>
                   <h3>Aspiring Software Developer</h3>
                   <p>

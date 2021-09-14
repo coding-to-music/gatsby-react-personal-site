@@ -129,6 +129,19 @@ export const GlobeCanvas = styled.canvas`
   height: auto !important;
 `;
 
+export const ExtraPlanetImage = styled(GatsbyImage)`
+  position: relative;
+
+  display: block;
+
+  min-width: 65rem;
+
+  @media only screen and (max-width: 65.5em) {
+    width: 85%;
+    min-width: 58rem;
+  }
+`;
+
 export const UFOImage = styled(GatsbyImage)`
   position: absolute !important;
   bottom: -9rem;

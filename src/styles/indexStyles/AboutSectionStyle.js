@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const fadeVertically = keyframes`
 to {
@@ -133,6 +134,12 @@ export const AboutContainer = styled.article`
       text-align: center;
     }
   }
+`;
+
+export const ProfileImage = styled(GatsbyImage)`
+  width: 25rem;
+
+  border-radius: 50%;
 `;
 
 export const SkillBox = styled.div`

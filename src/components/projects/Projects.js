@@ -60,7 +60,7 @@ const Projects = ({ ignoreProject }) => {
         const projectThumbnail = getImage(gatsbyImageData);
         if (title !== ignoreProject) {
           const projectRef = useRef();
-          const projectView = onScreenIntersection(projectRef, -150, true, 10);
+          const projectView = onScreenIntersection(projectRef, -120, true, 10);
           return (
             <ProjectBox
               key={project.id}
