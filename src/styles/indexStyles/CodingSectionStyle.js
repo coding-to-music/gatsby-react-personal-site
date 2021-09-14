@@ -1,5 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { Link as ScrollLink } from "react-scroll";
 
 import DashboardSvg from "../../assets/svgs/dashboard-animated.svg";
 
@@ -130,9 +131,7 @@ export const DashSvg = styled(DashboardSvg)`
   height: 100%;
 `;
 
-export const CodingBtn = styled.button.attrs({
-  type: "button",
-})`
+export const CodingBtn = styled(ScrollLink)`
   padding: 1.4rem 3rem 1.5rem;
 
   transition: all 0.3s;

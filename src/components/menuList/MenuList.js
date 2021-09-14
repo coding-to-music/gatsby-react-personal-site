@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link as ScrollLink } from "react-scroll";
 
 import {
   FaTwitterSquare,
@@ -8,6 +9,8 @@ import {
   FaInstagramSquare,
   FaGithubSquare,
 } from "react-icons/fa";
+
+import { useScrollUpdate } from "../../context/ScrollContext";
 
 import {
   FixedBox,
@@ -18,7 +21,8 @@ import {
   socialSvgStyle,
 } from "./MenuListStyle";
 
-const MenuList = ({ isOpen }) => {
+const MenuList = ({ isOpen, setIsOpen }) => {
+  const setScollSection = useScrollUpdate();
   return (
     <div>
       <FixedBox isOpen={isOpen}>
@@ -31,18 +35,50 @@ const MenuList = ({ isOpen }) => {
         <div>
           <List isOpen={isOpen}>
             <li>
-              <SideLink href="/">Home</SideLink>
+              <SideLink
+                to="/"
+                onClick={() => {
+                  setIsOpen(false);
+                  setScollSection("homeSection");
+                }}
+              >
+                Home
+              </SideLink>
             </li>
 
             <li>
-              <SideLink href="/">About</SideLink>
+              <SideLink
+                to="/"
+                onClick={() => {
+                  setIsOpen(false);
+                  setScollSection("aboutSection");
+                }}
+              >
+                About
+              </SideLink>
             </li>
 
             <li>
-              <SideLink href="/">Projects</SideLink>
+              <SideLink
+                to="/"
+                onClick={() => {
+                  setIsOpen(false);
+                  setScollSection("projectSection");
+                }}
+              >
+                Projects
+              </SideLink>
             </li>
             <li>
-              <SideLink href="/">Contact</SideLink>
+              <SideLink
+                to="/"
+                onClick={() => {
+                  setIsOpen(false);
+                  setScollSection("contactSection");
+                }}
+              >
+                Contact
+              </SideLink>
             </li>
           </List>
 
@@ -96,6 +132,7 @@ const MenuList = ({ isOpen }) => {
 
 MenuList.propTypes = {
   isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
 };
 
 export default MenuList;

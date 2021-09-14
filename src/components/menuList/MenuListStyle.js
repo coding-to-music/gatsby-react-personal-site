@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
+import { Link } from "gatsby";
 
 export const FixedBox = styled.aside`
   position: fixed;
@@ -58,7 +59,7 @@ export const List = styled.ul`
     `}
 `;
 
-export const SideLink = styled.a`
+export const SideLink = styled(Link)`
   &,
   &:link,
   &:visited {

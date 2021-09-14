@@ -38,7 +38,7 @@ const NavBar = ({ navColor }) => {
 
   return (
     <>
-      <MenuList isOpen={isOpen} />
+      <MenuList isOpen={isOpen} setIsOpen={setIsOpen} />
       <NavContainer isScrolled={isScrolled} isOpen={isOpen}>
         <Nav isOpen={isOpen} navColor={navColor} isScrolled={isScrolled}>
           <div

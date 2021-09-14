@@ -3,7 +3,8 @@ import React, { useEffect, useRef } from "react";
 import loadable from "@loadable/component";
 
 import { useStaticQuery, graphql } from "gatsby";
-import { getImage, GatsbyImage } from "gatsby-plugin-image";
+import { getImage } from "gatsby-plugin-image";
+import { Element, scroller } from "react-scroll";
 
 import Loading from "../components/loading/Loading";
 import NavBar from "../components/navBar/NavBar";
@@ -50,9 +51,13 @@ import { ContactSection } from "../styles/indexStyles/ContactSectionStyle";
 
 import skills from "../constants/skills";
 import basics from "../constants/basics";
+
 import onScreenIntersection from "../utils/onScreenIntersection";
+
 import { useLoading } from "../context/LoadingContext";
 import { useGlobe, useGlobeUpdate } from "../context/GlobeContext";
+
+import { scrollFunction } from "../utils/indexScrollEffect";
 
 const HomeGlobe = loadable(() => import("../components/HomeGlobe"));
 
@@ -134,15 +139,15 @@ export default function Index() {
   // Gatsby Link component retaining scroll position and not resetting to top
   useEffect(() => window.scrollTo(0, 0), []);
 
+  const loadTime = 20000;
   const isLoaded = useLoading();
-  //   const setIsLoader = useLoadingUpdate();
+  scrollFunction(isLoaded);
+
   const isGlobe = useGlobe();
   const setIsGlobe = useGlobeUpdate();
 
-  const loadTime = 20000;
-
   ////////////////////////////////
-  // NOTE: SCROLL ANIMATIONS
+  // NOTE:  ANIMATIONS
   ////////////////////////////////
 
   // Code Section
@@ -170,6 +175,15 @@ export default function Index() {
   const projectTextRef = useRef();
   const projectTextView = onScreenIntersection(projectTextRef, -150, false, 1);
 
+  ////////////////////////////////
+  // NOTE: SCROLL ANIMATIONS
+  ////////////////////////////////
+
+  const homeRef = useRef();
+  const aboutRef = useRef();
+  const projectRef = useRef();
+  const contactRef = useRef();
+
   return (
     <>
       <Seo title="Home" />
@@ -177,59 +191,61 @@ export default function Index() {
       {!isLoaded && <Loading timeLoad={loadTime} />}
 
       <div>
-        <Header>
-          {isLoaded && <NavBar navColor="white" />}
-          <HeroArticle>
-            {isLoaded && (
-              <div>
-                <h1>Hello, I'm Ilias. An aspiring software developer.</h1>
-                <h3>
-                  I'm just a guy that enjoys programming daily and building cool
-                  stuff — Front-end design and solving problems are my favourite
-                  part. My goal is to always stand out.
-                </h3>
+        <Element name="homeSection">
+          <Header id="home" ref={homeRef}>
+            {isLoaded && <NavBar navColor="white" />}
+            <HeroArticle>
+              {isLoaded && (
                 <div>
-                  <HeroBtn>
-                    {isGlobe ? (
-                      <PlanetImage
-                        image={beyondGlobeImage}
-                        alt="small-planet"
-                        onClick={() => {
-                          setIsGlobe(false);
-                        }}
-                      />
-                    ) : (
-                      <PlanetImage
-                        image={myGlobeImage}
-                        alt="small-globe"
-                        onClick={() => {
-                          window.location.reload();
-                        }}
-                        isgray="true"
-                      />
-                    )}
-                  </HeroBtn>
+                  <h1>Hello, I'm Ilias. An aspiring software developer.</h1>
+                  <h3>
+                    I'm just a guy that enjoys programming daily and building
+                    cool stuff — Front-end design and solving problems are my
+                    favourite part. My goal is to always stand out.
+                  </h3>
+                  <div>
+                    <HeroBtn>
+                      {isGlobe ? (
+                        <PlanetImage
+                          image={beyondGlobeImage}
+                          alt="small-planet"
+                          onClick={() => {
+                            setIsGlobe(false);
+                          }}
+                        />
+                      ) : (
+                        <PlanetImage
+                          image={myGlobeImage}
+                          alt="small-globe"
+                          onClick={() => {
+                            window.location.reload();
+                          }}
+                          isgray="true"
+                        />
+                      )}
+                    </HeroBtn>
+                  </div>
                 </div>
-              </div>
+              )}
+              {isGlobe ? (
+                <GlobeContainer>
+                  <GlobeCanvas id="globe_canvas" />
+                </GlobeContainer>
+              ) : (
+                <ExtraPlanetImage
+                  image={beyondImage}
+                  alt="planet with spaceship"
+                />
+              )}
+            </HeroArticle>
+            {isLoaded && (
+              <>
+                <UFOImage image={rocketImage} alt="Ufo" />
+                <Stand />
+              </>
             )}
-            {isGlobe ? (
-              <GlobeContainer>
-                <GlobeCanvas id="globe_canvas" />
-              </GlobeContainer>
-            ) : (
-              <ExtraPlanetImage
-                image={beyondImage}
-                alt="planet with spaceship"
-              />
-            )}
-          </HeroArticle>
-          {isLoaded && (
-            <>
-              <UFOImage image={rocketImage} alt="Ufo" />
-              <Stand />
-            </>
-          )}
-        </Header>
+          </Header>
+        </Element>
 
         {isLoaded && (
           <main>
@@ -239,7 +255,9 @@ export default function Index() {
                 animateText={codeContainerView}
               >
                 <h1>Always coding and working on new projects</h1>
-                <CodingBtn>About me</CodingBtn>
+                <CodingBtn to="about" spy smooth offset={-70} duration={500}>
+                  About me
+                </CodingBtn>
                 <DeviceContainer
                   animatePhone={codePhoneView}
                   animateDash={codeDashView}
@@ -258,67 +276,73 @@ export default function Index() {
               </CodingContainer>
             </CodingSection>
 
-            <AboutSection>
-              <AboutContainer
-                animateText={aboutTextView}
-                animateStacks={aboutStacksView}
-              >
-                <div ref={aboutTextRef}>
-                  <ProfileImage
-                    image={profilePictureImage}
-                    alt="my profile picture"
-                  />
-                  <h1>Ilias Allek</h1>
-                  <h3>Aspiring Software Developer</h3>
-                  <p>
-                    I've graduated from Montreal University on December 2020
-                    with a Bachelor of Mathematics / minor in statistics. Before
-                    graduating, I was wondering about my future and what I will
-                    do next, I didn't wanna pursue academics, It didn't seem fit
-                    to me. I've decided that I will dedicate my time learning
-                    programming. Over this time I learned bulding responsive
-                    websites, full stack web applications based on React,Gatsby,
-                    NodeJS and more. On my free time, I like to play soccer,
-                    exercice and hang out with friends.
-                  </p>
-                </div>
-                <div ref={aboutStacksRef}>
-                  <h1>Skills</h1>
-                  <SkillBox animateStacks={aboutStacksView}>
-                    {skills.map((skill) => {
-                      return (
-                        <div key={skill.id}>
-                          {skill.icon}
-                          <span>{skill.title}</span>
-                        </div>
-                      );
-                    })}
-                  </SkillBox>
-                  <h1>Basics</h1>
-                  <SkillBox animateStacks={aboutStacksView}>
-                    {basics.map((basic) => {
-                      return (
-                        <div key={basic.id} id={basic.title}>
-                          {basic.icon}
-                          <span>{basic.title}</span>
-                        </div>
-                      );
-                    })}
-                  </SkillBox>
-                </div>
-              </AboutContainer>
-            </AboutSection>
+            <Element name="aboutSection">
+              <AboutSection id="about" ref={aboutRef}>
+                <AboutContainer
+                  animateText={aboutTextView}
+                  animateStacks={aboutStacksView}
+                >
+                  <div ref={aboutTextRef}>
+                    <ProfileImage
+                      image={profilePictureImage}
+                      alt="my profile picture"
+                    />
+                    <h1>Ilias Allek</h1>
+                    <h3>Aspiring Software Developer</h3>
+                    <p>
+                      I've graduated from Montreal University on December 2020
+                      with a Bachelor of Mathematics / minor in statistics.
+                      Before graduating, I was wondering about my future and
+                      what I will do next, I didn't wanna pursue academics, It
+                      didn't seem fit to me. I've decided that I will dedicate
+                      my time learning programming. Over this time I learned
+                      bulding responsive websites, full stack web applications
+                      based on React,Gatsby, NodeJS and more. On my free time, I
+                      like to play soccer, exercice and hang out with friends.
+                    </p>
+                  </div>
+                  <div ref={aboutStacksRef}>
+                    <h1>Skills</h1>
+                    <SkillBox animateStacks={aboutStacksView}>
+                      {skills.map((skill) => {
+                        return (
+                          <div key={skill.id}>
+                            {skill.icon}
+                            <span>{skill.title}</span>
+                          </div>
+                        );
+                      })}
+                    </SkillBox>
+                    <h1>Basics</h1>
+                    <SkillBox animateStacks={aboutStacksView}>
+                      {basics.map((basic) => {
+                        return (
+                          <div key={basic.id} id={basic.title}>
+                            {basic.icon}
+                            <span>{basic.title}</span>
+                          </div>
+                        );
+                      })}
+                    </SkillBox>
+                  </div>
+                </AboutContainer>
+              </AboutSection>
+            </Element>
 
-            <ProjectSection>
-              <ProjectContainer animateText={projectTextView}>
-                <h1 ref={projectTextRef}>Recent Projects</h1>
-                <Projects />
-              </ProjectContainer>
-            </ProjectSection>
+            <Element name="projectSection">
+              <ProjectSection id="project" ref={projectRef}>
+                <ProjectContainer animateText={projectTextView}>
+                  <h1 ref={projectTextRef}>Recent Projects</h1>
+                  <Projects />
+                </ProjectContainer>
+              </ProjectSection>
+            </Element>
 
-            <ContactSection>
-              <Contact />
-            </ContactSection>
+            <Element name="contactSection">
+              <ContactSection id="contact" ref={contactRef}>
+                <Contact />
+              </ContactSection>
+            </Element>
           </main>
         )}
       </div>
