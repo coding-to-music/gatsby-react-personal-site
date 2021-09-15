@@ -161,8 +161,8 @@ export default function Index() {
     true,
     1
   );
-  const codePhoneView = onScreenIntersection(codePhoneRef, -100, true, 1);
-  const codeDashView = onScreenIntersection(codeDashRef, -100, true, 1);
+  const codePhoneView = onScreenIntersection(codePhoneRef, -100, false, 1);
+  const codeDashView = onScreenIntersection(codeDashRef, -100, false, 1);
 
   // About Section
   const aboutTextRef = useRef();
@@ -286,6 +286,7 @@ export default function Index() {
                     <ProfileImage
                       image={profilePictureImage}
                       alt="my profile picture"
+                      animateProfile={aboutTextView}
                     />
                     <h1>Ilias Allek</h1>
                     <h3>Aspiring Software Developer</h3>

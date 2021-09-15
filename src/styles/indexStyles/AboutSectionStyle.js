@@ -61,7 +61,7 @@ export const AboutContainer = styled.article`
       ${(props) =>
         props.animateText &&
         css`
-          animation: ${fadeVertically} 0.5s cubic-bezier(0.5, 0, 0, 1) 1
+          animation: ${fadeVertically} 0.5s cubic-bezier(0.5, 0, 0, 1) 0.1s 1
             forwards;
         `};
 
@@ -84,7 +84,7 @@ export const AboutContainer = styled.article`
       ${(props) =>
         props.animateText &&
         css`
-          animation: ${fadeVertically} 0.5s cubic-bezier(0.5, 0, 0, 1) 0.2s 1
+          animation: ${fadeVertically} 0.5s cubic-bezier(0.5, 0, 0, 1) 0.25s 1
             forwards;
         `};
 
@@ -99,7 +99,7 @@ export const AboutContainer = styled.article`
       ${(props) =>
         props.animateText &&
         css`
-          animation: ${fadeVertically} 0.5s cubic-bezier(0.5, 0, 0, 1) 0.4s 1
+          animation: ${fadeVertically} 0.5s cubic-bezier(0.5, 0, 0, 1) 0.45s 1
             forwards;
         `};
 
@@ -137,8 +137,15 @@ export const AboutContainer = styled.article`
 `;
 
 export const ProfileImage = styled(GatsbyImage)`
-  width: 25rem;
+  opacity: 0;
+  transform: translateY(100%);
+  ${(props) =>
+    props.animateProfile &&
+    css`
+      animation: ${fadeVertically} 0.5s cubic-bezier(0.5, 0, 0, 1) 1 forwards;
+    `};
 
+  width: 25rem;
   border-radius: 50%;
 `;
 
@@ -158,7 +165,7 @@ export const SkillBox = styled.div`
     ${(props) =>
       props.animateStacks &&
       css`
-        animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 0.2s 1
+        animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 0.25s 1
           forwards;
       `};
   }
@@ -166,7 +173,7 @@ export const SkillBox = styled.div`
     ${(props) =>
       props.animateStacks &&
       css`
-        animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 0.4s 1
+        animation: ${fadeVertically} 0.6s cubic-bezier(0.5, 0, 0, 1) 0.45s 1
           forwards;
       `};
   }

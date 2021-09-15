@@ -10,6 +10,11 @@ to {
     transform: translateY(0);
 }
 `;
+const slideHorizontally = keyframes`
+to {
+    transform: translateX(0);
+}
+`;
 
 export const CodingSection = styled.section`
   position: relative;
@@ -76,11 +81,11 @@ export const DeviceContainer = styled.article`
 
     width: 25%;
 
-    transform: translateY(100%);
+    transform: translateX(-80vw);
     ${(props) =>
       props.animatePhone &&
       css`
-        animation: ${fadeVertically} 0.5s ease-out 1 forwards;
+        animation: ${slideHorizontally} 0.5s ease-out 1 forwards;
       `};
 
     @media only screen and (max-width: 56.25em) {
@@ -109,11 +114,11 @@ export const DeviceContainer = styled.article`
     height: max-content;
 
     opacity: 1;
-    transform: translateY(100%);
+    transform: translateX(80vw);
     ${(props) =>
       props.animateDash &&
       css`
-        animation: ${fadeVertically} 0.5s ease-out 1 forwards;
+        animation: ${slideHorizontally} 0.5s ease-out 1 forwards;
       `};
 
     @media only screen and (max-width: 56.25em) {
