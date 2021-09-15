@@ -313,10 +313,10 @@ export const ProjectPageStory = styled.div`
       display: flex;
       justify-content: space-between;
 
-      width: 60%;
+      width: 80%;
 
       @media only screen and (max-width: 65em) {
-        width: 90%;
+        width: 95%;
       }
 
       a {
@@ -352,10 +352,8 @@ export const ProjectPageOthers = styled.div`
   }
 `;
 
-export const ProjectPageBtn = styled.button.attrs({
-  type: "button",
-})`
-  padding: 1rem 0;
+export const ProjectPageBtn = styled.a`
+  padding: 0.8rem 0;
 
   transition: all 0.3s;
 
@@ -372,6 +370,8 @@ export const ProjectPageBtn = styled.button.attrs({
   font-size: 1.8rem;
   letter-spacing: 1px;
   white-space: nowrap;
+  text-decoration: none;
+  text-align: center;
 
   cursor: pointer;
 

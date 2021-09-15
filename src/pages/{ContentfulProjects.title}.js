@@ -5,7 +5,6 @@
 import React, { useEffect, useRef } from "react";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
-import slugify from "slugify";
 import moment from "moment";
 
 import NavBar from "../components/navBar/NavBar";
@@ -36,6 +35,8 @@ export const query = graphql`
       content {
         tags
         stacks
+        github_link
+        app_link
       }
       description {
         description
@@ -73,7 +74,12 @@ const ProjectTemplate = (props) => {
   const {
     title: projectName,
     description: { description: projectDescription },
-    content: { stacks: projectStacks, tags: projectTags },
+    content: {
+      stacks: projectStacks,
+      tags: projectTags,
+      github_link: projectGithubLink,
+      app_link: projectAppLink,
+    },
     thumbnail: {
       gatsbyImageData,
       file: { url: projectUrl },
@@ -140,7 +146,11 @@ const ProjectTemplate = (props) => {
                   return <span key={tag}>{tag}</span>;
                 })}
               </div>
-              <ProjectPageMore href={slugify(projectName, { lower: true })}>
+              <ProjectPageMore
+                href={projectAppLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 View the site
               </ProjectPageMore>
             </article>
@@ -193,8 +203,20 @@ const ProjectTemplate = (props) => {
             <div>
               <h1>{projectName}</h1>
               <span>{moment().format("MMM Do, YYYY")}</span>
-              <ProjectPageBtn>View the site</ProjectPageBtn>
-              <ProjectPageBtn>Github</ProjectPageBtn>
+              <ProjectPageBtn
+                href={projectAppLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View the site
+              </ProjectPageBtn>
+              <ProjectPageBtn
+                href={projectGithubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Github
+              </ProjectPageBtn>
               <h2>Share</h2>
               <h3>If you like this work, please share.</h3>
               <ul>

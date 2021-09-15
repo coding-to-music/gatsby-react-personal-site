@@ -5,13 +5,14 @@ import {
   FaFacebookSquare,
   FaLinkedin,
   FaGithubSquare,
+  FaInstagramSquare,
 } from "react-icons/fa";
 
 const socials = [
   {
     id: 1,
     icon: <FaTwitterSquare />,
-    link: "https://twitter.com",
+    link: "https://twitter.com/IAllekAmazigh",
   },
   {
     id: 2,
@@ -26,7 +27,12 @@ const socials = [
   {
     id: 4,
     icon: <FaGithubSquare />,
-    link: "https://github.com/",
+    link: "https://github.com/Allek97",
+  },
+  {
+    id: 5,
+    icon: <FaInstagramSquare />,
+    link: "https://www.instagram.com",
   },
 ];
 

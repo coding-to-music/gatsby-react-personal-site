@@ -207,25 +207,19 @@ export const ProjectContent = styled.article`
   }
 `;
 
-export const ProjectBtn = styled.button.attrs({
-  type: "button",
-})`
-  padding: 1rem 2.5rem;
+export const ProjectBtn = styled.a`
+  padding: 0.8rem 2.5rem;
 
   transition: all 0.3s;
 
-  /* box-shadow: rgb(8 84 207 / 60%) 0px 0.4rem 1rem 0px; */
-
   border: 1px solid rgba(25, 14, 66, 1);
-  /* border-radius: 0.6rem; */
-
-  /* background-color: rgba(25, 14, 66, 1); */
 
   color: black;
   font-family: ManropeMedium;
   font-size: 1.8rem;
   letter-spacing: 1px;
   white-space: nowrap;
+  text-decoration: none;
 
   cursor: pointer;
 

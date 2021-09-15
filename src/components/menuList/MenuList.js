@@ -1,14 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link as ScrollLink } from "react-scroll";
-
-import {
-  FaTwitterSquare,
-  FaFacebookSquare,
-  FaLinkedin,
-  FaInstagramSquare,
-  FaGithubSquare,
-} from "react-icons/fa";
 
 import { useScrollUpdate } from "../../context/ScrollContext";
 
@@ -18,8 +9,8 @@ import {
   SideLink,
   SocialList,
   SideLinkSvg,
-  socialSvgStyle,
 } from "./MenuListStyle";
+import socials from "../../constants/socials";
 
 const MenuList = ({ isOpen, setIsOpen }) => {
   const setScollSection = useScrollUpdate();
@@ -83,46 +74,19 @@ const MenuList = ({ isOpen, setIsOpen }) => {
           </List>
 
           <SocialList isOpen={isOpen}>
-            <li>
-              <SideLinkSvg href="/">
-                <FaTwitterSquare
-                  style={socialSvgStyle}
-                  className="media-svg-effect"
-                />
-              </SideLinkSvg>
-            </li>
-            <li>
-              <SideLinkSvg href="/">
-                <FaGithubSquare
-                  style={socialSvgStyle}
-                  className="media-svg-effect"
-                />
-              </SideLinkSvg>
-            </li>
-            <li>
-              <SideLinkSvg href="/">
-                <FaFacebookSquare
-                  style={socialSvgStyle}
-                  className="media-svg-effect"
-                />
-              </SideLinkSvg>
-            </li>
-            <li>
-              <SideLinkSvg href="/">
-                <FaLinkedin
-                  style={socialSvgStyle}
-                  className="media-svg-effect"
-                />
-              </SideLinkSvg>
-            </li>
-            <li>
-              <SideLinkSvg href="/">
-                <FaInstagramSquare
-                  style={socialSvgStyle}
-                  className="media-svg-effect"
-                />
-              </SideLinkSvg>
-            </li>
+            {socials.map((social) => {
+              return (
+                <li key={social.id}>
+                  <SideLinkSvg
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {social.icon}
+                  </SideLinkSvg>
+                </li>
+              );
+            })}
           </SocialList>
         </div>
       </FixedBox>

@@ -54,7 +54,7 @@ export const List = styled.ul`
 
       li {
         opacity: 0;
-        animation: ${slideRight} 0.5s ease-in-out 0.3s forwards;
+        animation: ${slideRight} 0.4s ease-in-out 0.3s forwards;
       }
     `}
 `;
@@ -65,7 +65,7 @@ export const SideLink = styled(Link)`
   &:visited {
     display: block;
 
-    transition: all 0.3s linear;
+    transition: all 0.2s linear;
 
     margin-bottom: 0.8rem;
 
@@ -136,7 +136,7 @@ export const SocialList = styled.ul`
         height: 3.8rem;
         width: 3.8rem;
 
-        animation: ${slideUp} 0.5s ease-in-out 0.3s forwards;
+        animation: ${slideUp} 0.4s ease-in-out 0.3s forwards;
 
         &:hover {
           transform: scale(1.1);
@@ -146,8 +146,6 @@ export const SocialList = styled.ul`
 `;
 
 export const SideLinkSvg = styled.a`
-  transition: all 0.3s linear;
-
   text-decoration: none;
 
   color: #102a42;
@@ -156,8 +154,11 @@ export const SideLinkSvg = styled.a`
     transform: scale(1.1);
   }
 
-  .media-svg-effect {
-    transition: transform 0.2s;
+  svg {
+    transition: all 0.2s linear;
+    height: 100%;
+    width: 100%;
+
     &:hover {
       transform: scale(1.3);
     }
@@ -177,9 +178,4 @@ export const CloseSvgStyle = {
   borderColor: "transparent",
 
   cursor: "pointer",
-};
-
-export const socialSvgStyle = {
-  height: "100%",
-  width: "100%",
 };

@@ -30,6 +30,8 @@ const query = graphql`
         content {
           stacks
           tags
+          github_link
+          app_link
         }
         description {
           description
@@ -54,7 +56,12 @@ const Projects = ({ ignoreProject }) => {
         const {
           title,
           thumbnail: { gatsbyImageData },
-          content: { stacks: projectStacks, tags: projectTags },
+          content: {
+            stacks: projectStacks,
+            tags: projectTags,
+            github_link: projectGithubLink,
+            app_link: projectAppLink,
+          },
           description: { description: projectDescription },
         } = project;
         const projectThumbnail = getImage(gatsbyImageData);
@@ -99,8 +106,20 @@ const Projects = ({ ignoreProject }) => {
                     })}
                   </div>
                   <div className="projects-btns">
-                    <ProjectBtn>Live</ProjectBtn>
-                    <ProjectBtn>Code</ProjectBtn>
+                    <ProjectBtn
+                      href={projectAppLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Live
+                    </ProjectBtn>
+                    <ProjectBtn
+                      href={projectGithubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Code
+                    </ProjectBtn>
                     <ProjectMore
                       to={`/${slugify(project.title, { lower: true })}`}
                       onClick={() => {
