@@ -83,7 +83,7 @@ const ContentfulAboutQuest = () => {
       </ul>
 
       <p>
-        Here are the list of the perfect maze generation algorithms that were
+        Here is the list of the perfect maze generation algorithms that were
         implemented :
       </p>
 

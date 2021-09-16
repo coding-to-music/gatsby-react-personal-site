@@ -184,6 +184,8 @@ export const ProjectContent = styled.article`
 
       span {
         display: flex;
+        margin-top: 0.8rem;
+        margin-bottom: 0.8rem;
 
         &:not(:last-child) {
           margin-right: 0.8rem;
