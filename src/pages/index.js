@@ -4,7 +4,7 @@ import loadable from "@loadable/component";
 
 import { useStaticQuery, graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
-import { Element, scroller } from "react-scroll";
+import { Element } from "react-scroll";
 
 import Loading from "../components/loading/Loading";
 import NavBar from "../components/navBar/NavBar";
@@ -286,20 +286,20 @@ export default function Index() {
                     <ProfileImage
                       image={profilePictureImage}
                       alt="my profile picture"
-                      animateProfile={aboutTextView}
+                      animateprofile={aboutTextView ? 1 : 0}
                     />
                     <h1>Ilias Allek</h1>
                     <h3>Aspiring Software Developer</h3>
                     <p>
                       I've graduated from Montreal University on December 2020
                       with a Bachelor of Mathematics / minor in statistics.
-                      Before graduating, I was wondering about my future and
-                      what I will do next, I didn't wanna pursue academics, It
-                      didn't seem fit to me. I've decided that I will dedicate
-                      my time learning programming. Over this time I learned
-                      bulding responsive websites, full stack web applications
-                      based on React,Gatsby, NodeJS and more. On my free time, I
-                      like to play soccer, exercice and hang out with friends.
+                      Before graduating, I wondered about my future and what I
+                      will do next, I didn't wanna pursue academics, It didn't
+                      seem fit to me. I've decided that I will dedicate my time
+                      learning programming. Over this time I learned building
+                      responsive websites, full stack web applications based on
+                      React,Gatsby, NodeJS and more. On my free time, I like to
+                      play soccer, exercice and hang out with friends.
                     </p>
                   </div>
                   <div ref={aboutStacksRef}>

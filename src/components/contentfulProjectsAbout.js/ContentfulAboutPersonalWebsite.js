@@ -71,18 +71,18 @@ const ContentfulAboutPersonalWebsite = () => {
       <p>
         I've used Contentful which is headless CMS that allowed me to stores my
         images and most of the data related to the overview of my projects.
-        GraphQL is used to communicate with contentful and fetch the necessary
+        GraphQL is used to communicate with Contentful and fetch the necessary
         data through queries.
       </p>
       <p>
         I've used Figma to create/modify some images. For example, I've used it
-        to add a frame with color gradients around projects thumbnails. It was
+        to add a frame with color gradients around project thumbnails. It was
         also used to animate the dashboard svg in the coding section of the
         homepage and implement the devices mockups images like below. The
         mockups are provided by Mockuuups Studio.
       </p>
       <p>
-        In the homepage, I implemented a 3d globe using three js libraries. I've
+        On the homepage, I implemented a 3d globe using three js libraries. I've
         used the examples and the documentation in{" "}
         <a
           href="https://github.com/vasturiano/three-globe"

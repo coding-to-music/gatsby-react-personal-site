@@ -73,20 +73,20 @@ const ContentfulAboutExplodii = () => {
           Quest
         </a>
         , I really wanted to build a fully functional fullstack app. I decided
-        to expand my skills and learn more about backend development. I took a
-        udemy course about NodeJS/Express and MongoDB, finished it and decided
+        to expand my skills and learn more about back-end development. I took a
+        Udemy course about NodeJS/Express and MongoDB, finished it and decided
         to put my knowledge in practice as fast as possible.
       </p>
       <p>
         Explodii is a rich fullstack app with many features. The application
         adopts a Front-End MVC(Model View Controller) architecture pattern with
-        React as the Front-End framework and Express.js as Back-End framework.
+        React as the Front-End framework and Express.js as back-end framework.
       </p>
       <p>
-        For the purporses of this app I did build a Stateless RESTful API that
-        handles four ressources : excursions users, reviews and bookings.All the
-        data for each ressource is stored in a MongoDB database using MongoDB
-        Compass. The models are build using mongoose same goes with all the CRUD
+        For the purposes of this app I did build a Stateless RESTful API that
+        handles four resources : excursions users, reviews and bookings.All the
+        data for each resource is stored in a MongoDB database using MongoDB
+        Compass. The models are built using mongoose same goes with all the CRUD
         operations, filters, sorts, pagination, and more.
       </p>
       <p>The features in Explodii :</p>
@@ -110,7 +110,7 @@ const ContentfulAboutExplodii = () => {
           in a cookie.{" "}
         </li>
         <li>
-          Users can update their account informations (name, email, password,
+          Users can update their account information (name, email, password,
           profile picture).
         </li>
         <li>Users have access to their bookings in the account section.</li>
@@ -122,7 +122,7 @@ const ContentfulAboutExplodii = () => {
 
       <p>
         For each excursion you can track all the locations you will visit in a
-        map built using google map api.
+        map built using google map API.
       </p>
       <p>
         Finally, explodii is a responsive app. Some components are uniquely
@@ -134,8 +134,8 @@ const ContentfulAboutExplodii = () => {
         alt="explodii on all devices"
       />
       <p>
-        * Stripe is on test mode, you can use : 4242 4242 4242 4242 credit card
-        number to purchase the products.
+        * Stripe is in test mode, you can use : 4242 4242 4242 4242 credit card
+        numbers to purchase the products.
       </p>
     </Container>
   );

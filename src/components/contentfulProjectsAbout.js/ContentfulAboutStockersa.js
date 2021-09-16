@@ -93,7 +93,7 @@ const ContentfulAboutStockersa = () => {
 
       <ul>
         <li>
-          Access real-time stock data quotes(with price rate of change) and
+          Access real-time stock data, quotes(with price rate of change) and
           volumes up to 5 years back, with 7 different time periods.{" "}
         </li>
         <li>
@@ -104,20 +104,20 @@ const ContentfulAboutStockersa = () => {
           Get important daily key metrics like P/E Ratio, Earnings Per Share
           (Eps), market cap, average volume and more.{" "}
         </li>
-        <li>Get an overview of the company/corporation of your intrests.</li>
+        <li>Get an overview of the company/corporation of your interests.</li>
         <li>
           Get access to the yearly financial statements up to 5 years. Includes
           net income, gross profit, revenue, ebitda and more.{" "}
         </li>
         <li>
-          Get also access to the yearly expense informations up to 5 years. With
+          Get also access to the yearly expense information up to 5 years. With
           metrics like cost of revenue, research and development expenses,
           general and administrative expenses, selling and marketing expenses
           and more.{" "}
         </li>
         <li>
-          Get access to a google map that tracks the companies headquarter and
-          65+ global exchanges all over the globe with key informations.
+          Get access to a Google map that tracks the company's headquarter and
+          65+ global exchanges all over the globe with key information.
         </li>
       </ul>
       <p>Stockersa is fully responsive, please try it on all devices.</p>

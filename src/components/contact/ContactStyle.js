@@ -29,7 +29,8 @@ export const ContactContainer = styled.article`
       align-items: center;
       margin-bottom: 10rem;
       width: 100%;
-      button {
+      button,
+      a {
         align-self: center !important;
       }
     }
@@ -227,6 +228,45 @@ export const ContactTextArea = styled.textarea.attrs({
   &::placeholder {
     color: rgba(43, 45, 66, 0.5);
     font-weight: 400;
+  }
+`;
+
+export const ResumeLink = styled.a`
+  align-self: center;
+
+  padding: 1.2rem 0 1.3rem;
+  margin-top: 2rem;
+  width: 22rem;
+
+  transition: all ease 0.4s;
+  opacity: 0;
+  transform: translateY(100%);
+  ${(props) =>
+    props.animateBtn &&
+    css`
+      animation: ${fadeVertically} 0.6s ease-out 0.5s 1 forwards;
+    `};
+
+  box-shadow: rgb(8 84 207 / 60%) 0px 0.65rem 1.6rem 0px;
+
+  border: none;
+  border-radius: 0.6rem;
+
+  background-color: rgba(8, 84, 207, 1);
+
+  color: white;
+  font-family: ManropeMedium;
+  font-display: fallback;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  text-decoration: none;
+  text-align: center;
+
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: rgb(8 84 207 / 90%) 0px 0rem 2.1rem 0px;
   }
 `;
 

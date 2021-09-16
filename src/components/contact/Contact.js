@@ -5,6 +5,7 @@ import {
   ContactForm,
   ContactInput,
   ContactTextArea,
+  ResumeLink,
   ContactBtn,
   NameSvg,
   EmailSvg,
@@ -47,12 +48,28 @@ const Contact = () => {
         <h1>
           For employers<span>:</span>
         </h1>
-        <ContactBtn
+        <ResumeLink
           animateBtn={contactView}
           style={{ alignSelf: "flex-start" }}
+          href="Ilias_Allek_SWE_Resume_EN.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          alt="my resume in english"
+          download
         >
           DOWNLOAD CV
-        </ContactBtn>
+        </ResumeLink>
+        <ResumeLink
+          animateBtn={contactView}
+          style={{ alignSelf: "flex-start" }}
+          href="Ilias_Allek_SWE_Resume_FR.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          alt="my resume in french"
+          download
+        >
+          TÉLÉCHARGER CV
+        </ResumeLink>
       </div>
       <div>
         <h1>Say Hello</h1>

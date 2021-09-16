@@ -140,7 +140,7 @@ export const ProfileImage = styled(GatsbyImage)`
   opacity: 0;
   transform: translateY(100%);
   ${(props) =>
-    props.animateProfile &&
+    props.animateprofile &&
     css`
       animation: ${fadeVertically} 0.5s cubic-bezier(0.5, 0, 0, 1) 1 forwards;
     `};

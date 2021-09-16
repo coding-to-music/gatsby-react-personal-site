@@ -44,9 +44,9 @@ const ContentfulAboutQuest = () => {
 
       <p>
         It was an enormous challenge, it turned out to be way more difficult
-        that I tought. I learned that without practice all the skills I tought I
-        learned through the internet were useless. I went to the basics, and
-        went through JS functional programming and undertood react lifecycles.
+        than I thought. I learned that without practice all the skills I thought
+        I learned through the internet were useless. I went to the basics, and
+        went through JS functional programming and understood react lifecycle.
       </p>
 
       <p>
@@ -55,7 +55,7 @@ const ContentfulAboutQuest = () => {
       </p>
 
       <p>
-        I took a Sass & SCSS course in udemy, I redesigned the whole app to make
+        I took a Sass & SCSS course in Udemy, I redesigned the whole app to make
         it more appealing, I learned how to use good typography,colors and
         svgs/images. I learned how to use flexbox and grid as well as organize
         my SCSS code using the BEM notation.
@@ -64,12 +64,12 @@ const ContentfulAboutQuest = () => {
       <p>
         I also learned how to use react router dom, I created a lore route where
         I post in details about the algorithms and data structures I used and
-        how they work (still on progression). It was at that time I started
+        how they work (still on progress). It was at that time I started
         learning Git/Github and getting comfortable using it for this project
         and the future ones.
       </p>
 
-      <p>Those are the pathfinding algorithms I implemented on the app : </p>
+      <p>Those are the pathfinding algorithms I implemented in the app : </p>
 
       <ul>
         <li>Depth-First Search Algorithm </li>
