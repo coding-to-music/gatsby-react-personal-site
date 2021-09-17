@@ -1,5 +1,8 @@
+/* eslint-disable react/prop-types */
+import { useLocation } from "@reach/router";
 import React, { useRef } from "react";
 import styled, { css } from "styled-components";
+
 import { fadeVertically } from "../abstracts/animations";
 import onScreenIntersection from "../utils/onScreenIntersection";
 
@@ -31,8 +34,13 @@ const Footer = () => {
   const contactTextRef = useRef();
   const contactView = onScreenIntersection(contactTextRef, -20, false, 10);
 
+  const location = useLocation();
+  const { pathname } = location;
+
+  const is404 = pathname.includes("404");
+
   return (
-    <Container ref={contactTextRef} animateText={contactView}>
+    <Container ref={contactTextRef} animateText={is404 ? true : contactView}>
       <h4>
         &copy; {new Date().getFullYear()} by Ilias Allek. All rights reserved.
       </h4>
