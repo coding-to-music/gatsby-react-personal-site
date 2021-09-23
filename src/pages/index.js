@@ -100,7 +100,7 @@ const query = graphql`
       gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
     }
     profilePictureData: contentfulAsset(
-      file: { fileName: { eq: "profile-picture.png" } }
+      file: { fileName: { eq: "NEW-PP.png" } }
     ) {
       file {
         fileName
