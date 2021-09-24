@@ -1,105 +1,48 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
+  <a href="" rel="noopener">
+ <img src="https://personal-website-me.s3.amazonaws.com/PersonalWebsite-Responsive-2.png" alt="Project logo"></a>
 </p>
-<h1 align="center">
-  My personal website
-</h1>
+<h3 align="center">My Personal Website</h3>
+<div align="center" >
+    <a href="https://iliasallek.com" rel="noopener" align="center"> https://iliasallek.com
+    
+</div>
+<br>
+<div align="center">
 
-Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+</div>
 
-## 🚀 Quick start
+---
 
-1.  **Create a Gatsby site.**
+<p align="center"> This is my personal website, It encompasses all the passion I have for software development. It has information about me and my journey in the field of web development. I listed all the projects I've done up until now. Each project is unique and demonstrate the skills I've acquired working on them.
+</p>
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)) to create a new site, specifying the hello-world starter.
+## 🥳 About This Production <a name = "problem_statement"></a>
 
-    ```shell
-    # create a new Gatsby site using the hello-world starter
-    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
-    ```
+I was tired always using create-react-app for my projects, I wanted to try a new stack without going too far from React. Gatsby seemed like the perfect choice for my static website, It's super performant/fast and reduces some complexities like routing and image performance.
 
-1.  **Start developing.**
+- I've used Contentful which is headless CMS that allowed me to stores my images and most of the data related to the overview of my projects. GraphQL is used to communicate with Contentful and fetch the necessary data through queries.
 
-    Navigate into your new site’s directory and start it up.
+- I've used Figma to create/modify some images. For example, I've used it to add a frame with color gradients around project thumbnails. It was also used to animate the dashboard svg in the coding section of the homepage and implement the devices mockups images like below. The mockups are provided by Mockuuups Studio.
 
-    ```shell
-    cd my-hello-world-starter/
-    gatsby develop
-    ```
+- On the homepage, I implemented a 3d globe using three js libraries. I've used the examples and the documentation in [three-globe github library](https://github.com/vasturiano/three-globe) to design my earth globe. There is an option in homepage to disable the 3d globe if it's running slow in certain browsers.
+- There is a route for each of my projects where I explain more in depth about what I have done/learned building them and what technologies I've used.
 
-1.  **Open the source code and start editing!**
+There is a contact section where you can download my Curriculum Vitae. You can also use the form to contact me. I would be happy to respond as fast as possible for an interview or any other opportunity.
 
-    Your site is now running at `http://localhost:8000`!
+My personal website is fully responsive, you can use it in any device.
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
+## ⛏️ Built With <a name = "tech_stack"></a>
 
-    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+- [Gatsby](https://www.gatsbyjs.com/) - I used Gatsby to build user interfaces in this web application.
+- [SCSS/Styled-Components](https://styled-components.com/) - I mainly Styled-Components to design my personal website.
+- [GraphQL](https://graphql.org/) - I used GraphQL to access and manipulate my data according to my needs.
+- [Contentful](https://www.contentful.com/) - I used Contentful a headless CMS that allowed me to manage/store my content.
+- [Netlify](https://www.netlify.com/) - I deployed the gatsby app on Netlify.
 
-## 🚀 Quick start (Gatsby Cloud)
+## 🧐 For more details <a name = "tech_stack"></a>
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-hello-world)
-
-## 🧐 What's inside?
-
-A quick look at the top-level files and directories you'll see in a Gatsby project.
-
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
-
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/products/cloud/)
-
-Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+Please visit : https://iliasallek.com/personal-website/
