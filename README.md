@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://iliasallek.com" rel="noopener">
- <img src="https://personal-website-me.s3.amazonaws.com/PersonalWebsite-Responsive-2.png" alt="Project thumbnail"></a>
+ <img src="https://personal-website-me.s3.amazonaws.com/PersonalWebsite-Responsive-resized.png" alt="Project thumbnail"></a>
 </p>
 <h3 align="center">My Personal Website</h3>
 <div align="center" >
