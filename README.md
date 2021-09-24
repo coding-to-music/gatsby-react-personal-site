@@ -17,7 +17,7 @@
 
 ---
 
-<p align="center"> This is my personal website(4th project), It encompasses all the passion I have for software development. It has information about me and my journey in the field of web development. I listed all the projects I've done up until now. Each project is unique and demonstrate the skills I've acquired working on them.
+<p align="center"> This is my personal website (4th project), It encompasses all the passion I have for software development. It has information about me and my journey in the field of web development. I listed all the projects I've done up until now. Each project is unique and demonstrate the skills I've acquired working on them.
 </p>
 
 ## 🥳 About This Production <a name = "problem_statement"></a>
