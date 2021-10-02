@@ -15,6 +15,7 @@ import {
   SiPostman,
   SiGatsby,
   SiGraphql,
+  SiTypescript,
 } from "react-icons/si";
 import ExpressJsIcon from "../assets/svgs/expressjs-icon.svg";
 import ContentfulIcon from "../assets/svgs/contentful-svg.svg";
@@ -34,6 +35,11 @@ const skills = [
     id: 3,
     icon: <SiJavascript />,
     title: "JavaScript",
+  },
+  {
+    id: 15,
+    icon: <SiTypescript />,
+    title: "Typescript",
   },
   {
     id: 4,
