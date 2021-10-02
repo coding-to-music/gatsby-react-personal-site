@@ -22,7 +22,7 @@ const socials = [
   {
     id: 3,
     icon: <FaLinkedin />,
-    link: "https://linkedin.com",
+    link: "https://www.linkedin.com/in/ilias-allek",
   },
   {
     id: 4,
