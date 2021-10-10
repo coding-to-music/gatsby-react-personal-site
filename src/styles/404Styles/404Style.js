@@ -120,8 +120,8 @@ export const HomeBtn = styled(Link)`
   font-family: ManropeMedium;
   font-size: 1.8rem;
   letter-spacing: 1px;
-  white-space: nowrap;
   text-decoration: none;
+  white-space: nowrap;
   color: #2b2d42;
 
   cursor: pointer;
