@@ -10,6 +10,7 @@ import Loading from "../components/loading/Loading";
 import NavBar from "../components/navBar/NavBar";
 import Projects from "../components/projects/Projects";
 import Contact from "../components/contact/Contact";
+import ContactDetails from "../components/ContactDetails";
 import Seo from "../components/Seo";
 
 import CodeGitVideo from "../assets/videos/codingGit.mp4";
@@ -189,6 +190,7 @@ export default function Index() {
       <Seo title="Home" />
       {isGlobe && <HomeGlobe />}
       {!isLoaded && <Loading timeLoad={loadTime} />}
+      <ContactDetails />
 
       <div>
         <Element name="homeSection">
