@@ -126,7 +126,7 @@ const Projects = ({ ignoreProject }) => {
                         setIsGlobe(false);
                       }}
                     >
-                      More
+                      Blog
                     </ProjectMore>
                   </div>
                 </div>
