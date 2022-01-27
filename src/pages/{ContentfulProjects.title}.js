@@ -165,6 +165,7 @@ const ProjectTemplate = (props) => {
               <h1>What I made 💁‍♂️</h1>
               <p>{projectResume && projectResume.resume}</p>
               <h1>What I used 🔷</h1>
+
               <div className="projectPage-used">
                 {projectUsed &&
                   projectUsed.map((el, idx) => {
@@ -174,11 +175,15 @@ const ProjectTemplate = (props) => {
                     return <p key={el}>{el}</p>;
                   })}
               </div>
+
               <h1>About this production 🥳</h1>
+
               <div>
                 <ContentfulAbout title={projectName} />
               </div>
+
               <h1>What I learned ✅</h1>
+
               <div className="projectPage-lesson">
                 {projectLesson &&
                   projectLesson.map((el, idx) => {
@@ -188,7 +193,9 @@ const ProjectTemplate = (props) => {
                     return null;
                   })}
               </div>
+
               <h1>Finally 😎</h1>
+
               <div className="projectPage-conclusion">
                 {projectConclusion &&
                   projectConclusion.map((el, idx) => {
@@ -203,6 +210,7 @@ const ProjectTemplate = (props) => {
             <div>
               <h1>{projectName}</h1>
               <span>{moment().format("MMM Do, YYYY")}</span>
+
               <ProjectPageBtn
                 href={projectAppLink}
                 target="_blank"
@@ -210,6 +218,7 @@ const ProjectTemplate = (props) => {
               >
                 View the site
               </ProjectPageBtn>
+
               <ProjectPageBtn
                 href={projectGithubLink}
                 target="_blank"

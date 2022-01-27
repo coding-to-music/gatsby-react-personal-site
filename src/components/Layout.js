@@ -2,7 +2,7 @@
 import React from "react";
 
 import "../styles/_app.scss";
-import "../assets/fonts/globalStyledFonts/global.scss";
+import "../assets/fonts/global.scss";
 
 import Footer from "./Footer";
 import { GlobeProvider } from "../context/GlobeContext";
