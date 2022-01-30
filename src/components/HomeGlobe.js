@@ -111,6 +111,7 @@ function init() {
   controls.enableDamping = true;
   controls.dynamicDampingFactor = 0.01;
   controls.enablePan = false;
+  controls.enableZoom = false;
   controls.minDistance = 200;
   controls.maxDistance = 500;
 
