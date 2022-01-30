@@ -268,7 +268,10 @@ export default function Index() {
                     <PhoneImage image={phoneMockupImage} alt="Phone" />
 
                     <video playsInline muted loop autoPlay preload="none">
-                      <source src={CodeGitVideo} type="video/mp4" />
+                      <source
+                        src={CodeGitVideo}
+                        type="video/mp4; codecs=avc1.4D401E,mp4a.40.2"
+                      />
                     </video>
                   </div>
                   <div ref={codeDashRef}>
