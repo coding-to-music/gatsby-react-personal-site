@@ -2,9 +2,7 @@
 
 # 🚀 Javascript full-stack 🚀
 
-## MERN Stack
-
-### Gatsby / GraphQL / Contentful CMS / SCSS/Styled-Components / ThreeJS
+## Gatsby / GraphQL / Contentful CMS / SCSS/Styled-Components / ThreeJS
 
 https://github.com/coding-to-music/gatsby-react-personal-site
 
@@ -20,8 +18,32 @@ Configuration:
 
 ```java
           href={`${process.env.GATSBY_APP_API_URL}/quest`}
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 
+and
+
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `zk1zaxgr0lvi`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+```
+
+## Build Error: Can't build the site because need access to Contentful CMS
+
+Build Error: Can't build the site because need access to Contentful CMS
+
+```java
+remote: -----> Build
+remote:        Running build
+remote:
+remote:        > gatsby-react-personal-site@0.1.0 build
+remote:        > gatsby build
+remote:
+remote: lscpu: failed to determine number of CPUs: /sys/devices/system/cpu/possible: No such file or directory
+remote: error Invalid plugin options for "gatsby-source-contentful":
+remote:
+remote: - "accessToken" is required
+remote:        not finished open and validate gatsby-configs,
 ```
 
 <p align="center">
