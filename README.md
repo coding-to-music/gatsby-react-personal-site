@@ -4,15 +4,25 @@
 
 ## MERN Stack
 
-### React / Express / MongoDB / Redux
+### Gatsby / GraphQL / Contentful CMS / SCSS/Styled-Components / ThreeJS
 
 https://github.com/coding-to-music/gatsby-react-personal-site
 
 https://gatsby-react-personal-site.herokuapp.com
 
-by Andrew Bateman https://github.com/AndrewJBateman
+by Ilias Allek https://github.com/Allek97
 
-https://github.com/AndrewJBateman/mern-project
+https://iliasallek.com
+
+https://github.com/Allek97/personal-website
+
+Configuration:
+
+```java
+          href={`${process.env.GATSBY_APP_API_URL}/quest`}
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+
+```
 
 <p align="center">
   <a href="https://iliasallek.com" rel="noopener">
