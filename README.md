@@ -1,3 +1,19 @@
+# gatsby-react-personal-site
+
+# 🚀 Javascript full-stack 🚀
+
+## MERN Stack
+
+### React / Express / MongoDB / Redux
+
+https://github.com/coding-to-music/gatsby-react-personal-site
+
+https://gatsby-react-personal-site.herokuapp.com
+
+by Andrew Bateman https://github.com/AndrewJBateman
+
+https://github.com/AndrewJBateman/mern-project
+
 <p align="center">
   <a href="https://iliasallek.com" rel="noopener">
  <img src="https://personal-website-me.s3.amazonaws.com/PersonalWebsite-Responsive-resized.png" alt="Project thumbnail"></a>
@@ -46,3 +62,29 @@ My personal website is fully responsive, you can use it in any device.
 ## 🧐 For more details <a name = "tech_stack"></a>
 
 Please visit : https://iliasallek.com/personal-website/
+
+## GitHub
+
+```java
+git init
+git add .
+git remote remove origin
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:coding-to-music/gatsby-react-personal-site.git
+git push -u origin main
+```
+
+## Heroku
+
+```java
+heroku create gatsby-react-personal-site
+```
+
+## Heroku MongoDB Environment Variables
+
+```java
+heroku config:set
+
+heroku config:set PUBLIC_URL="https://gatsby-react-personal-site.herokuapp.com"
+```

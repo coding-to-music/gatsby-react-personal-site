@@ -1,10 +1,17 @@
 {
-  "name": "personal-website",
+  "name": "gatsby-react-personal-site",
   "private": true,
   "description": "My personal website",
   "version": "0.1.0",
   "license": "0BSD",
   "author": "Ilias Allek",
+  "engines": {
+    "node": "16.x"
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],  
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop -p 7000",
@@ -12,7 +19,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy": "git add . && git commit -m Heroku && git push && git push heroku && heroku logs --tail --remote heroku"
   },
   "dependencies": {
     "@contentful/rich-text-types": "^15.1.0",
