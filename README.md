@@ -86,5 +86,6 @@ heroku create gatsby-react-personal-site
 ```java
 heroku config:set
 
+
 heroku config:set PUBLIC_URL="https://gatsby-react-personal-site.herokuapp.com"
 ```
